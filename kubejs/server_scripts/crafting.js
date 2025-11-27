@@ -1,0 +1,136 @@
+// priority: 1
+
+ServerEvents.recipes((e) => {
+  const replaceInput = __replaceInput(e);
+
+  e.replaceInput(
+    { id: "easy_villagers:auto_trader" },
+    "minecraft:netherite_ingot",
+    "create:precision_mechanism",
+  );
+
+  e.replaceInput(
+    { id: "immersiveengineering:crafting/blastbrick" },
+    "minecraft:magma_block",
+    "tfmg:fireproof_bricks",
+  );
+
+  e.replaceInput(
+    { id: "tfmg:crafting/kinetics/coke_oven" },
+    "create:industrial_iron_block",
+    "#forge:sheetmetals/steel",
+  );
+
+  e.replaceInput(
+    { id: "immersiveengineering:blueprint/component_steel" },
+    "minecraft:copper_ingot",
+    "tfmg:magnetic_alloy_ingot",
+  );
+
+  e.replaceInput(
+    { id: "immersiveengineering:blueprint/component_iron" },
+    "minecraft:copper_ingot",
+    "tfmg:magnetic_alloy_ingot",
+  );
+
+  e.replaceInput(
+    { id: "cookingforblockheads:toaster" },
+    "minecraft:lava_bucket",
+    "create:blaze_burner",
+  );
+
+  e.replaceInput(
+    { id: "cookingforblockheads:crafting_book" },
+    "minecraft:diamond",
+    "#forge:plates/brass",
+  );
+
+  replaceInput("actuallyadditions:rice", "#forge:crops/rice");
+  replaceInput("tfmg:hardened_planks", "#forge:treated_wood");
+  replaceInput(
+    "immersiveengineering:component_electronic_adv",
+    "tfmg:circuit_board",
+  );
+
+  e.shaped(Item.of("mm:blast_forge_controller"), ["BMB", "POP", "BMB"], {
+    B: "immersiveengineering:blastbrick",
+    M: "create:precision_mechanism",
+    P: "#forge:plates/cast_iron",
+    O: "tfmg:blast_furnace_output",
+  });
+
+  e.shaped(Item.of("mm:blast_forge_fluid_input"), ["BBB", "BVB", "BBB"], {
+    B: "immersiveengineering:blastbrick",
+    V: "minecraft:bucket",
+  });
+
+  e.shaped(Item.of("mm:blast_forge_item_input"), ["BBB", "BCB", "BBB"], {
+    B: "immersiveengineering:blastbrick",
+    C: "#forge:chests",
+  });
+
+  e.shapeless(Item.of("mm:blast_forge_item_output"), [
+    "mm:blast_forge_item_input",
+  ]);
+
+  e.shapeless(Item.of("mm:blast_forge_item_input"), [
+    "mm:blast_forge_item_output",
+  ]);
+
+  e.shaped(Item.of("mm:blast_forge_vent", 3), ["BBB", "PPP", "BBB"], {
+    B: "immersiveengineering:blastbrick",
+    P: "#forge:plates/cast_iron",
+  });
+
+  e.shaped(
+    Item.of("immersiveengineering:rs_engineering", 4),
+    ["SPS", "RMR", "SPS"],
+    {
+      S: "#forge:sheetmetals/iron",
+      P: "#forge:ingots/plastic",
+      R: "#forge:dusts/redstone",
+      M: "tfmg:magnetic_alloy_ingot",
+    },
+  );
+
+  e.shaped(
+    Item.of("immersiveengineering:heavy_engineering", 4),
+    ["SES", "CMC", "SES"],
+    {
+      S: "#forge:sheetmetals/steel",
+      E: "#forge:ingots/electrum",
+      C: "immersiveengineering:component_steel",
+      M: "tfmg:steel_mechanism",
+    },
+  );
+
+  e.shaped(
+    Item.of("immersiveengineering:component_steel"),
+    ["S S", " M ", "S S"],
+    {
+      S: "#forge:plates/steel",
+      M: "tfmg:magnetic_alloy_ingot",
+    },
+  );
+
+  e.shaped(
+    Item.of("immersiveengineering:component_iron"),
+    ["S S", " M ", "S S"],
+    {
+      S: "#forge:plates/iron",
+      M: "tfmg:magnetic_alloy_ingot",
+    },
+  );
+
+  e.shaped(Item.of("tfmg:empty_circuit_board"), ["   ", "DCD", "PPP"], {
+    D: "immersiveengineering:plate_duroplast",
+    C: "#forge:dyes/green",
+    P: "#forge:ingots/plastic",
+  });
+});
+
+function __replaceInput(e) {
+  return (toReplace, replacement) => {
+    e.replaceInput({ input: toReplace }, toReplace, replacement);
+  };
+}
