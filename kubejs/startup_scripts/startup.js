@@ -59,7 +59,7 @@ global.REMOVALS = {
     "capacitor",
   ],
   createdieselgenerators: ["burner"],
-  immersiveengineering: ["alloybrick"],
+  immersiveengineering: ["alloybrick", "thermoelectric_generator", "dynamo"],
   cyclic: [
     "crusher",
     "generator_solar",
@@ -81,6 +81,7 @@ global.REMOVALS = {
     "wireless_energy",
     "peat_farm",
   ],
+  rftoolspower: ["coalgenerator", "cell1", "cell2", "cell3"],
 };
 
 global.forEachItem = (map, f) => {
