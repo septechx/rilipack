@@ -7,6 +7,13 @@ const REMOVALS = {
     "crafting/component_steel",
     "crafting/component_iron",
     "crafting/heavy_engineering",
+    "crafting/electrum_mix",
+    "crafting/constantan_mix",
+    "crafting/capacitor_lv",
+    "crafting/capacitor_mv",
+    "crafting/capacitor_hv",
+    "blueprint/component_steel",
+    "blueprint/component_iron",
   ],
   tfmg: [
     "industrial_blasting/steel",
@@ -16,6 +23,7 @@ const REMOVALS = {
     "vat_machine_recipe/arc_furnace_steel",
     "filling/hardened_planks",
     "crafting/kinetics/empty_circuit_board",
+    "sequenced_assembly/heavy_plate",
   ],
   jaopca: [
     "create.material_to_plate.plastic",

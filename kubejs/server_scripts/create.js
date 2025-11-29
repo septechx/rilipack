@@ -1,6 +1,9 @@
 ServerEvents.recipes((e) => {
   const c = e.recipes.create;
   const coe = e.recipes.createoreexcavation;
+  const ctfmg = e.recipes.tfmg;
+
+  const sequencedAssembly = __sequencedAssembly(c);
 
   c.mixing(
     ["minecraft:obsidian"],
@@ -25,6 +28,45 @@ ServerEvents.recipes((e) => {
     "actuallyadditions:rice_dough",
   ]);
 
+  sequencedAssembly(
+    "kubejs:incomplete_lv_capacitor",
+    ["immersiveengineering:capacitor_lv"],
+    "tfmg:steel_fluid_tank",
+    [
+      [c.deploying, "#forge:plates/lead"],
+      [c.deploying, "tfmg:capacitor_item"],
+      [c.deploying, "#forge:plates/steel"],
+      [c.filling, Fluid.of("immersiveengineering:redstone_acid", 500)],
+    ],
+    8,
+  );
+
+  sequencedAssembly(
+    "kubejs:incomplete_mv_capacitor",
+    ["immersiveengineering:capacitor_mv"],
+    "immersiveengineering:capacitor_lv",
+    [
+      [c.deploying, "#forge:plates/nickel"],
+      [c.deploying, "tfmg:capacitor_item"],
+      [c.deploying, "#forge:plates/steel"],
+      [c.filling, Fluid.of("immersiveengineering:redstone_acid", 500)],
+    ],
+    8,
+  );
+
+  sequencedAssembly(
+    "kubejs:incomplete_hv_capacitor",
+    ["immersiveengineering:capacitor_hv"],
+    "immersiveengineering:capacitor_mv",
+    [
+      [c.deploying, "#forge:plates/aluminum"],
+      [c.deploying, "tfmg:capacitor_item"],
+      [c.deploying, "#forge:ingots/hop_graphite"],
+      [c.filling, Fluid.of("immersiveengineering:redstone_acid", 500)],
+    ],
+    8,
+  );
+
   coe
     .vein(JSON.stringify({ text: "Bauxite vein" }), "tfmg:bauxite_powder")
     .placement(1024, 128, 64825185)
@@ -35,3 +77,20 @@ ServerEvents.recipes((e) => {
     .drilling("tfmg:bauxite_powder", "kubejs:bauxite_vein", 100)
     .id("kubejs:bauxite_vein1");
 });
+
+function __sequencedAssembly(event) {
+  return (transitionalItem, output, input, steps, loops) =>
+    event
+      .sequenced_assembly(
+        output,
+        input,
+        steps.map(([fn, arg]) =>
+          fn(
+            transitionalItem,
+            arg == null ? transitionalItem : [transitionalItem, arg],
+          ),
+        ),
+      )
+      .transitionalItem(transitionalItem)
+      .loops(loops);
+}

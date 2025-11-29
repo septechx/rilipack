@@ -22,18 +22,6 @@ ServerEvents.recipes((e) => {
   );
 
   e.replaceInput(
-    { id: "immersiveengineering:blueprint/component_steel" },
-    "minecraft:copper_ingot",
-    "tfmg:magnetic_alloy_ingot",
-  );
-
-  e.replaceInput(
-    { id: "immersiveengineering:blueprint/component_iron" },
-    "minecraft:copper_ingot",
-    "tfmg:magnetic_alloy_ingot",
-  );
-
-  e.replaceInput(
     { id: "cookingforblockheads:toaster" },
     "minecraft:lava_bucket",
     "create:blaze_burner",
@@ -43,6 +31,24 @@ ServerEvents.recipes((e) => {
     { id: "cookingforblockheads:crafting_book" },
     "minecraft:diamond",
     "#forge:plates/brass",
+  );
+
+  e.replaceInput(
+    { id: "immersiveengineering:crafting/coil_lv" },
+    "minecraft:iron_ingot",
+    "tfmg:magnetic_alloy_ingot",
+  );
+
+  e.replaceInput(
+    { id: "immersiveengineering:crafting/coil_mv" },
+    "minecraft:iron_ingot",
+    "tfmg:magnetic_alloy_ingot",
+  );
+
+  e.replaceInput(
+    { id: "immersiveengineering:crafting/coil_hv" },
+    "minecraft:iron_ingot",
+    "tfmg:magnetic_alloy_ingot",
   );
 
   replaceInput("actuallyadditions:rice", "#forge:crops/rice");

@@ -3,6 +3,7 @@
 global.REMOVALS = {
   tfmg: [
     "aluminum_spool",
+    "copper_spool",
     "potentiometer",
     "electromagnetic_coil",
     "unfinished_electromagnetic_coil",
