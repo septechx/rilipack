@@ -1,0 +1,31 @@
+{
+  "type": "tfmg:distillation",
+  "ingredients": [
+    {
+      "amount": 330,
+      "fluidTag": "forge:crude_oil"
+    }
+  ],
+  "results": [
+    {
+      "amount": 120,
+      "fluid": "tfmg:heavy_oil"
+    },
+    {
+      "amount": 60,
+      "fluid": "tfmg:diesel"
+    },
+    {
+      "amount": 30,
+      "fluid": "tfmg:kerosene"
+    },
+    {
+      "amount": 60,
+      "fluid": "tfmg:gasoline"
+    },
+    {
+      "amount": 60,
+      "fluid": "tfmg:lpg"
+    }
+  ]
+}
