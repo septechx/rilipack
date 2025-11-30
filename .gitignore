@@ -4,3 +4,5 @@
 !/kubejs/**/*
 !/defaultconfigs
 !/defaultconfigs/**/*
+!/config
+!/config/quark-common.toml
