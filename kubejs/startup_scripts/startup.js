@@ -81,6 +81,8 @@ global.REMOVALS = {
     "wireless_item",
     "wireless_energy",
     "peat_farm",
+    "obsidian_pressure_plate",
+    "biomass",
   ],
   rftoolspower: ["coalgenerator", "cell1", "cell2", "cell3"],
 };

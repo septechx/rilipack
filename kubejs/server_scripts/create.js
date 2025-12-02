@@ -23,10 +23,29 @@ ServerEvents.recipes((e) => {
     ],
   );
 
+  c.mixing(
+    [Fluid.of("kubejs:obsidian_silicon_alloy", 144)],
+    ["minecraft:obsidian", "#forge:ingots/silicon"],
+  ).superheated();
+
   c.filling("actuallyadditions:rice_slimeball", [
     Fluid.of("minecraft:water", 250),
     "actuallyadditions:rice_dough",
   ]);
+
+  c.pressing(["quark:obsidian_pressure_plate"], "minecraft:obsidian");
+
+  c.mechanical_crafting(
+    "minecraft:enchanting_table",
+    [" B ", "DTD", "POP", "OOO"],
+    {
+      P: "#forge:plates/obsidian",
+      B: "minecraft:book",
+      D: "#forge:gems/diamond",
+      T: "create:railway_casing",
+      O: "minecraft:obsidian",
+    },
+  );
 
   sequencedAssembly(
     "kubejs:incomplete_lv_capacitor",
@@ -76,6 +95,14 @@ ServerEvents.recipes((e) => {
   coe
     .drilling("tfmg:bauxite_powder", "kubejs:bauxite_vein", 100)
     .id("kubejs:bauxite_vein1");
+
+  ctfmg.casting(
+    Fluid.of("kubejs:obsidian_silicon_alloy", 144),
+    "cyclic:gem_obsidian",
+    300,
+  );
+
+  ctfmg.casting(Fluid.of("create:honey", 250), "minecraft:honeycomb", 50);
 });
 
 function __sequencedAssembly(event) {

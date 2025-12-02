@@ -29,7 +29,12 @@ const REMOVALS = {
     "create.material_to_plate.plastic",
     "immersiveengineering.material_to_plate_hammer.plastic",
     "immersiveengineering.material_to_plate.plastic",
+    "storage_blocks.to_material.obsidian",
   ],
+  minecraft: ["enchanting_table"],
+  quark: ["automation/crafting/obsidian_pressure_plate"],
+  cyclic: ["disenchanter"],
+  brewinandchewin: ["emptying/create/honey_bottle"],
 };
 
 ServerEvents.recipes((e) => {

@@ -53,6 +53,11 @@ ServerEvents.recipes((e) => {
 
   replaceInput("actuallyadditions:rice", "#forge:crops/rice");
   replaceInput("tfmg:hardened_planks", "#forge:treated_wood");
+  replaceInput("cyclic:biomass", "#forge:fuels/bio");
+  replaceInput(
+    "cyclic:obsidian_pressure_plate",
+    "quark:obsidian_pressure_plate",
+  );
   replaceInput(
     "immersiveengineering:component_electronic_adv",
     "tfmg:circuit_board",
@@ -132,6 +137,14 @@ ServerEvents.recipes((e) => {
     D: "immersiveengineering:plate_duroplast",
     C: "#forge:dyes/green",
     P: "#forge:ingots/plastic",
+  });
+
+  e.shaped(Item.of("cyclic:disenchanter"), [" C ", "BTB", "PRP"], {
+    C: "cyclic:gem_obsidian",
+    B: "#forge:plates/brass",
+    T: "minecraft:enchanting_table",
+    P: "quark:obsidian_pressure_plate",
+    R: "create_enchantment_industry:experience_rotor",
   });
 });
 
