@@ -6,6 +6,7 @@ const HIDDEN_ITEMS = {
     "incomplete_lv_capacitor",
     "incomplete_mv_capacitor",
     "incomplete_hv_capacitor",
+    "incomplete_explorers_compass",
   ],
 };
 

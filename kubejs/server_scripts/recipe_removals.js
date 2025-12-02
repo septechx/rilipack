@@ -35,6 +35,7 @@ const REMOVALS = {
   quark: ["automation/crafting/obsidian_pressure_plate"],
   cyclic: ["disenchanter"],
   brewinandchewin: ["emptying/create/honey_bottle"],
+  explorerscompass: ["explorers_compass"],
 };
 
 ServerEvents.recipes((e) => {

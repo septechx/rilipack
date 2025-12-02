@@ -10,4 +10,8 @@ StartupEvents.registry("item", (e) => {
   e.create("incomplete_hv_capacitor", "create:sequenced_assembly")
     .displayName("Incomplete HV Accumulator")
     .parentModel("immersiveengineering:block/metal_device/capacitor_hv");
+
+  e.create("incomplete_explorers_compass", "create:sequenced_assembly")
+    .displayName("Incomplete Explorer's Compass")
+    .texture("explorerscompass:item/explorerscompass_00");
 });

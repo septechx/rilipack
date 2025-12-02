@@ -24,7 +24,7 @@ ServerEvents.recipes((e) => {
   );
 
   c.mixing(
-    [Fluid.of("kubejs:obsidian_silicon_alloy", 144)],
+    [Fluid.of("kubejs:molten_obsidian_silicon_alloy", 144)],
     ["minecraft:obsidian", "#forge:ingots/silicon"],
   ).superheated();
 
@@ -86,6 +86,19 @@ ServerEvents.recipes((e) => {
     8,
   );
 
+  sequencedAssembly(
+    "kubejs:incomplete_explorers_compass",
+    ["explorerscompass:explorerscompass"],
+    "minecraft:recovery_compass",
+    [
+      [c.deploying, "cyclic:gem_obsidian"],
+      [c.deploying, "tfmg:copper_sulfate"],
+      [c.deploying, "tfmg:steel_mechanism"],
+      [c.filling, Fluid.of("kubejs:impure_mana", 200)],
+    ],
+    4,
+  );
+
   coe
     .vein(JSON.stringify({ text: "Bauxite vein" }), "tfmg:bauxite_powder")
     .placement(1024, 128, 64825185)
@@ -97,7 +110,7 @@ ServerEvents.recipes((e) => {
     .id("kubejs:bauxite_vein1");
 
   ctfmg.casting(
-    Fluid.of("kubejs:obsidian_silicon_alloy", 144),
+    Fluid.of("kubejs:molten_obsidian_silicon_alloy", 144),
     "cyclic:gem_obsidian",
     300,
   );
