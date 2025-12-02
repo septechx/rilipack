@@ -24,6 +24,7 @@ const REMOVALS = {
     "filling/hardened_planks",
     "crafting/kinetics/empty_circuit_board",
     "sequenced_assembly/heavy_plate",
+    "sequenced_assembly/steel_mechanism",
   ],
   jaopca: [
     "create.material_to_plate.plastic",

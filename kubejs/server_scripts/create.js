@@ -49,7 +49,7 @@ ServerEvents.recipes((e) => {
 
   sequencedAssembly(
     "kubejs:incomplete_lv_capacitor",
-    ["immersiveengineering:capacitor_lv"],
+    "immersiveengineering:capacitor_lv",
     "tfmg:steel_fluid_tank",
     [
       [c.deploying, "#forge:plates/lead"],
@@ -62,7 +62,7 @@ ServerEvents.recipes((e) => {
 
   sequencedAssembly(
     "kubejs:incomplete_mv_capacitor",
-    ["immersiveengineering:capacitor_mv"],
+    "immersiveengineering:capacitor_mv",
     "immersiveengineering:capacitor_lv",
     [
       [c.deploying, "#forge:plates/nickel"],
@@ -75,7 +75,7 @@ ServerEvents.recipes((e) => {
 
   sequencedAssembly(
     "kubejs:incomplete_hv_capacitor",
-    ["immersiveengineering:capacitor_hv"],
+    "immersiveengineering:capacitor_hv",
     "immersiveengineering:capacitor_mv",
     [
       [c.deploying, "#forge:plates/aluminum"],
@@ -88,7 +88,7 @@ ServerEvents.recipes((e) => {
 
   sequencedAssembly(
     "kubejs:incomplete_explorers_compass",
-    ["explorerscompass:explorerscompass"],
+    "explorerscompass:explorerscompass",
     "minecraft:recovery_compass",
     [
       [c.deploying, "cyclic:gem_obsidian"],
@@ -97,6 +97,21 @@ ServerEvents.recipes((e) => {
       [c.filling, Fluid.of("kubejs:impure_mana", 200)],
     ],
     4,
+  );
+
+  sequencedAssembly(
+    "tfmg:unfinished_steel_mechanism",
+    "tfmg:steel_mechanism",
+    "#forge:plates/steel",
+    [
+      [c.deploying, "tfmg:steel_cogwheel"],
+      [c.deploying, "#forge:plates/nickel"],
+      [c.deploying, "tfmg:large_steel_cogwheel"],
+      [c.deploying, "#forge:plates/lead"],
+      [c.deploying, "tfmg:screw"],
+      [c.deploying, "tfmg:screwdriver"],
+    ],
+    2,
   );
 
   coe
@@ -122,7 +137,7 @@ function __sequencedAssembly(event) {
   return (transitionalItem, output, input, steps, loops) =>
     event
       .sequenced_assembly(
-        output,
+        [output],
         input,
         steps.map(([fn, arg]) =>
           fn(
