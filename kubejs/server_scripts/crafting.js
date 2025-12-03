@@ -54,6 +54,7 @@ ServerEvents.recipes((e) => {
   replaceInput("actuallyadditions:rice", "#forge:crops/rice");
   replaceInput("tfmg:hardened_planks", "#forge:treated_wood");
   replaceInput("cyclic:biomass", "#forge:fuels/bio");
+  replaceInput("tfmg:nitrate_dust", "#forge:dusts/saltpeter");
   replaceInput(
     "cyclic:obsidian_pressure_plate",
     "quark:obsidian_pressure_plate",
