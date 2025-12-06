@@ -1,5 +1,3 @@
-// priority: 0
-
 const HIDDEN_ITEMS = {
   create_factory_logistics: ["incomplete_fluid_mechanism"],
   kubejs: [

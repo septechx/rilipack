@@ -1,5 +1,3 @@
-// priority: 1
-
 ServerEvents.recipes((e) => {
   const replaceInput = __replaceInput(e);
 
@@ -149,8 +147,8 @@ ServerEvents.recipes((e) => {
   });
 });
 
-function __replaceInput(e) {
-  return (toReplace, replacement) => {
+function __replaceInput(e: ServerEvents.RecipeEvent) {
+  return (toReplace: string, replacement: string) => {
     e.replaceInput({ input: toReplace }, toReplace, replacement);
   };
 }

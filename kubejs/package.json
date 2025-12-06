@@ -1,8 +1,20 @@
 {
-  "devDependencies": {
-    "prettier": "3.6.2"
+  "name": "rilipack",
+  "version": "1.0.0",
+  "main": "build.ts",
+  "type": "module",
+  "scripts": {
+    "build": "node build.ts",
+    "dev": "node build.ts --watch",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
+    "chalk": "^5.6.2",
     "esbuild": "^0.27.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "prettier": "3.6.2",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,5 +1,3 @@
-// priority: 0
-
 global.REMOVALS = {
   tfmg: [
     "aluminum_spool",

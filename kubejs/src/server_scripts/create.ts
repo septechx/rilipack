@@ -133,8 +133,14 @@ ServerEvents.recipes((e) => {
   ctfmg.casting(Fluid.of("create:honey", 250), "minecraft:honeycomb", 50);
 });
 
-function __sequencedAssembly(event) {
-  return (transitionalItem, output, input, steps, loops) =>
+function __sequencedAssembly(event: ServerEvents.CreateRecipesAPI) {
+  return (
+    transitionalItem: Ingredient,
+    output: Ingredient,
+    input: Ingredient,
+    steps: [typeof event.deploying | typeof event.filling, Ingredient | null][],
+    loops: number,
+  ) =>
     event
       .sequenced_assembly(
         [output],
@@ -142,6 +148,7 @@ function __sequencedAssembly(event) {
         steps.map(([fn, arg]) =>
           fn(
             transitionalItem,
+            // @ts-ignore-next-line
             arg == null ? transitionalItem : [transitionalItem, arg],
           ),
         ),

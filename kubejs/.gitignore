@@ -1,1 +1,4 @@
-node_modules/
+/node_modules/
+/startup_scripts/
+/server_scripts/
+/client_scripts/

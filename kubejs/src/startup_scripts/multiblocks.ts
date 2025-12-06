@@ -30,8 +30,15 @@ MMEvents.registerExtraBlocks((e) => {
   e.create("blast_forge_vent").name("Blast Forge Vent").type("mm:vent");
 });
 
-function __fluid_port(e) {
-  return (id, name, controllerId, rows, cols, cap) => {
+function __fluid_port(e: MMEvents.RegisterPortsEvent) {
+  return (
+    id: string,
+    name: string,
+    controllerId: string,
+    rows: number,
+    cols: number,
+    cap: number,
+  ) => {
     e.create(id)
       .name(name)
       .controllerId(controllerId)
@@ -41,8 +48,14 @@ function __fluid_port(e) {
   };
 }
 
-function __item_port(e) {
-  return (id, name, controllerId, rows, cols) => {
+function __item_port(e: MMEvents.RegisterPortsEvent) {
+  return (
+    id: string,
+    name: string,
+    controllerId: string,
+    rows: number,
+    cols: number,
+  ) => {
     e.create(id)
       .name(name)
       .controllerId(controllerId)

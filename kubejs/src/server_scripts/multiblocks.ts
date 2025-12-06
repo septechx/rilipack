@@ -70,11 +70,16 @@ MMEvents.createProcesses((event) => {
     .build();
 });
 
-function blastForgeRecipes(event) {
-  const recipes = [];
+function blastForgeRecipes(event: MMEvents.CreateProcessesEvent) {
+  const recipes: ((fuel: string, i: number) => void)[] = [];
 
-  function builder(name, output, inputs, processingTime) {
-    recipes.push((fuel, i) => {
+  function builder(
+    name: string,
+    output: MMEvents.ProcessIngredient,
+    inputs: MMEvents.ProcessIngredient[],
+    processingTime: number,
+  ) {
+    recipes.push((fuel: string, i: number) => {
       let recipe_builder = event
         .create(`mm:${name}_${i}`)
         .structureId("mm:blast_forge")
@@ -102,7 +107,7 @@ function blastForgeRecipes(event) {
 
     return {
       recipe: builder,
-      build: build,
+      build,
     };
   }
 
@@ -119,6 +124,6 @@ function blastForgeRecipes(event) {
 
   return {
     recipe: builder,
-    build: build,
+    build,
   };
 }
