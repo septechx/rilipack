@@ -1,0 +1,13 @@
+name = "Actually Subtractions"
+filename = "ActuallySubtractions-1.20.1-1.2.14.19+mc1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e4a802e1fe9b2ff1c2f8f865ef361a0a08272bdb"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7208984
+project-id = 1083685

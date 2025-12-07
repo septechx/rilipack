@@ -1,0 +1,13 @@
+name = "Engineered Schematics"
+filename = "EngineeredSchematics-1.2.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "95471cae625ab0b61eab8f6e3667325d17e0979a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6560826
+project-id = 1207780

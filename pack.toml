@@ -1,0 +1,13 @@
+name = "Rilipack"
+author = "septechx"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "35be62cc8943611a9f6680e04cf88a5150ad6c40ceb68e6dc967da8aee9d91a3"
+
+[versions]
+forge = "47.4.13"
+minecraft = "1.20.1"

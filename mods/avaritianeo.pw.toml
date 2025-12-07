@@ -1,0 +1,13 @@
+name = "AvaritiaNeo"
+filename = "AvaritiaNeo-1.20.1-1.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "20d458ea0b6adb6c46c1885d4b4d2fe822b2dd05"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7089389
+project-id = 1083158

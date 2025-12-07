@@ -1,0 +1,13 @@
+name = "KubeJS Immersive Engineering UNOFFICIAL"
+filename = "kubejs-immersive-engineering-2001.5.29-build.23.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "aa319636e1de4ce92a982a9fda1a954ed71f03a7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6593605
+project-id = 1141738

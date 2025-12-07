@@ -1,0 +1,13 @@
+name = "Create: Vintage Grinder Edition"
+filename = "vintage_grinder-1.20.1-1.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "6723decf9840f24497026859659a6edbfb12a44a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7187069
+project-id = 1336080

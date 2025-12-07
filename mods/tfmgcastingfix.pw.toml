@@ -1,0 +1,8 @@
+name = "TFMGCastingFix"
+filename = "tfmgcastingfix-0.1.1+mc1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://github.com/septechx/tfmgcastingfix/releases/download/0.1.1%2Bmc1.20.1/tfmgcastingfix-0.1.1+mc1.20.1.jar"
+hash-format = "sha256"
+hash = "9f2767542802219e9eabaab9b3d993123b0c7527a14211a1c92b7e976f4411c4"

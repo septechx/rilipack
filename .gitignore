@@ -1,9 +1,5 @@
-*
-!.gitignore
-!LICENSE
-!/kubejs
-!/kubejs/**/*
-!/defaultconfigs
-!/defaultconfigs/**/*
-!/config
-!/config/quark-common.toml
+# Exclude exported CurseForge zip files
+*.zip
+
+# Exclude exported Modrinth modpacks
+*.mrpack

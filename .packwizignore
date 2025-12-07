@@ -1,0 +1,10 @@
+/justfile
+
+/kubejs/node_modules
+/kubejs/build.ts
+/kubejs/package.json
+/kubejs/pnpm-lock.yaml
+/kubejs/tsconfig.json
+/kubejs/src
+/kubejs/.gitignore
+/kubejs/README.txt
