@@ -190,8 +190,13 @@ hash = "8d0321177fed4a0b48554c40158b43db62f6cdaa768f584ef6a11575dfaa6223"
 metafile = true
 
 [[files]]
+file = "mods/applied-energistics-2.pw.toml"
+hash = "0f4c2198603cd84a14dc6741729d0b0dcf509574776e620c36c3e7180082db32"
+metafile = true
+
+[[files]]
 file = "mods/aquaculture-delight.pw.toml"
-hash = "f580e4c2b23a2be481f32af937bab566917c9a791fc3fffadd119929f77b389a"
+hash = "624514fd57a5bad649068f8f2d6c45d88228249a266bd61b45cb749c42499766"
 metafile = true
 
 [[files]]
@@ -241,7 +246,7 @@ metafile = true
 
 [[files]]
 file = "mods/better-advancements.pw.toml"
-hash = "11cbc9a17ebde92c896e48d802579132919271979bc3b63f08ce47fa9b42b4c2"
+hash = "70d3ae93a9064f6885d57fc2adece2ea0f03dcc8f3077a08bb3aedf9c59630ce"
 metafile = true
 
 [[files]]
@@ -341,7 +346,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-compatible-storage.pw.toml"
-hash = "4cb7a2f2cf2e991925d93f3e1e60f21d075e2bc6e4d9ebd4ac296b972e1fdbe7"
+hash = "1656364454d2e9c9cd65bc0a729b30e67c23fd26566ff4135439a4196bc71f06"
 metafile = true
 
 [[files]]
@@ -441,7 +446,7 @@ metafile = true
 
 [[files]]
 file = "mods/cyclic.pw.toml"
-hash = "95bb44bc709edd7aeaf3bc3dc43649ac58f773d6105f599e150fda81d67bec18"
+hash = "ccf0590501f9cc53137359e3f613d0ebdf83f064b04f4fa84b5285308617e2e8"
 metafile = true
 
 [[files]]
@@ -541,7 +546,7 @@ metafile = true
 
 [[files]]
 file = "mods/flib.pw.toml"
-hash = "4a5b4a1d085ef0ad0d77e6c211e793f2d5cbe34e8ead3f5e7d2d089ceca207a0"
+hash = "3e8ccc74f161b632cf8eadda6548860bfa58e4970cec1630135b83900e31b98d"
 metafile = true
 
 [[files]]
@@ -587,6 +592,11 @@ metafile = true
 [[files]]
 file = "mods/gravestone-mod.pw.toml"
 hash = "b55f3276124e13e8b3899d4d0400e990dea41d228644be34b341e62fe8abed6e"
+metafile = true
+
+[[files]]
+file = "mods/guideme.pw.toml"
+hash = "5cc92eb0e58c2afbfd625d727d80da1d1c84500ec962bb22f5be28b864f18551"
 metafile = true
 
 [[files]]
@@ -676,7 +686,7 @@ metafile = true
 
 [[files]]
 file = "mods/kotlin-for-forge.pw.toml"
-hash = "40026875ee9b7d25a4ece48faa2b70a338100e87a689d5a8d4ba1ee608b878f6"
+hash = "1678327ac50408273c1828b631929128d3fdfd54cda7b2e823ce9352495a68ff"
 metafile = true
 
 [[files]]
@@ -716,7 +726,7 @@ metafile = true
 
 [[files]]
 file = "mods/lmft.pw.toml"
-hash = "d71706d797a755e0181080e1e82470581b1faa08013f312a671b8d3cc3133b09"
+hash = "afca79f6ef3b857bfd147d4d7f9887ee433a73f8fcd1ec4476c49ac3349926d0"
 metafile = true
 
 [[files]]
@@ -806,7 +816,7 @@ metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "373b18020e519fa602dc3e5ecc7d9d1523a353ddec85b20fe8dbbad23d4e7db2"
+hash = "11cd7da81a933aab04f091e2c25447b6d11ebe98bfeed244426a86dd31f3df04"
 metafile = true
 
 [[files]]
@@ -911,7 +921,7 @@ metafile = true
 
 [[files]]
 file = "mods/probejs.pw.toml"
-hash = "92ad8894d19856dc2da7437502d7329abe727bd36874bc11535b4f75c6102e27"
+hash = "25f4863fba654a2b603a90f52ce5f0e17871c4249fd5c7bef3d40a6c8d9e36de"
 metafile = true
 
 [[files]]
