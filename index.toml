@@ -274,6 +274,11 @@ hash = "70d3ae93a9064f6885d57fc2adece2ea0f03dcc8f3077a08bb3aedf9c59630ce"
 metafile = true
 
 [[files]]
+file = "mods/better-chunk-loading-forge-fabric.pw.toml"
+hash = "7499dcfc1c246bf1ceb3b82992cc7478a9d8e29900f6c77c1c2a425665b4841d"
+metafile = true
+
+[[files]]
 file = "mods/betterf3.pw.toml"
 hash = "8341be7376192fe2cbffa3af36060ab8684adb2862efe478d697810cdd979e95"
 metafile = true
@@ -301,6 +306,11 @@ metafile = true
 [[files]]
 file = "mods/caelus.pw.toml"
 hash = "da069e723737ae49203f7572eb774be0fd21f5f083ce7a7ee1bed25916befca8"
+metafile = true
+
+[[files]]
+file = "mods/canary.pw.toml"
+hash = "e5df83a3dd1686106741d1d61da5869aed0537c2931a40234e1b3bd2d09e1971"
 metafile = true
 
 [[files]]
@@ -400,7 +410,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-ez-stock-ticker-backported.pw.toml"
-hash = "8efa7c1d2c9a5ef0dfc9c2e40752537813009954c78ab85840e9a895030de9ab"
+hash = "351788adb46cef388d5028158c1c7bfdd4d1276f6142ba7b4b6bed08e74b9efa"
 metafile = true
 
 [[files]]
@@ -624,6 +634,11 @@ hash = "88f142bda6bfa6aff4f4d4e12b8ba7581aa40e3f163039a533f09dd6d634e093"
 metafile = true
 
 [[files]]
+file = "mods/geophilic.pw.toml"
+hash = "2db5fd88979cac6aed0366138b4eaf268f94342cc15f761aec1fe2024ccf5686"
+metafile = true
+
+[[files]]
 file = "mods/gravestone-mod.pw.toml"
 hash = "b55f3276124e13e8b3899d4d0400e990dea41d228644be34b341e62fe8abed6e"
 metafile = true
@@ -756,6 +771,11 @@ metafile = true
 [[files]]
 file = "mods/legendary-tooltips.pw.toml"
 hash = "35c0251ad56fdf68faef3ea142fe0b76016937ab6fa52b65ce222ea7d1fb5b74"
+metafile = true
+
+[[files]]
+file = "mods/lithosphere.pw.toml"
+hash = "ddce0da295fa4f631f0825aa13f14080177898a449dd95235811f8941e8c182a"
 metafile = true
 
 [[files]]
