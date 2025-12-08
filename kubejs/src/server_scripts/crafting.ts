@@ -49,6 +49,12 @@ ServerEvents.recipes((e) => {
     "tfmg:magnetic_alloy_ingot",
   );
 
+  e.replaceInput(
+    { id: "dankstorage:dank_1" },
+    "minecraft:barrel",
+    "create:item_vault",
+  );
+
   replaceInput("actuallyadditions:rice", "#forge:crops/rice");
   replaceInput("tfmg:hardened_planks", "#forge:treated_wood");
   replaceInput("cyclic:biomass", "#forge:fuels/bio");

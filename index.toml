@@ -98,7 +98,7 @@ hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
 
 [[files]]
 file = "kubejs/server_scripts/crafting.js"
-hash = "7563d47ac86d14ad0d5d7ebd4f49a2622b62c380dc487c42f575e4f600ed4efc"
+hash = "4935e7ca64eecf76ef82fd0cb868faea6f201da8a113526d3a8000c5eb1cf202"
 
 [[files]]
 file = "kubejs/server_scripts/create.js"
@@ -442,6 +442,11 @@ metafile = true
 [[files]]
 file = "mods/cyclic.pw.toml"
 hash = "95bb44bc709edd7aeaf3bc3dc43649ac58f773d6105f599e150fda81d67bec18"
+metafile = true
+
+[[files]]
+file = "mods/dank-storage.pw.toml"
+hash = "23a3b030c2dce29501f22bd94204aed9e2daa63ac786dc57232fc2ac076a05d8"
 metafile = true
 
 [[files]]

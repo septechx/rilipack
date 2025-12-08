@@ -6,10 +6,10 @@
 @compile-ts: setup-ts
   pnpm run build
 
-@export-curseforge: compile-ts
+@export-curseforge: refresh
   packwiz curseforge export
 
-@export-modrinth: compile-ts
+@export-modrinth: refresh
   packwiz modrinth export
 
 [working-directory: 'kubejs']
@@ -25,5 +25,5 @@
 
 @clean: clean-ts clean-out
 
-@refresh:
+@refresh: compile-ts
   packwiz refresh
