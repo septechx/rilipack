@@ -126,7 +126,7 @@ hash = "fd12f1cbffa5417cf4f1c6c46489611ba536481c9f64978ea5487a2b127deb6f"
 
 [[files]]
 file = "kubejs/server_scripts/tags.js"
-hash = "e048af367ecc112e14812d01fc492fc739d79790e920d9e5cb6ac16321967953"
+hash = "d5b93f8c17f8aa1e567802125401579435a30e30b60fa6d6450522652e410d43"
 
 [[files]]
 file = "kubejs/server_scripts/xycraft.js"

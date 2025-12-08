@@ -46,12 +46,12 @@ declare namespace MMEvents {
 
   type MultiblockPort =
     | {
-      block: string;
-    }
+        block: string;
+      }
     | {
-      port: string;
-      input?: boolean;
-    };
+        port: string;
+        input?: boolean;
+      };
   type LayoutBuilder = {
     layer(pattern: string[]): LayoutBuilder;
     key(key: string, block: MultiblockPort): LayoutBuilder;
@@ -70,20 +70,20 @@ declare namespace MMEvents {
 
   type ProcessIngredient =
     | {
-      type: "mm:item";
-      item: string;
-      count: number;
-    }
+        type: "mm:item";
+        item: string;
+        count: number;
+      }
     | {
-      type: "mm:item";
-      tag: string;
-      count: number;
-    }
+        type: "mm:item";
+        tag: string;
+        count: number;
+      }
     | {
-      type: "mm:fluid";
-      fluid: string;
-      amount: number;
-    };
+        type: "mm:fluid";
+        fluid: string;
+        amount: number;
+      };
   type ProcessOutput = {
     type: "mm:output/simple";
     ingredient: ProcessIngredient;
@@ -134,14 +134,14 @@ declare namespace StartupEvents {
 declare namespace ServerEvents {
   type RecipeFilter =
     | {
-      id: string;
-    }
+        id: string;
+      }
     | {
-      input: Ingredient;
-    }
+        input: Ingredient;
+      }
     | {
-      output: Ingredient;
-    };
+        output: Ingredient;
+      };
 
   type SequencedAssemblyStep = unknown;
 
@@ -238,6 +238,7 @@ declare namespace ServerEvents {
 
   type TagEvent = {
     add(tag: string, item: Ingredient): void;
+    removeAll(tag: string): void;
   };
   export function tags(type: "item", callback: (e: TagEvent) => void): void;
 }
