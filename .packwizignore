@@ -1,4 +1,5 @@
 /justfile
+/docs
 
 /kubejs/node_modules
 /kubejs/build.ts

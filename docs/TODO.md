@@ -1,0 +1,24 @@
+- [ ] Aquamarine in sand
+- [x] Steel made with diesel or gasoline + iron and coke using custom machinery (Blast forge)
+- [ ] Aquamarine + \<TBD fluid> in custom machine (Inverse pyrolizer) = Impure mana
+- [ ] Impure mana gate to botania
+- [ ] Blaze powder + disel = Blazing diesel
+- [ ] Blazing diesel + ender pearl = Ender eye
+- [ ] IE wires using TE coils
+- [ ] TE coils made with some kind of infusion
+- [x] Add crafting station like TC
+- [x] Structure compass using crystalized obsidian
+- [ ] Remove mek biomass
+- [x] Add central kitchen / slice and dice (?)
+- [ ] Remove tempad
+- [ ] Create: Molten Metals to replace ore processing (HEAVY CHANGES)
+- [ ] Maybe add AE2 as a thermal (or mek) tier mod with Create Stock Bridge for avaritia autocrafting
+- [ ] Replace xaero's with journeymap
+- [ ] Annhealed copper (Washing hot copper ingots)
+- [ ] Shop in questbook using Create: Numismatics coins
+- [ ] Add chipped
+- [x] Change dank recipes
+- [ ] Throphies for chapters
+- [ ] Globes for planets
+- [ ] Add dragon fight true ending (ensure it works with DE)
+- [ ] Add bismuth
