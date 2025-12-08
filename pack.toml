@@ -1,12 +1,12 @@
 name = "Rilipack"
 author = "septechx"
-version = "1.0.0"
+version = "1.1.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "763a9dd357d5434a9632a033fab01d384992304a66ae67dc0f3d1cfe59f211e5"
+hash = "8ce1cd98e88b65a5daff9f94af6c6468408d7ad71927e4d8073164da912f2137"
 
 [versions]
 forge = "47.4.13"

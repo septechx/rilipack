@@ -399,6 +399,11 @@ hash = "200b30b8eeaaf2fa9e8345fcabdd80f6195b5af67926fb1e277931100e7e1eff"
 metafile = true
 
 [[files]]
+file = "mods/create-ez-stock-ticker-backported.pw.toml"
+hash = "8efa7c1d2c9a5ef0dfc9c2e40752537813009954c78ab85840e9a895030de9ab"
+metafile = true
+
+[[files]]
 file = "mods/create-factory-logistics.pw.toml"
 hash = "3dd7678b99f53fd212b81aa482c96d4baba4bc00291148c1bc2e7d5411ab6504"
 metafile = true
