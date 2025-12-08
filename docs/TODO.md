@@ -16,9 +16,10 @@
 - [ ] Replace xaero's with journeymap
 - [ ] Annhealed copper (Washing hot copper ingots)
 - [ ] Shop in questbook using Create: Numismatics coins
-- [ ] Add chipped
+- [x] Add chipped
 - [x] Change dank recipes
 - [ ] Throphies for chapters
 - [ ] Globes for planets
 - [ ] Add dragon fight true ending (ensure it works with DE)
 - [ ] Add bismuth
+- [ ] Add disabled tooltip to apotheosis boon of the earth enchantment
