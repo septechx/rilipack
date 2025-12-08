@@ -5,6 +5,7 @@
 /kubejs/build.ts
 /kubejs/package.json
 /kubejs/pnpm-lock.yaml
+/kubejs/pnpm-workspace.yaml
 /kubejs/tsconfig.json
 /kubejs/src
 /kubejs/.gitignore

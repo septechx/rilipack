@@ -5,6 +5,10 @@ file = "LICENSE"
 hash = "63131855475a0cca40f312f077b224354806c1c6cb278fb2f106bd2cb2e7480c"
 
 [[files]]
+file = "config/ae2/common.json"
+hash = "c3086e13adc2fdff8d5e3378de5e5be3102792bb060cbf1512a6eb6356d908ff"
+
+[[files]]
 file = "config/quark-common.toml"
 hash = "6244528500f9e49b75a76b8e6a2250b653b5b6e4561228efed499e5d1c9be35e"
 
@@ -190,8 +194,23 @@ hash = "8d0321177fed4a0b48554c40158b43db62f6cdaa768f584ef6a11575dfaa6223"
 metafile = true
 
 [[files]]
+file = "mods/applied-botanics-addon.pw.toml"
+hash = "02bbd73a916b25f404b28c69fbe3ee113c84563b6306f825f1a3583a0b4a04f3"
+metafile = true
+
+[[files]]
+file = "mods/applied-energistics-2-wireless-terminals.pw.toml"
+hash = "f3ddc5ed65361138c4c66fd4abd05b6050b24362dc7bb83a5ca54eafb74dd181"
+metafile = true
+
+[[files]]
 file = "mods/applied-energistics-2.pw.toml"
 hash = "0f4c2198603cd84a14dc6741729d0b0dcf509574776e620c36c3e7180082db32"
+metafile = true
+
+[[files]]
+file = "mods/applied-mekanistics.pw.toml"
+hash = "2434c70565f9e021d168bc6952759d1de79b4eb14856c5ca9ebe5d761fcb4efd"
 metafile = true
 
 [[files]]
@@ -207,6 +226,11 @@ metafile = true
 [[files]]
 file = "mods/architectury-api.pw.toml"
 hash = "5e9edd1fd2395f14a0c8a4acbdbdd61e1047be1f0033deb3140d2ce0d093e9d8"
+metafile = true
+
+[[files]]
+file = "mods/ars-energistique.pw.toml"
+hash = "fe693ae80d95c3b06c0c91285417bf58d13e1e1d69496d35224dbf0002d54476"
 metafile = true
 
 [[files]]
@@ -412,6 +436,11 @@ metafile = true
 [[files]]
 file = "mods/create-steam-n-rails.pw.toml"
 hash = "0971029a9e6cbc93c8fd694f97942c566979973f3d98023b730b1d436f617220"
+metafile = true
+
+[[files]]
+file = "mods/create-stock-bridge.pw.toml"
+hash = "bb53d53b0b6cd77fc6f665d0e6f1d00268e0efe5bd3a89fddd13101f4a448e3e"
 metafile = true
 
 [[files]]
@@ -797,6 +826,11 @@ metafile = true
 [[files]]
 file = "mods/mct-immersive-technology.pw.toml"
 hash = "c4b44d646d485022377a7b7a1d26581e1cfb1b75abbcb720c3186ae514c84537"
+metafile = true
+
+[[files]]
+file = "mods/mekanism.pw.toml"
+hash = "7c411a566d022680769ddb8323984fff292ddeb35e7d8fcfe2cc41b9885d9557"
 metafile = true
 
 [[files]]

@@ -12,7 +12,7 @@
 - [x] Add central kitchen / slice and dice (?)
 - [ ] Remove tempad
 - [ ] Create: Molten Metals to replace ore processing (HEAVY CHANGES)
-- [ ] Maybe add AE2 as a thermal (or mek) tier mod with Create Stock Bridge for avaritia autocrafting
+- [x] Maybe add AE2 as a thermal (or mek) tier mod with Create Stock Bridge for avaritia autocrafting
 - [ ] Replace xaero's with journeymap
 - [ ] Annhealed copper (Washing hot copper ingots)
 - [ ] Shop in questbook using Create: Numismatics coins
