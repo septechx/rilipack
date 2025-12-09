@@ -118,7 +118,7 @@ hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
 
 [[files]]
 file = "kubejs/server_scripts/crafting.js"
-hash = "4935e7ca64eecf76ef82fd0cb868faea6f201da8a113526d3a8000c5eb1cf202"
+hash = "3db7a1105f29696886e8845ad1740b63a2b51c645e2860de70be2c647d1b3b60"
 
 [[files]]
 file = "kubejs/server_scripts/create.js"
@@ -134,7 +134,7 @@ hash = "5810fafd82e9880db489bcd6e20cc18283f4df00389dbfcb473a45089542fab6"
 
 [[files]]
 file = "kubejs/server_scripts/recipe_removals.js"
-hash = "8b3adbea7da3094e7a7499ad1159a8902de5644af547e2e69db1c44a6fe55731"
+hash = "eac5f9ff34a8f85a7f5a7a60f97c3d535c3a6c1aa258b984f04754af004a04d2"
 
 [[files]]
 file = "kubejs/server_scripts/server.js"

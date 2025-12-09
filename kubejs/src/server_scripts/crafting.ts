@@ -151,6 +151,25 @@ ServerEvents.recipes((e) => {
     P: "quark:obsidian_pressure_plate",
     R: "create_enchantment_industry:experience_rotor",
   });
+
+  e.shaped(Item.of("tfmg:cast_iron_chemical_vat", 3), ["CCC", "LTL", "CCC"], {
+    C: "#forge:plates/cast_iron",
+    L: "#forge:plates/lead",
+    T: "tfmg:cast_iron_fluid_tank",
+  });
+
+  e.shaped(Item.of("tfmg:steel_chemical_vat", 3), ["CCC", "LTL", "CCC"], {
+    C: "#forge:plates/steel",
+    L: "#forge:plates/nickel",
+    T: "tfmg:steel_fluid_tank",
+  });
+
+  e.shaped(Item.of("tfmg:fireproof_chemical_vat", 3), ["BRB", "CSC", "BRB"], {
+    B: "tfmg:fireproof_bricks",
+    R: "#forge:ingots/rubber",
+    C: "tfmg:circuit_board",
+    S: "tfmg:steel_chemical_vat",
+  });
 });
 
 function __replaceInput(e: ServerEvents.RecipeEvent) {
