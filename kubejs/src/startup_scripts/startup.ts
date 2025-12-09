@@ -83,6 +83,7 @@ global.REMOVALS = {
     "biomass",
   ],
   rftoolspower: ["coalgenerator", "cell1", "cell2", "cell3"],
+  tinyredstone: ["silicon_compound", "silicon"],
 };
 
 global.forEachItem = (map, f) => {

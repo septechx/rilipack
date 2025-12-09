@@ -23,3 +23,4 @@
 - [ ] Add dragon fight true ending (ensure it works with DE)
 - [ ] Add bismuth
 - [ ] Add disabled tooltip to apotheosis boon of the earth enchantment
+- [ ] Remove ender drawer

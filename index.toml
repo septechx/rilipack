@@ -9,6 +9,22 @@ file = "config/ae2/common.json"
 hash = "c3086e13adc2fdff8d5e3378de5e5be3102792bb060cbf1512a6eb6356d908ff"
 
 [[files]]
+file = "config/almostunified/debug.json"
+hash = "3e03a291b5310a6b94a45aff63e4731baa643701c42a968ed716483ccd1d5a37"
+
+[[files]]
+file = "config/almostunified/duplicates.json"
+hash = "40639e8cb9e9ea52b8557c50d29fc06e73e2ad1e7ca27ae5ce8fe2eca2e97188"
+
+[[files]]
+file = "config/almostunified/startup.json"
+hash = "ad711622f9b8c5cc8115f52396f5d82587b809fb20cbf9d94c7744aeebcaf4d5"
+
+[[files]]
+file = "config/almostunified/unify.json"
+hash = "67bd59d1e346806c8e514e814f249c0dd9132db746d8deb74ed6adeed918d1ee"
+
+[[files]]
 file = "config/quark-common.toml"
 hash = "6244528500f9e49b75a76b8e6a2250b653b5b6e4561228efed499e5d1c9be35e"
 
@@ -118,7 +134,7 @@ hash = "5810fafd82e9880db489bcd6e20cc18283f4df00389dbfcb473a45089542fab6"
 
 [[files]]
 file = "kubejs/server_scripts/recipe_removals.js"
-hash = "40f7c9a66cbd5f90f8be4f39d05a611b3e268b463805c863ffb6f64327a93d7b"
+hash = "8b3adbea7da3094e7a7499ad1159a8902de5644af547e2e69db1c44a6fe55731"
 
 [[files]]
 file = "kubejs/server_scripts/server.js"
@@ -146,7 +162,7 @@ hash = "17639ec1954f2c7528b7b398ad72081a72d1a4fda3510b4cb7676604f22f6d9f"
 
 [[files]]
 file = "kubejs/startup_scripts/startup.js"
-hash = "bbfe68921583f2949915103fbbbd1ac602030a10183abf059541827accdcb5cd"
+hash = "aea0cbc7d03eacf66fd0a48e06dc664f7d32b2e43fe151d720e6d7795f2d16e7"
 
 [[files]]
 file = "mods/actually-subtractions.pw.toml"

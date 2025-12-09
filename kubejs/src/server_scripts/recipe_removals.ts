@@ -37,6 +37,12 @@ const REMOVALS = {
   cyclic: ["disenchanter"],
   brewinandchewin: ["emptying/create/honey_bottle"],
   explorerscompass: ["explorers_compass"],
+  xycraft_machines: [
+    "compat/create/printed_silicon",
+    "compat/create/printed_calculation",
+    "compat/create/printed_engineering",
+    "compat/create/printed_logic",
+  ],
 };
 
 ServerEvents.recipes((e) => {
