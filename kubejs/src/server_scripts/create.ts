@@ -148,7 +148,7 @@ function __sequencedAssembly(event: ServerEvents.CreateRecipesAPI) {
         steps.map(([fn, arg]) =>
           fn(
             transitionalItem,
-            // @ts-ignore-next-line
+            // @ts-expect-error
             arg == null ? transitionalItem : [transitionalItem, arg],
           ),
         ),
