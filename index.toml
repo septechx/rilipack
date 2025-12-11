@@ -65,6 +65,10 @@ file = "defaultconfigs/solcarrot-server.toml"
 hash = "6e3d37724225fac49c6f07c27ec50a12d1f1f6553707c3621c97ffb49bcd1883"
 
 [[files]]
+file = "kubejs/assets/kubejs/textures/item/logic_chip_wafer.png"
+hash = "f06274959f178de7e4e51431f34a132cd4ed0702fa60fc4b649c5232807ff29f"
+
+[[files]]
 file = "kubejs/assets/mm/models/block/blast_forge_controller.json"
 hash = "7dfda812b625c01ef2ddb104df0d283c983630160cfcb1f00a00b088e57c5205"
 
@@ -118,11 +122,11 @@ hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
 
 [[files]]
 file = "kubejs/server_scripts/crafting.js"
-hash = "3db7a1105f29696886e8845ad1740b63a2b51c645e2860de70be2c647d1b3b60"
+hash = "161243b1ea4cf96aaff60adf0460946b44ca800c230f29e6529ec6b706fc508d"
 
 [[files]]
 file = "kubejs/server_scripts/create.js"
-hash = "1049eea0e3f5c43a9585423176f40e02810cbd910d29d69892ee036700120926"
+hash = "cb812e1c60626a8490ae109088f16792e9a4106997fab23aab795f79f21e5f0c"
 
 [[files]]
 file = "kubejs/server_scripts/immersiveengineering.js"
@@ -134,7 +138,7 @@ hash = "5810fafd82e9880db489bcd6e20cc18283f4df00389dbfcb473a45089542fab6"
 
 [[files]]
 file = "kubejs/server_scripts/recipe_removals.js"
-hash = "eac5f9ff34a8f85a7f5a7a60f97c3d535c3a6c1aa258b984f04754af004a04d2"
+hash = "a7118a37d4124ea09e3cc50757c8b4228b88111c9b7c57c3ca60cc778ce2d777"
 
 [[files]]
 file = "kubejs/server_scripts/server.js"
@@ -154,7 +158,7 @@ hash = "2237f49a3252727ea3943ad283d314261417ad911e1f019dbb0fefd0ec6cfdab"
 
 [[files]]
 file = "kubejs/startup_scripts/items.js"
-hash = "d28dbb7e3265bba6d552436bb71754a31eb96ff00c2b067683f07c11ce3a9c02"
+hash = "2850dea9b01149fd5cec273d40da10953bc28c34b57a63ebf5d22506f1598830"
 
 [[files]]
 file = "kubejs/startup_scripts/multiblocks.js"
@@ -162,7 +166,7 @@ hash = "17639ec1954f2c7528b7b398ad72081a72d1a4fda3510b4cb7676604f22f6d9f"
 
 [[files]]
 file = "kubejs/startup_scripts/startup.js"
-hash = "aea0cbc7d03eacf66fd0a48e06dc664f7d32b2e43fe151d720e6d7795f2d16e7"
+hash = "8e615fb10c35004fd05436dbd294ac873bc17f03ded15dffe5ca53116073f2be"
 
 [[files]]
 file = "mods/actually-subtractions.pw.toml"

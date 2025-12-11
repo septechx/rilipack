@@ -84,6 +84,7 @@ global.REMOVALS = {
   ],
   rftoolspower: ["coalgenerator", "cell1", "cell2", "cell3"],
   tinyredstone: ["silicon_compound", "silicon"],
+  laserio: ["logic_chip_raw", "laser_connector_advanced"],
 };
 
 global.forEachItem = (map, f) => {

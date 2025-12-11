@@ -24,3 +24,4 @@
 - [ ] Add bismuth
 - [ ] Add disabled tooltip to apotheosis boon of the earth enchantment
 - [ ] Remove ender drawer
+- [ ] Custom mod for cleanroom for chip wafers

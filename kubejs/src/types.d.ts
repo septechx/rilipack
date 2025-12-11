@@ -46,12 +46,12 @@ declare namespace MMEvents {
 
   type MultiblockPort =
     | {
-        block: string;
-      }
+      block: string;
+    }
     | {
-        port: string;
-        input?: boolean;
-      };
+      port: string;
+      input?: boolean;
+    };
   type LayoutBuilder = {
     layer(pattern: string[]): LayoutBuilder;
     key(key: string, block: MultiblockPort): LayoutBuilder;
@@ -70,20 +70,20 @@ declare namespace MMEvents {
 
   type ProcessIngredient =
     | {
-        type: "mm:item";
-        item: string;
-        count: number;
-      }
+      type: "mm:item";
+      item: string;
+      count: number;
+    }
     | {
-        type: "mm:item";
-        tag: string;
-        count: number;
-      }
+      type: "mm:item";
+      tag: string;
+      count: number;
+    }
     | {
-        type: "mm:fluid";
-        fluid: string;
-        amount: number;
-      };
+      type: "mm:fluid";
+      fluid: string;
+      amount: number;
+    };
   type ProcessOutput = {
     type: "mm:output/simple";
     ingredient: ProcessIngredient;
@@ -108,7 +108,7 @@ declare namespace MMEvents {
 
 declare namespace StartupEvents {
   type ItemRegistryEvent = {
-    create(id: string, parent: string): ItemRegistryEvent;
+    create(id: string, parent?: string): ItemRegistryEvent;
     displayName(name: string): ItemRegistryEvent;
     parentModel(model: string): ItemRegistryEvent;
     texture(texture: string): ItemRegistryEvent;
@@ -134,14 +134,14 @@ declare namespace StartupEvents {
 declare namespace ServerEvents {
   type RecipeFilter =
     | {
-        id: string;
-      }
+      id: string;
+    }
     | {
-        input: Ingredient;
-      }
+      input: Ingredient;
+    }
     | {
-        output: Ingredient;
-      };
+      output: Ingredient;
+    };
 
   type SequencedAssemblyStep = unknown;
 
@@ -159,7 +159,9 @@ declare namespace ServerEvents {
       result: Ingredient,
       ingredient: Ingredient,
     ): SequencedAssemblyStep;
-    pressing(results: Ingredient[], ingredient: Ingredient): void;
+    pressing(results: Ingredient[], input: Ingredient): void;
+    cutting(results: Ingredient[], input: Ingredient): void;
+    crushing(results: Ingredient[], input: Ingredient): void;
     mixing(
       ingredients: Ingredient[],
       outputs: Ingredient[],
@@ -245,6 +247,7 @@ declare namespace ServerEvents {
 
 declare class Item {
   static of(id: string, count?: number): Item;
+  withChance(chance: number): Item;
 }
 
 declare class Fluid {
@@ -253,6 +256,7 @@ declare class Fluid {
 
 declare type Ingredient = string | Item | Fluid;
 
+// @ts-expect-error
 declare const global: {
   REMOVALS: Record<string, string[]>;
   forEachItem: (

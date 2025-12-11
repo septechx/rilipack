@@ -93,6 +93,8 @@ ServerEvents.recipes((e) => {
     "mm:blast_forge_item_output",
   ]);
 
+  e.shapeless(Item.of("tfmg:fireproof_brick", 4), ["tfmg:fireproof_bricks"]);
+
   e.shaped(Item.of("mm:blast_forge_vent", 3), ["BBB", "PPP", "BBB"], {
     B: "immersiveengineering:blastbrick",
     P: "#forge:plates/cast_iron",

@@ -33,6 +33,14 @@ ServerEvents.recipes((e) => {
     "actuallyadditions:rice_dough",
   ]);
 
+  c.crushing(
+    [
+      Item.of("minecraft:blaze_powder", 4),
+      Item.of("immersiveengineering:dust_sulfur").withChance(0.5),
+    ],
+    "minecraft:blaze_rod",
+  );
+
   c.pressing(["quark:obsidian_pressure_plate"], "minecraft:obsidian");
 
   c.mechanical_crafting(
@@ -45,6 +53,21 @@ ServerEvents.recipes((e) => {
       T: "create:railway_casing",
       O: "minecraft:obsidian",
     },
+  );
+
+  c.cutting([Item.of("laserio:logic_chip", 24)], "kubejs:logic_chip_wafer");
+
+  sequencedAssembly(
+    "kubejs:incomplete_logic_chip_wafer",
+    "kubejs:logic_chip_wafer",
+    "#forge:ingots/silicon",
+    [
+      [c.deploying, "tfmg:transistor_item"],
+      [c.deploying, "#forge:wires/electrum"],
+      [c.deploying, "tfmg:transistor_item"],
+      [c.deploying, "#forge:wires/electrum"],
+    ],
+    8,
   );
 
   sequencedAssembly(

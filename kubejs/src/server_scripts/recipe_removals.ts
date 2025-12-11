@@ -46,6 +46,8 @@ const REMOVALS = {
     "compat/create/printed_engineering",
     "compat/create/printed_logic",
   ],
+  laserio: ["logic_chip"],
+  createdieselgenerators: ["compression_molding/blaze_rod"],
 };
 
 ServerEvents.recipes((e) => {
