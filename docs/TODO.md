@@ -25,3 +25,4 @@
 - [ ] Add disabled tooltip to apotheosis boon of the earth enchantment
 - [ ] Remove ender drawer
 - [ ] Custom mod for cleanroom for chip wafers
+- [ ] Make custom textures for incomplete items
