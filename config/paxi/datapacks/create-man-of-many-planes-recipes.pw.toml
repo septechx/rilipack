@@ -1,0 +1,13 @@
+name = "Create Man of Many Planes - Recipes"
+filename = "Create Man of Many Planes Recipe Datapack v1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "2b4d84e58be35e148addaa6cd48ad4fad4a87a9d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6096911
+project-id = 1181470
