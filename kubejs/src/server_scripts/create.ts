@@ -56,11 +56,12 @@ ServerEvents.recipes((e) => {
   );
 
   c.cutting([Item.of("laserio:logic_chip", 24)], "kubejs:logic_chip_wafer");
+  c.cutting([Item.of("kubejs:silicon_wafer", 16)], "kubejs:silicon_boule");
 
   sequencedAssembly(
     "kubejs:incomplete_logic_chip_wafer",
     "kubejs:logic_chip_wafer",
-    "#forge:ingots/silicon",
+    "kubejs:silicon_wafer",
     [
       [c.deploying, "tfmg:transistor_item"],
       [c.deploying, "#forge:wires/electrum"],

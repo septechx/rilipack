@@ -26,3 +26,7 @@
 - [ ] Remove ender drawer
 - [ ] Custom mod for cleanroom for chip wafers
 - [ ] Make custom textures for incomplete items
+- [ ] LPG used in heat exchanger (custom multiblock) and produces Petroleum Gas
+- [x] Better logic chip line (Silicon boules)
+- [x] Casting table gated behind steel
+- [ ] Silicon boule doping with glowstone

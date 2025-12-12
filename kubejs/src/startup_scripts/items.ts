@@ -22,4 +22,12 @@ StartupEvents.registry("item", (e) => {
   e.create("logic_chip_wafer")
     .displayName("Logic Chip Wafer")
     .texture("kubejs:item/logic_chip_wafer");
+
+  e.create("silicon_wafer")
+    .displayName("Silicon Wafer")
+    .texture("kubejs:item/silicon_wafer");
+
+  e.create("silicon_boule")
+    .displayName("Monocrystalline Silicon Boule")
+    .texture("kubejs:item/silicon_boule");
 });

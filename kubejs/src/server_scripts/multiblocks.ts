@@ -67,6 +67,22 @@ MMEvents.createProcesses((event) => {
       ],
       600,
     )
+    .recipe(
+      "silicon_boule",
+      {
+        type: "mm:item",
+        item: "kubejs:silicon_boule",
+        count: 1,
+      },
+      [
+        {
+          type: "mm:item",
+          tag: "forge:ingots/silicon",
+          count: 32,
+        },
+      ],
+      800,
+    )
     .build();
 });
 

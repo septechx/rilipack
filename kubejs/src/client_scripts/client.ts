@@ -5,6 +5,7 @@ const HIDDEN_ITEMS = {
     "incomplete_mv_capacitor",
     "incomplete_hv_capacitor",
     "incomplete_explorers_compass",
+    "incomplete_logic_chip_wafer",
   ],
 };
 

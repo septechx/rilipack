@@ -25,8 +25,37 @@ file = "config/almostunified/unify.json"
 hash = "67bd59d1e346806c8e514e814f249c0dd9132db746d8deb74ed6adeed918d1ee"
 
 [[files]]
+file = "config/laserio-common.toml"
+hash = "e567b2c61a5676b0be5d9cbc66cb8675edcc4667849048d2f4fe229fe529e7e2"
+
+[[files]]
+file = "config/paxi/datapacks/create-immersive-aircrafts-data-pack.pw.toml"
+hash = "9bbd764bc260954610ba2b03f74d782293914adb44edfd1d058b6b215d6265d2"
+metafile = true
+
+[[files]]
+file = "config/paxi/datapacks/create-man-of-many-planes-recipes.pw.toml"
+hash = "f36d197fdca61091ffce2946417725d63b861a8e7e14c8a6dffb46fdbea3efe7"
+metafile = true
+
+[[files]]
+file = "config/paxi/resourcepacks/create-sophisticated-backpacks.pw.toml"
+hash = "9894340781fca02078877ff3ee942b1a66e5387aedab8a0d99ab69f4904cf0c5"
+metafile = true
+
+[[files]]
+file = "config/paxi/resourcepacks/mob-grinding-utils-vanillafied.pw.toml"
+hash = "a8b2bf75f868b7cc81e70a97d4a01528c50b829af7968d269c041cfe56c75cf0"
+metafile = true
+
+[[files]]
 file = "config/quark-common.toml"
 hash = "6244528500f9e49b75a76b8e6a2250b653b5b6e4561228efed499e5d1c9be35e"
+
+[[files]]
+file = "create-man-of-many-planes-recipes.pw.toml"
+hash = "f36d197fdca61091ffce2946417725d63b861a8e7e14c8a6dffb46fdbea3efe7"
+metafile = true
 
 [[files]]
 file = "defaultconfigs/create-server.toml"
@@ -69,6 +98,14 @@ file = "kubejs/assets/kubejs/textures/item/logic_chip_wafer.png"
 hash = "f06274959f178de7e4e51431f34a132cd4ed0702fa60fc4b649c5232807ff29f"
 
 [[files]]
+file = "kubejs/assets/kubejs/textures/item/silicon_boule.png"
+hash = "9c576731a03f9b73194796087313ea965665f0c941010fc29b6bc6d232ded315"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/silicon_wafer.png"
+hash = "1ee96e695cb64d225d65abb7b95074058107908809f92d24544868fa1008c196"
+
+[[files]]
 file = "kubejs/assets/mm/models/block/blast_forge_controller.json"
 hash = "7dfda812b625c01ef2ddb104df0d283c983630160cfcb1f00a00b088e57c5205"
 
@@ -94,7 +131,7 @@ hash = "47a64508c4a406b5af80be001213aa03c5526f23699109b774e687532c64c755"
 
 [[files]]
 file = "kubejs/client_scripts/client.js"
-hash = "491531b4a914a041e73c03f6c4f9e8fc68727707440605f31450592d2556a519"
+hash = "db302df2bf02d2f814c9286095e38ab7e6042a9da5ae8a3a67b013197776ba89"
 
 [[files]]
 file = "kubejs/config/client.properties"
@@ -122,11 +159,11 @@ hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
 
 [[files]]
 file = "kubejs/server_scripts/crafting.js"
-hash = "161243b1ea4cf96aaff60adf0460946b44ca800c230f29e6529ec6b706fc508d"
+hash = "4260e8e92a50cc6fb4286b6e3da7456530df8225e30317c3aa8ec9e190ff551e"
 
 [[files]]
 file = "kubejs/server_scripts/create.js"
-hash = "cb812e1c60626a8490ae109088f16792e9a4106997fab23aab795f79f21e5f0c"
+hash = "36ac0c4382bf705b5b8114c1b42074052086933f829e506add0a4f902a2ad286"
 
 [[files]]
 file = "kubejs/server_scripts/immersiveengineering.js"
@@ -134,7 +171,7 @@ hash = "83716aa953202e34c1af6999dc87e0cbb94d978674da41c1431745837674d6ba"
 
 [[files]]
 file = "kubejs/server_scripts/multiblocks.js"
-hash = "5810fafd82e9880db489bcd6e20cc18283f4df00389dbfcb473a45089542fab6"
+hash = "a5978ba733275680c5db896ad54b9918c4855bd5705453e8b3c5df281b8b7f7d"
 
 [[files]]
 file = "kubejs/server_scripts/recipe_removals.js"
@@ -158,7 +195,7 @@ hash = "2237f49a3252727ea3943ad283d314261417ad911e1f019dbb0fefd0ec6cfdab"
 
 [[files]]
 file = "kubejs/startup_scripts/items.js"
-hash = "2850dea9b01149fd5cec273d40da10953bc28c34b57a63ebf5d22506f1598830"
+hash = "ef28c951116e185e7b9044b7dd81f665617f33ecb684b65096fc426cdfd06248"
 
 [[files]]
 file = "kubejs/startup_scripts/multiblocks.js"
@@ -989,6 +1026,11 @@ hash = "d545e2d90446465d26dfef1c6777edde1fa9d2b873674834dd761342a40088bf"
 metafile = true
 
 [[files]]
+file = "mods/paxi.pw.toml"
+hash = "1bc510c2003bae5616d20b25637b08dd1f3038924e1ed5accf72cd1e5c82790d"
+metafile = true
+
+[[files]]
 file = "mods/placebo.pw.toml"
 hash = "045d582e2c534c5bb96d7336b4ae2cd12692c6de29b19ae5f1dbfd8759c03b03"
 metafile = true
@@ -1246,6 +1288,11 @@ metafile = true
 [[files]]
 file = "mods/xycraft.pw.toml"
 hash = "29d3255ea87d64f22f342e78e4ff82bd36938248ea3c0e11490c301f2eab16a1"
+metafile = true
+
+[[files]]
+file = "mods/yungs-api.pw.toml"
+hash = "9fb6a1a06b18f2ce7b0811200339d997925cb39bde220fbaea4d5c8067376c12"
 metafile = true
 
 [[files]]

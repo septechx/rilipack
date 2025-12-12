@@ -55,6 +55,12 @@ ServerEvents.recipes((e) => {
     "create:item_vault",
   );
 
+  e.replaceInput(
+    { id: "tfmg:crafting/kinetics/casting_basin" },
+    "tfmg:cast_iron_pipe",
+    "tfmg:steel_pipe",
+  );
+
   replaceInput("actuallyadditions:rice", "#forge:crops/rice");
   replaceInput("tfmg:hardened_planks", "#forge:treated_wood");
   replaceInput("cyclic:biomass", "#forge:fuels/bio");

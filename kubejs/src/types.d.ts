@@ -1,8 +1,22 @@
+declare namespace ItemEvents {
+  type ItemTooltipEvent = {
+    add(item: string | string[] | RegExp, tooltip: string): void;
+  };
+
+  /**
+   * Client
+   */
+  export function tooltip(callback: (e: ItemTooltipEvent) => void): void;
+}
+
 declare namespace JEIEvents {
   type HideItemsEvent = {
     hide(item: string): void;
   };
 
+  /**
+   * Client
+   */
   export function hideItems(callback: (e: HideItemsEvent) => void): void;
 }
 
@@ -16,6 +30,9 @@ declare namespace MMEvents {
   type RegisterControllersEvent = {
     create(id: string): ControllerBuilder;
   };
+  /**
+   * Startup
+   */
   export function registerControllers(
     callback: (event: RegisterControllersEvent) => void,
   ): void;
@@ -32,6 +49,9 @@ declare namespace MMEvents {
   type RegisterPortsEvent = {
     create(id: string): PortBuilder;
   };
+  /**
+   * Startup
+   */
   export function registerPorts(
     callback: (event: RegisterPortsEvent) => void,
   ): void;
@@ -40,6 +60,9 @@ declare namespace MMEvents {
   type RegisterExtraBlocksEvent = {
     create(id: string): ExtraBlockBuilder;
   };
+  /**
+   * Startup
+   */
   export function registerExtraBlocks(
     callback: (event: RegisterExtraBlocksEvent) => void,
   ): void;
@@ -64,6 +87,9 @@ declare namespace MMEvents {
   type CreateStructuresEvent = {
     create(id: string): MultiblockBuilder;
   };
+  /**
+   * Server
+   */
   export function createStructures(
     callback: (event: CreateStructuresEvent) => void,
   ): void;
@@ -101,6 +127,9 @@ declare namespace MMEvents {
   type CreateProcessesEvent = {
     create(id: string): ProcessBuilder;
   };
+  /**
+   * Server
+   */
   export function createProcesses(
     callback: (event: CreateProcessesEvent) => void,
   ): void;
@@ -113,6 +142,9 @@ declare namespace StartupEvents {
     parentModel(model: string): ItemRegistryEvent;
     texture(texture: string): ItemRegistryEvent;
   };
+  /**
+   * Startup
+   */
   export function registry(
     type: "item",
     callback: (e: ItemRegistryEvent) => void,
@@ -125,6 +157,9 @@ declare namespace StartupEvents {
     bucketColor(color: number): FluidRegistryEvent;
     displayName(name: string): FluidRegistryEvent;
   };
+  /**
+   * Startup
+   */
   export function registry(
     type: "fluid",
     callback: (e: FluidRegistryEvent) => void,
@@ -236,12 +271,18 @@ declare namespace ServerEvents {
     remove(filter: RecipeFilter): void;
     custom(recipe: Object): void;
   };
+  /**
+   * Server
+   */
   export function recipes(callback: (e: RecipeEvent) => void): void;
 
   type TagEvent = {
     add(tag: string, item: Ingredient): void;
     removeAll(tag: string): void;
   };
+  /**
+   * Server
+   */
   export function tags(type: "item", callback: (e: TagEvent) => void): void;
 }
 
