@@ -27,3 +27,6 @@
 
 @refresh: compile-ts
   packwiz refresh
+
+add mod:
+  packwiz curseforge add {{mod}}

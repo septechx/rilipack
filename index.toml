@@ -25,35 +25,24 @@ file = "config/almostunified/unify.json"
 hash = "67bd59d1e346806c8e514e814f249c0dd9132db746d8deb74ed6adeed918d1ee"
 
 [[files]]
+file = "config/global_packs.toml"
+hash = "3e6b52c9499ec7fbea1de65d362c6d268fcb8eee2d8ede51c4ea6188ac19463a"
+
+[[files]]
 file = "config/laserio-common.toml"
 hash = "e567b2c61a5676b0be5d9cbc66cb8675edcc4667849048d2f4fe229fe529e7e2"
-
-[[files]]
-file = "config/paxi/datapacks/create-immersive-aircrafts-data-pack.pw.toml"
-hash = "9bbd764bc260954610ba2b03f74d782293914adb44edfd1d058b6b215d6265d2"
-metafile = true
-
-[[files]]
-file = "config/paxi/datapacks/create-man-of-many-planes-recipes.pw.toml"
-hash = "f36d197fdca61091ffce2946417725d63b861a8e7e14c8a6dffb46fdbea3efe7"
-metafile = true
-
-[[files]]
-file = "config/paxi/resourcepacks/create-sophisticated-backpacks.pw.toml"
-hash = "9894340781fca02078877ff3ee942b1a66e5387aedab8a0d99ab69f4904cf0c5"
-metafile = true
-
-[[files]]
-file = "config/paxi/resourcepacks/mob-grinding-utils-vanillafied.pw.toml"
-hash = "a8b2bf75f868b7cc81e70a97d4a01528c50b829af7968d269c041cfe56c75cf0"
-metafile = true
 
 [[files]]
 file = "config/quark-common.toml"
 hash = "6244528500f9e49b75a76b8e6a2250b653b5b6e4561228efed499e5d1c9be35e"
 
 [[files]]
-file = "create-man-of-many-planes-recipes.pw.toml"
+file = "datapacks/create-immersive-aircrafts-data-pack.pw.toml"
+hash = "9bbd764bc260954610ba2b03f74d782293914adb44edfd1d058b6b215d6265d2"
+metafile = true
+
+[[files]]
+file = "datapacks/create-man-of-many-planes-recipes.pw.toml"
 hash = "f36d197fdca61091ffce2946417725d63b861a8e7e14c8a6dffb46fdbea3efe7"
 metafile = true
 
@@ -183,7 +172,7 @@ hash = "fd12f1cbffa5417cf4f1c6c46489611ba536481c9f64978ea5487a2b127deb6f"
 
 [[files]]
 file = "kubejs/server_scripts/tags.js"
-hash = "d5b93f8c17f8aa1e567802125401579435a30e30b60fa6d6450522652e410d43"
+hash = "a957cfa083f3ff7427195a1130fc8d1cdeba55f8d64041d3e1b79fb045842510"
 
 [[files]]
 file = "kubejs/server_scripts/xycraft.js"
@@ -203,7 +192,7 @@ hash = "17639ec1954f2c7528b7b398ad72081a72d1a4fda3510b4cb7676604f22f6d9f"
 
 [[files]]
 file = "kubejs/startup_scripts/startup.js"
-hash = "8e615fb10c35004fd05436dbd294ac873bc17f03ded15dffe5ca53116073f2be"
+hash = "069e346cee1160948bc03623bf183448537b20f6a0be1a605a1bec4874f2aab6"
 
 [[files]]
 file = "mods/actually-subtractions.pw.toml"
@@ -216,8 +205,28 @@ hash = "26e029e0d868bdd5b3ccec0d5aefa56df1ba5ee653d8d104f7b6c2a7792a08d5"
 metafile = true
 
 [[files]]
+file = "mods/advancedae.pw.toml"
+hash = "db2b2be56b661668acd7799856656b2f4585ce99231dd8cbcb8038b744c5e448"
+metafile = true
+
+[[files]]
 file = "mods/advancement-plaques.pw.toml"
 hash = "f131905d113ba9dd127abf3c9f897aaf4ecf59657c415752533893d44cb584df"
+metafile = true
+
+[[files]]
+file = "mods/ae-additions-extra-cells-2-fork.pw.toml"
+hash = "c607282fdb1588b22aa13cced8dfbc212386abe88c6247d61143e9bedbe18386"
+metafile = true
+
+[[files]]
+file = "mods/ae2-import-export-card.pw.toml"
+hash = "e4c225451a42377a82279c3579dddf607b139807d82127b4626fa128601ab0d4"
+metafile = true
+
+[[files]]
+file = "mods/ae2-things-forge.pw.toml"
+hash = "8f7696617249a4be35a9d1a2caecce4e17bbffe823f904d10c6fc8b72c4352ca"
 metafile = true
 
 [[files]]
@@ -601,6 +610,11 @@ hash = "2f30de9a0d70d37a56c283c98c69e0d264515d5876b7e2a9d78d1f1941692a3f"
 metafile = true
 
 [[files]]
+file = "mods/ender-io.pw.toml"
+hash = "20408dc8b2d5965858fac965195ba1e7b4b3bf7da1bd9600d335fa1950924884"
+metafile = true
+
+[[files]]
 file = "mods/ender-storage-1-8.pw.toml"
 hash = "638f7c447dbe7dc2e85e4bf89d70fb41632db940a57de498094f2be57fa6c18d"
 metafile = true
@@ -703,6 +717,11 @@ metafile = true
 [[files]]
 file = "mods/geophilic.pw.toml"
 hash = "2db5fd88979cac6aed0366138b4eaf268f94342cc15f761aec1fe2024ccf5686"
+metafile = true
+
+[[files]]
+file = "mods/globalpacks.pw.toml"
+hash = "79e3ce5a162a613d8fcc4e7793838c3eb6c39b78901be5c27111242491bfc0bc"
 metafile = true
 
 [[files]]
@@ -1026,11 +1045,6 @@ hash = "d545e2d90446465d26dfef1c6777edde1fa9d2b873674834dd761342a40088bf"
 metafile = true
 
 [[files]]
-file = "mods/paxi.pw.toml"
-hash = "1bc510c2003bae5616d20b25637b08dd1f3038924e1ed5accf72cd1e5c82790d"
-metafile = true
-
-[[files]]
 file = "mods/placebo.pw.toml"
 hash = "045d582e2c534c5bb96d7336b4ae2cd12692c6de29b19ae5f1dbfd8759c03b03"
 metafile = true
@@ -1043,6 +1057,11 @@ metafile = true
 [[files]]
 file = "mods/polymorph.pw.toml"
 hash = "8c65958007f81cdf1a57dac999ec7ffdde17cce6154c9a2f75bbb389fd11efbf"
+metafile = true
+
+[[files]]
+file = "mods/polymorphic-energistics.pw.toml"
+hash = "2d47877684bd91ad4c597b68bae4a8af3964011bfc0fd52e004469368f23b834"
 metafile = true
 
 [[files]]
@@ -1298,4 +1317,14 @@ metafile = true
 [[files]]
 file = "mods/zeta.pw.toml"
 hash = "557d160e4a3d856c6bbe36c39ee7c6cd42824363690b61d5f23bbac153c8edbc"
+metafile = true
+
+[[files]]
+file = "resourcepacks/create-sophisticated-backpacks.pw.toml"
+hash = "9894340781fca02078877ff3ee942b1a66e5387aedab8a0d99ab69f4904cf0c5"
+metafile = true
+
+[[files]]
+file = "resourcepacks/mob-grinding-utils-vanillafied.pw.toml"
+hash = "a8b2bf75f868b7cc81e70a97d4a01528c50b829af7968d269c041cfe56c75cf0"
 metafile = true

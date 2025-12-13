@@ -1,16 +1,16 @@
 name = "Rilipack"
 author = "septechx"
-version = "1.5.0"
+version = "1.6.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "6f742276dd72995a287ad7832e5d49af4382f76a939adcf8616ee3245263bea3"
+hash = "b688e52935a15c055e9e58df5b13177c94f60c43710516419810252931d632fb"
 
 [versions]
 forge = "47.4.13"
 minecraft = "1.20.1"
 
 [options]
-datapack-folder = "config/paxi/datapacks"
+datapack-folder = "datapacks/"
