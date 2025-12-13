@@ -278,12 +278,16 @@ declare namespace ServerEvents {
 
   type TagEvent = {
     add(tag: string, item: Ingredient): void;
+    remove(tag: string, item: Ingredient): void;
     removeAll(tag: string): void;
   };
   /**
    * Server
    */
-  export function tags(type: "item", callback: (e: TagEvent) => void): void;
+  export function tags(
+    type: "item" | "fluid",
+    callback: (e: TagEvent) => void,
+  ): void;
 }
 
 declare class Item {
