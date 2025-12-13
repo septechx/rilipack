@@ -1,3 +1,31 @@
+declare namespace LootJS {
+  class LootEntry {
+    public static of(item: ItemLike): Promise<LootEntry>;
+    public randomChance(chance: number): LootEntry;
+  }
+
+  type BlockLootModifierBuilder = {
+    removeLoot(ingredient: Ingredient): BlockLootModifierBuilder;
+    addLoot(ingredient: ItemLike): BlockLootModifierBuilder;
+    addAlternativesLoot(...loot: LootEntry[]): BlockLootModifierBuilder;
+    replaceLoot(from: ItemLike, to: ItemLike): BlockLootModifierBuilder;
+    replaceLoot(
+      from: ItemLike,
+      to: ItemLike,
+      preserveCount: boolean,
+    ): BlockLootModifierBuilder;
+  };
+
+  type ModifiersEvent = {
+    addBlockLootModifier(id: ItemLike): BlockLootModifierBuilder;
+  };
+
+  /**
+   * Server
+   */
+  export function modifiers(callback: (e: ModifiersEvent) => void): void;
+}
+
 declare namespace ItemEvents {
   type ItemTooltipEvent = {
     add(item: string | string[] | RegExp, tooltip: string): void;
@@ -172,46 +200,40 @@ declare namespace ServerEvents {
       id: string;
     }
     | {
-      input: Ingredient;
+      input: ItemLike;
     }
     | {
-      output: Ingredient;
+      output: ItemLike;
     };
 
   type SequencedAssemblyStep = unknown;
 
   type SequencedAssemblyBuilder = {
-    transitionalItem(item: Ingredient): SequencedAssemblyBuilder;
+    transitionalItem(item: ItemLike): SequencedAssemblyBuilder;
     loops(loops: number): SequencedAssemblyBuilder;
   };
 
   type CreateRecipesAPI = {
-    filling(
-      result: Ingredient,
-      ingredients: Ingredient[],
-    ): SequencedAssemblyStep;
-    deploying(
-      result: Ingredient,
-      ingredient: Ingredient,
-    ): SequencedAssemblyStep;
-    pressing(results: Ingredient[], input: Ingredient): void;
-    cutting(results: Ingredient[], input: Ingredient): void;
-    crushing(results: Ingredient[], input: Ingredient): void;
+    filling(result: ItemLike, ingredients: ItemLike[]): SequencedAssemblyStep;
+    deploying(result: ItemLike, ingredient: ItemLike): SequencedAssemblyStep;
+    pressing(results: ItemLike[], input: ItemLike): void;
+    cutting(results: ItemLike[], input: ItemLike): void;
+    crushing(results: ItemLike[], input: ItemLike): void;
     mixing(
-      ingredients: Ingredient[],
-      outputs: Ingredient[],
+      ingredients: ItemLike[],
+      outputs: ItemLike[],
     ): {
       superheated(): void;
       heated(): void;
     };
     mechanical_crafting(
-      result: Ingredient,
+      result: ItemLike,
       pattern: string[],
-      keys: Record<string, Ingredient>,
+      keys: Record<string, ItemLike>,
     ): void;
     sequenced_assembly(
-      outputs: Ingredient[],
-      input: Ingredient,
+      outputs: ItemLike[],
+      input: ItemLike,
       steps: SequencedAssemblyStep[],
     ): SequencedAssemblyBuilder;
   };
@@ -223,9 +245,9 @@ declare namespace ServerEvents {
   };
 
   type CreateOrExcavationRecipesAPI = {
-    vein(name: string, result: Ingredient): VeinBuilder;
+    vein(name: string, result: ItemLike): VeinBuilder;
     drilling(
-      result: Ingredient,
+      result: ItemLike,
       vein: string,
       chance: number,
     ): {
@@ -234,15 +256,15 @@ declare namespace ServerEvents {
   };
 
   type TFMGRecipesAPI = {
-    casting(result: Ingredient, input: Ingredient, ticks: number): void;
+    casting(result: ItemLike, input: ItemLike, ticks: number): void;
   };
 
   type IEBlueprintCategory = "components";
 
   type IERecipesAPI = {
     blueprint(
-      result: Ingredient,
-      ingredients: Ingredient[],
+      result: ItemLike,
+      ingredients: ItemLike[],
       category: IEBlueprintCategory,
     ): void;
   };
@@ -263,11 +285,11 @@ declare namespace ServerEvents {
       replacement: string,
     ): void;
     shaped(
-      result: Ingredient,
+      result: ItemLike,
       pattern: string[],
-      keys: Record<string, Ingredient>,
+      keys: Record<string, ItemLike>,
     ): void;
-    shapeless(result: Ingredient, ingredients: Ingredient[]): void;
+    shapeless(result: ItemLike, ingredients: ItemLike[]): void;
     remove(filter: RecipeFilter): void;
     custom(recipe: Object): void;
   };
@@ -277,8 +299,8 @@ declare namespace ServerEvents {
   export function recipes(callback: (e: RecipeEvent) => void): void;
 
   type TagEvent = {
-    add(tag: string, item: Ingredient): void;
-    remove(tag: string, item: Ingredient): void;
+    add(tag: string, item: ItemLike): void;
+    remove(tag: string, item: ItemLike): void;
     removeAll(tag: string): void;
   };
   /**
@@ -291,15 +313,19 @@ declare namespace ServerEvents {
 }
 
 declare class Item {
-  static of(id: string, count?: number): Item;
-  withChance(chance: number): Item;
+  public static of(id: string, count?: number): Item;
+  public withChance(chance: number): Item;
 }
 
 declare class Fluid {
-  static of(id: string, amount?: number): Fluid;
+  public static of(id: string, amount?: number): Fluid;
 }
 
-declare type Ingredient = string | Item | Fluid;
+declare class Ingredient {
+  public static all: Ingredient;
+}
+
+declare type ItemLike = string | Item | Fluid;
 
 // @ts-expect-error
 declare const global: {

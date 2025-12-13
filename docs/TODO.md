@@ -30,3 +30,4 @@
 - [x] Better logic chip line (Silicon boules)
 - [x] Casting table gated behind steel
 - [ ] Silicon boule doping with glowstone
+- [x] Unify raw ore drops

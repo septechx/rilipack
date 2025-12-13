@@ -159,6 +159,10 @@ file = "kubejs/server_scripts/immersiveengineering.js"
 hash = "83716aa953202e34c1af6999dc87e0cbb94d978674da41c1431745837674d6ba"
 
 [[files]]
+file = "kubejs/server_scripts/loot.js"
+hash = "c3212a3a1fe450472f59d66b02bc5fba7b2ff7f4584387241c85ed66b07d8b06"
+
+[[files]]
 file = "kubejs/server_scripts/multiblocks.js"
 hash = "a5978ba733275680c5db896ad54b9918c4855bd5705453e8b3c5df281b8b7f7d"
 
@@ -867,6 +871,11 @@ metafile = true
 [[files]]
 file = "mods/lmft.pw.toml"
 hash = "afca79f6ef3b857bfd147d4d7f9887ee433a73f8fcd1ec4476c49ac3349926d0"
+metafile = true
+
+[[files]]
+file = "mods/lootjs.pw.toml"
+hash = "e8ffbf5788712fac841e1bb0bff8969697f99be47d6f1c3f41ebe9ac965016d3"
 metafile = true
 
 [[files]]

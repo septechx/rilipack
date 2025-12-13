@@ -159,10 +159,10 @@ ServerEvents.recipes((e) => {
 
 function __sequencedAssembly(event: ServerEvents.CreateRecipesAPI) {
   return (
-    transitionalItem: Ingredient,
-    output: Ingredient,
-    input: Ingredient,
-    steps: [typeof event.deploying | typeof event.filling, Ingredient | null][],
+    transitionalItem: ItemLike,
+    output: ItemLike,
+    input: ItemLike,
+    steps: [typeof event.deploying | typeof event.filling, ItemLike | null][],
     loops: number,
   ) =>
     event
