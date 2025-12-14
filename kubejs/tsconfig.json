@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
+    "lib": ["ES2017"],
     "baseUrl": "./src/",
     "esModuleInterop": true,
     "moduleResolution": "bundler",

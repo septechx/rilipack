@@ -1,3 +1,18 @@
+declare namespace PlayerEvents {
+  type InventoryChangedEvent = {
+    getEntity(): Player;
+    getItem(): Item;
+    getSlot(): number;
+  };
+
+  /**
+   * Server
+   */
+  export function inventoryChanged(
+    callback: (e: InventoryChangedEvent) => void,
+  ): void;
+}
+
 declare namespace LootJS {
   class LootEntry {
     public static of(item: ItemLike): Promise<LootEntry>;
@@ -28,7 +43,7 @@ declare namespace LootJS {
 
 declare namespace ItemEvents {
   type ItemTooltipEvent = {
-    add(item: string | string[] | RegExp, tooltip: string): void;
+    add(item: string | string[] | RegExp, tooltip: string | Text): void;
   };
 
   /**
@@ -314,6 +329,7 @@ declare namespace ServerEvents {
 
 declare class Item {
   public static of(id: string, count?: number): Item;
+  public static getEmpty(): Item;
   public withChance(chance: number): Item;
 }
 
@@ -323,6 +339,21 @@ declare class Fluid {
 
 declare class Ingredient {
   public static all: Ingredient;
+}
+
+declare class Player {
+  /**
+   * Adds the stack to the first empty slot in the player's inventory. Returns false if it's not possible to
+   * place the entire stack in the inventory.
+   */
+  public addItem(item: Item): boolean;
+  public drop(item: Item, includeThrowerName: boolean): void;
+  public setItemSlot(slot: number, item: Item): void;
+}
+
+declare class Text {
+  public static of(text: string): Text;
+  public red(): Text;
 }
 
 declare type ItemLike = string | Item | Fluid;

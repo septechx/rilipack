@@ -123,6 +123,10 @@ file = "kubejs/client_scripts/client.js"
 hash = "db302df2bf02d2f814c9286095e38ab7e6042a9da5ae8a3a67b013197776ba89"
 
 [[files]]
+file = "kubejs/client_scripts/tooltips.js"
+hash = "885de174735dc2cce059dafc155734fd9fe4cbbf2c546683b35ef45496b971d0"
+
+[[files]]
 file = "kubejs/config/client.properties"
 hash = "ff619f4174995be01de2787687c39c6759582d12f1880af3810fdb2b54e18030"
 
@@ -177,6 +181,10 @@ hash = "fd12f1cbffa5417cf4f1c6c46489611ba536481c9f64978ea5487a2b127deb6f"
 [[files]]
 file = "kubejs/server_scripts/tags.js"
 hash = "a957cfa083f3ff7427195a1130fc8d1cdeba55f8d64041d3e1b79fb045842510"
+
+[[files]]
+file = "kubejs/server_scripts/tweaks/elytra.js"
+hash = "a0e0d0a1d933c070776e8250330f551f6dcc9ad93f92c46d465127c6f3428b82"
 
 [[files]]
 file = "kubejs/server_scripts/xycraft.js"
