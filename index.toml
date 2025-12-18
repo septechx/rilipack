@@ -184,7 +184,7 @@ hash = "a957cfa083f3ff7427195a1130fc8d1cdeba55f8d64041d3e1b79fb045842510"
 
 [[files]]
 file = "kubejs/server_scripts/tweaks/elytra.js"
-hash = "a0e0d0a1d933c070776e8250330f551f6dcc9ad93f92c46d465127c6f3428b82"
+hash = "64f2abd18af6ffe4387ff7905ee3fb894e58a7cc6c4356f0e27a9778009ca3c6"
 
 [[files]]
 file = "kubejs/server_scripts/xycraft.js"
@@ -1174,6 +1174,11 @@ metafile = true
 [[files]]
 file = "mods/rightclickharvest.pw.toml"
 hash = "fe6078ab5a7188a927df85ac72a8226af625dabcc9325335352ff8d6b5a1ed09"
+metafile = true
+
+[[files]]
+file = "mods/rilipackcore.pw.toml"
+hash = "83fb8bc6f22a888fa374dc45c0740baad5871684ef394f722661a3a3f3f1fa2b"
 metafile = true
 
 [[files]]

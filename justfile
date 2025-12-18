@@ -38,6 +38,9 @@ set dotenv-load
 
   echo "Reloading instance at $INSTANCE_PATH"
 
+  rm -rf "$INSTANCE_PATH/kubejs/data"
+  cp -r kubejs/data "$INSTANCE_PATH/kubejs/data"
+
   rm -rf "$INSTANCE_PATH/kubejs/server_scripts"
   rm -rf "$INSTANCE_PATH/kubejs/client_scripts"
   rm -rf "$INSTANCE_PATH/kubejs/startup_scripts"
