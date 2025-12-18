@@ -28,6 +28,11 @@ ServerEvents.recipes((e) => {
     ["minecraft:obsidian", "#forge:ingots/silicon"],
   ).superheated();
 
+  c.mixing(
+    [Item.of("hostilenetworks:prediction_matrix", 8)],
+    ["#forge:ingots/gold", "#forge:ingots/iron", "#forge:clay", "#forge:clay"],
+  ).heated();
+
   c.filling("actuallyadditions:rice_slimeball", [
     Fluid.of("minecraft:water", 250),
     "actuallyadditions:rice_dough",

@@ -48,6 +48,13 @@ const REMOVALS = {
   ],
   laserio: ["logic_chip"],
   createdieselgenerators: ["compression_molding/blaze_rod"],
+  enderio: ["smelting/laserio/logic_chip"],
+  hostilenetworks: [
+    "sim_chamber",
+    "loot_fabricator",
+    "framework",
+    "prediction_matrix",
+  ],
 };
 
 ServerEvents.recipes((e) => {

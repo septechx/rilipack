@@ -178,6 +178,32 @@ ServerEvents.recipes((e) => {
     C: "tfmg:circuit_board",
     S: "tfmg:steel_chemical_vat",
   });
+
+  e.shaped(Item.of("hostilenetworks:sim_chamber"), ["GSG", "LCL", "MBM"], {
+    C: "tfmg:steel_casing",
+    B: "botania:blaze_block",
+    M: "tfmg:steel_mechanism",
+    G: "cyclic:gem_obsidian",
+    L: "laserio:logic_chip",
+    S: "minecraft:spawner",
+  });
+
+  e.shaped(Item.of("hostilenetworks:loot_fabricator"), ["GEG", "LCL", "MBM"], {
+    C: "tfmg:steel_casing",
+    B: "botania:blaze_block",
+    M: "tfmg:steel_mechanism",
+    G: "cyclic:gem_obsidian",
+    L: "laserio:logic_chip",
+    E: "minecraft:ender_pearl",
+  });
+
+  e.shaped(Item.of("hostilenetworks:blank_data_model"), ["RLR", "DCD", "RGR"], {
+    L: "laserio:logic_chip",
+    C: "create:clipboard",
+    G: "#forge:plates/brass",
+    D: "minecraft:diamond",
+    R: "#forge:rods/electrum",
+  });
 });
 
 function __replaceInput(e: ServerEvents.RecipeEvent) {

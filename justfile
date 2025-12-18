@@ -9,6 +9,7 @@ set dotenv-load
   pnpm run build
 
 @refresh: compile-ts
+  echo ""
   packwiz refresh
 
 @export-curseforge: refresh
@@ -36,7 +37,7 @@ set dotenv-load
 @instance-reload: refresh
   if [ -z "$INSTANCE_PATH" ]; then echo "Please set the INSTANCE_PATH environment variable in .env to the path of your instance"; exit 1; fi
 
-  echo "Reloading instance at $INSTANCE_PATH"
+  echo "\nReloading instance at $INSTANCE_PATH"
 
   rm -rf "$INSTANCE_PATH/kubejs/data"
   cp -r kubejs/data "$INSTANCE_PATH/kubejs/data"

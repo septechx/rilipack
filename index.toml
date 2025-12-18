@@ -29,6 +29,10 @@ file = "config/global_packs.toml"
 hash = "3e6b52c9499ec7fbea1de65d362c6d268fcb8eee2d8ede51c4ea6188ac19463a"
 
 [[files]]
+file = "config/hostilenetworks.cfg"
+hash = "6957b4898e4a369c1ccb1951da54e2a48c6e79a46407d16e676fa8d9e316c944"
+
+[[files]]
 file = "config/laserio-common.toml"
 hash = "e567b2c61a5676b0be5d9cbc66cb8675edcc4667849048d2f4fe229fe529e7e2"
 
@@ -152,11 +156,11 @@ hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
 
 [[files]]
 file = "kubejs/server_scripts/crafting.js"
-hash = "4260e8e92a50cc6fb4286b6e3da7456530df8225e30317c3aa8ec9e190ff551e"
+hash = "2147812108fe1b98966dec91bbf03bc51733e3efeff5a0d68546dc6d60269667"
 
 [[files]]
 file = "kubejs/server_scripts/create.js"
-hash = "36ac0c4382bf705b5b8114c1b42074052086933f829e506add0a4f902a2ad286"
+hash = "f90c31d319ef4cc5f03e9ed8c3a53e8df8faa63932610edc54782f0c762cc6a8"
 
 [[files]]
 file = "kubejs/server_scripts/immersiveengineering.js"
@@ -172,7 +176,7 @@ hash = "a5978ba733275680c5db896ad54b9918c4855bd5705453e8b3c5df281b8b7f7d"
 
 [[files]]
 file = "kubejs/server_scripts/recipe_removals.js"
-hash = "a7118a37d4124ea09e3cc50757c8b4228b88111c9b7c57c3ca60cc778ce2d777"
+hash = "1d88213c2e37cd9e04009d50b6b86b8bfc78225081e23540775131ca7a89de03"
 
 [[files]]
 file = "kubejs/server_scripts/server.js"
@@ -749,6 +753,11 @@ metafile = true
 [[files]]
 file = "mods/hexcasting.pw.toml"
 hash = "df0bc0ad5b00c9a0f2900b3f8866825c1ba8f21e55b1f8b92ff264d43c13093e"
+metafile = true
+
+[[files]]
+file = "mods/hostile-neural-networks.pw.toml"
+hash = "d8f52c6109108160c9ca80ae2d1fd03f3b27f4a3196c62ba805928b66482be5b"
 metafile = true
 
 [[files]]
