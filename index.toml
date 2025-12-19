@@ -164,7 +164,7 @@ hash = "f90c31d319ef4cc5f03e9ed8c3a53e8df8faa63932610edc54782f0c762cc6a8"
 
 [[files]]
 file = "kubejs/server_scripts/immersiveengineering.js"
-hash = "83716aa953202e34c1af6999dc87e0cbb94d978674da41c1431745837674d6ba"
+hash = "9b2b4c600829e2b162a819f4c7ab476df168ec2ef4627eef7c1db9c0bdfb8419"
 
 [[files]]
 file = "kubejs/server_scripts/loot.js"
@@ -1293,6 +1293,11 @@ metafile = true
 [[files]]
 file = "mods/torchmaster.pw.toml"
 hash = "51e82d9320effbd610ccfe4571c048c7d0f9c98362b9884faabfaa6f63aa9737"
+metafile = true
+
+[[files]]
+file = "mods/trashslot.pw.toml"
+hash = "7d82589ef537c4a134ec1c5901019052c3fd3fd1a6051500ff3f732339e801e0"
 metafile = true
 
 [[files]]

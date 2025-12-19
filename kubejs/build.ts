@@ -11,6 +11,7 @@ const config: esbuild.BuildOptions = {
   outdir: ".",
   supported: {
     "object-extensions": false,
+    "array-spread": false,
   },
 };
 

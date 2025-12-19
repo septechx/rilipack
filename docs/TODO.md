@@ -32,4 +32,3 @@
 - [ ] Silicon boule doping with glowstone
 - [x] Unify raw ore drops
 - [ ] Infinte Oil in other planets (https://github.com/george8188625/Create-Diesel-Generators/wiki/KubeJS-Compat)
-- [ ] Give free alternator in questbook when unlocking HNN
