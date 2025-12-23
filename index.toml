@@ -175,10 +175,6 @@ file = "kubejs/server_scripts/immersiveengineering.js"
 hash = "9b2b4c600829e2b162a819f4c7ab476df168ec2ef4627eef7c1db9c0bdfb8419"
 
 [[files]]
-file = "kubejs/server_scripts/loot.js"
-hash = "c3212a3a1fe450472f59d66b02bc5fba7b2ff7f4584387241c85ed66b07d8b06"
-
-[[files]]
 file = "kubejs/server_scripts/multiblocks.js"
 hash = "a5978ba733275680c5db896ad54b9918c4855bd5705453e8b3c5df281b8b7f7d"
 

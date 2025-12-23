@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import esbuild from "esbuild";
 import { Chalk } from "chalk";
 
+// Globals
 const chalk = new Chalk();
 const config: esbuild.BuildOptions = {
   entryPoints: await findSourceFiles("./src"),
@@ -13,15 +14,34 @@ const config: esbuild.BuildOptions = {
     "object-extensions": false,
     "array-spread": false,
   },
+  plugins: [
+    {
+      name: "clean-before-build",
+      setup(build) {
+        build.onStart(async () => {
+          await Promise.all([
+            fs.rm("./server_scripts/", { recursive: true }),
+            fs.rm("./client_scripts/", { recursive: true }),
+            fs.rm("./startup_scripts/", { recursive: true }),
+          ]);
+        });
+      },
+    },
+  ],
 };
+// Globals
 
-switch (process.argv[2]) {
-  case "--watch":
-    dev();
-    break;
-  default:
-    build();
-    break;
+main();
+
+function main() {
+  switch (process.argv[2]) {
+    case "--watch":
+      dev();
+      break;
+    default:
+      build();
+      break;
+  }
 }
 
 async function build() {
