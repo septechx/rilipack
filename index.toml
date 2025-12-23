@@ -155,6 +155,14 @@ file = "kubejs/data/tfmg/recipes/distillation/crude_oil_no_naphtha.json"
 hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
 
 [[files]]
+file = "kubejs/server_scripts/compat/diesel_gen_fuels.js"
+hash = "3daeb678e40090f8d7aabc7202056f4d858f3b9c48a452501ed0732ffd294611"
+
+[[files]]
+file = "kubejs/server_scripts/compat/ores.js"
+hash = "86000cfbacde12b023c96bbba52a75b224c44b3bf826d02b078573e7b69e0aae"
+
+[[files]]
 file = "kubejs/server_scripts/crafting.js"
 hash = "2147812108fe1b98966dec91bbf03bc51733e3efeff5a0d68546dc6d60269667"
 

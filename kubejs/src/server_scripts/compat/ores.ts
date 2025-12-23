@@ -1,74 +1,74 @@
 LootJS.modifiers((e) => {
-  const replaceOreDrop = __replaceOreDrop(e);
+  const replaceDrop = __replaceDrop(e);
 
-  replaceOreDrop(
+  replaceDrop(
     "occultism:silver_ore",
     "occultism:raw_silver",
     "immersiveengineering:raw_silver",
   );
-  replaceOreDrop(
+  replaceDrop(
     "occultism:silver_ore_deepslate",
     "occultism:raw_silver",
     "immersiveengineering:raw_silver",
   );
-  replaceOreDrop(
+  replaceDrop(
     "xycraft_world:aluminum_ore_stone",
     "xycraft_world:raw_aluminum",
     "immersiveengineering:raw_aluminum",
   );
-  replaceOreDrop(
+  replaceDrop(
     "xycraft_world:aluminum_ore_deepslate",
     "xycraft_world:raw_aluminum",
     "immersiveengineering:raw_aluminum",
   );
-  replaceOreDrop(
+  replaceDrop(
     "xycraft_world:aluminum_ore_kivi",
     "xycraft_world:raw_aluminum",
     "immersiveengineering:raw_aluminum",
   );
-  replaceOreDrop(
+  replaceDrop(
     "tfmg:lead_ore",
     "tfmg:raw_lead",
     "immersiveengineering:raw_lead",
   );
-  replaceOreDrop(
+  replaceDrop(
     "tfmg:deepslate_lead_ore",
     "tfmg:raw_lead",
     "immersiveengineering:raw_lead",
   );
-  replaceOreDrop(
+  replaceDrop(
     "mekanism:lead_ore",
     "mekanism:raw_lead",
     "immersiveengineering:raw_lead",
   );
-  replaceOreDrop(
+  replaceDrop(
     "mekanism:deepslate_lead_ore",
     "mekanism:raw_lead",
     "immersiveengineering:raw_lead",
   );
-  replaceOreDrop(
+  replaceDrop(
     "tfmg:nickel_ore",
     "tfmg:raw_nickel",
     "immersiveengineering:raw_nickel",
   );
-  replaceOreDrop(
+  replaceDrop(
     "tfmg:deepslate_nickel_ore",
     "tfmg:raw_nickel",
     "immersiveengineering:raw_nickel",
   );
-  replaceOreDrop(
+  replaceDrop(
     "mekanism:uranium_ore",
     "mekanism:raw_uranium",
     "immersiveengineering:raw_uranium",
   );
-  replaceOreDrop(
+  replaceDrop(
     "mekanism:deepslate_uranium_ore",
     "mekanism:raw_uranium",
     "immersiveengineering:raw_uranium",
   );
 });
 
-function __replaceOreDrop(event: LootJS.ModifiersEvent) {
+function __replaceDrop(event: LootJS.ModifiersEvent) {
   return (ore: ItemLike, from: ItemLike, to: ItemLike) => {
     event.addBlockLootModifier(ore).replaceLoot(from, to, true);
   };
