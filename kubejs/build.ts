@@ -19,7 +19,7 @@ const config: esbuild.BuildOptions = {
       name: "clean-before-build",
       setup(build) {
         build.onStart(async () => {
-          await Promise.all([
+          await Promise.allSettled([
             fs.rm("./server_scripts/", { recursive: true }),
             fs.rm("./client_scripts/", { recursive: true }),
             fs.rm("./startup_scripts/", { recursive: true }),
