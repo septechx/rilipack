@@ -17,7 +17,7 @@ StartupEvents.registry("item", (e) => {
 
   e.create("incomplete_logic_chip_wafer", "create:sequenced_assembly")
     .displayName("Incomplete Logic Chip Wafer")
-    .texture("kubejs:item/logic_chip_wafer");
+    .texture("kubejs:item/incomplete_logic_chip_wafer");
 
   e.create("logic_chip_wafer")
     .displayName("Logic Chip Wafer")

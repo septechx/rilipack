@@ -87,8 +87,16 @@ file = "defaultconfigs/solcarrot-server.toml"
 hash = "6e3d37724225fac49c6f07c27ec50a12d1f1f6553707c3621c97ffb49bcd1883"
 
 [[files]]
+file = "kubejs/assets/kubejs/textures/item/incomplete_explorers_compass.png"
+hash = "e64f6977af6f9b67b732622c9a700365fc3c3e644fd189b769cfcea5643beb9b"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/incomplete_logic_chip_wafer.png"
+hash = "3521bd4b3548f17c479ffce32e94db90db4f49abc88316b32fd1caae0c609b3a"
+
+[[files]]
 file = "kubejs/assets/kubejs/textures/item/logic_chip_wafer.png"
-hash = "f06274959f178de7e4e51431f34a132cd4ed0702fa60fc4b649c5232807ff29f"
+hash = "e4d258a5fd308c39789e7610bb1ff88b514f83628ab3bbd99ff9ebc5db6f87f3"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/item/silicon_boule.png"
@@ -204,7 +212,7 @@ hash = "2237f49a3252727ea3943ad283d314261417ad911e1f019dbb0fefd0ec6cfdab"
 
 [[files]]
 file = "kubejs/startup_scripts/items.js"
-hash = "ef28c951116e185e7b9044b7dd81f665617f33ecb684b65096fc426cdfd06248"
+hash = "f1e677a353153b85bdcf402ccc5158837e20399590d2b17d28dfd486c50bd42b"
 
 [[files]]
 file = "kubejs/startup_scripts/multiblocks.js"
