@@ -963,8 +963,8 @@ hash = "e3b7a1a0ed3353dead103974c5249ddfcab3e70a1c77fab5fd3a47b19b4ba26b"
 metafile = true
 
 [[files]]
-file = "mods/masterful-machinery.pw.toml"
-hash = "6a20b3b5a832b1e7b341465b08a6ad20f75c4799642b47d2e66d627bc936d897"
+file = "mods/masterful-machinery-fork.pw.toml"
+hash = "6701dbfed3cec242a4f29a699850225539505a9a61a0fbb0a3a652bc40d96306"
 metafile = true
 
 [[files]]
