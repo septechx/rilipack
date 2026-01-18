@@ -2,7 +2,10 @@
 /docs
 /.env
 /.env.example
-
+/.gitmodules
+/rilipackcore
+/TFMGCastingFix
+/CreateEzStockTickerBackported
 
 /kubejs/node_modules
 /kubejs/build.ts

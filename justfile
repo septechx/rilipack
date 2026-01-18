@@ -1,5 +1,23 @@
 set dotenv-load
 
+# Default recipe
+@export-curseforge: refresh
+  packwiz curseforge export
+
+[working-directory: 'rilipackcore']
+@build-rilipackcore:
+  ./gradlew build
+
+[working-directory: 'TFMGCastingFix']
+@build-tfmgcastingfix:
+  ./gradlew build
+
+[working-directory: 'CreateEzStockTickerBackported']
+@build-createezstocktickerbackported:
+  ./gradlew build
+
+@build-mods: build-rilipackcore build-tfmgcastingfix build-createezstocktickerbackported
+
 [working-directory: 'kubejs']
 @setup-ts:
   pnpm install
@@ -8,12 +26,9 @@ set dotenv-load
 @compile-ts: setup-ts
   pnpm run build
 
-@refresh: compile-ts
+@refresh: compile-ts build-mods
   echo ""
   packwiz refresh
-
-@export-curseforge: refresh
-  packwiz curseforge export
 
 @export-modrinth: refresh
   packwiz modrinth export
