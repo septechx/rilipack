@@ -6,3 +6,5 @@
 
 .zig-cache
 .env
+
+mods/*.jar

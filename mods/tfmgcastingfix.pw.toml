@@ -1,8 +1,0 @@
-name = "tfmgcastingfix"
-filename = "tfmgcastingfix-0.1.1+mc1.20.1.jar"
-side = "both"
-
-[download]
-url = "./TFMGCastingFix/build/libs/tfmgcastingfix-0.1.1+mc1.20.1.jar"
-hash-format = "sha256"
-hash = "f813c81c40ea82ae03d86aa09948a3a0b072465305a02f804786c87646692331"

@@ -1,8 +1,0 @@
-name = "rilipackcore"
-filename = "rilipackcore-0.1.0.jar"
-side = "both"
-
-[download]
-url = "./rilipackcore/build/libs/rilipackcore-0.1.0.jar"
-hash-format = "sha256"
-hash = "e3c735cf8d4b70914e0147b8fdc0ff8f53551b4d82079d2c508fe129661d14cf"

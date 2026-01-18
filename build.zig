@@ -21,18 +21,18 @@ pub fn build(b: *std.Build) void {
     const tfmgcastingfix = BuildMod.create(b, tfmgcastingfix_opts);
     const createezstotick = BuildMod.create(b, createezstotick_opts);
 
-    const rilipackcore_meta = GenerateModMeta.create(b, rilipackcore_opts);
-    const tfmgcastingfix_meta = GenerateModMeta.create(b, tfmgcastingfix_opts);
-    const createezstotick_meta = GenerateModMeta.create(b, createezstotick_opts);
+    const rilipackcore_copy = CopyModJar.create(b, rilipackcore_opts);
+    const tfmgcastingfix_copy = CopyModJar.create(b, tfmgcastingfix_opts);
+    const createezstotick_copy = CopyModJar.create(b, createezstotick_opts);
 
-    rilipackcore_meta.step.dependOn(&rilipackcore.step);
-    tfmgcastingfix_meta.step.dependOn(&tfmgcastingfix.step);
-    createezstotick_meta.step.dependOn(&createezstotick.step);
+    rilipackcore_copy.step.dependOn(&rilipackcore.step);
+    tfmgcastingfix_copy.step.dependOn(&tfmgcastingfix.step);
+    createezstotick_copy.step.dependOn(&createezstotick.step);
 
-    const mods_meta = b.step("mods-meta", "Generate mod metadata");
-    mods_meta.dependOn(&rilipackcore_meta.step);
-    mods_meta.dependOn(&tfmgcastingfix_meta.step);
-    mods_meta.dependOn(&createezstotick_meta.step);
+    const mods_copy = b.step("mods-copy", "Copy mod jars to mods folder");
+    mods_copy.dependOn(&rilipackcore_copy.step);
+    mods_copy.dependOn(&tfmgcastingfix_copy.step);
+    mods_copy.dependOn(&createezstotick_copy.step);
 
     const install_js_deps = addInstallJsDeps(b);
     const ts = addCompileTs(b);
@@ -43,7 +43,7 @@ pub fn build(b: *std.Build) void {
 
     const pw_refresh = addPwRefresh(b);
     pw_refresh.step.dependOn(kubejs);
-    pw_refresh.step.dependOn(mods_meta);
+    pw_refresh.step.dependOn(mods_copy);
 
     const refresh = b.step("refresh", "Refresh the pack");
     refresh.dependOn(&pw_refresh.step);
@@ -101,100 +101,59 @@ const BuildMod = struct {
     }
 };
 
-const GenerateModMeta = struct {
+const CopyModJar = struct {
     step: std.Build.Step,
     mod_name: []const u8,
     mod_path: std.Build.LazyPath,
-    mod_path_rel: []const u8,
     mod_version: []const u8,
-    output_path: []const u8,
+    output_dir: []const u8,
 
     pub const base_id: std.Build.Step.Id = .custom;
 
-    pub fn create(owner: *std.Build, options: ModOptions) *GenerateModMeta {
+    pub fn create(owner: *std.Build, options: ModOptions) *CopyModJar {
         const mod_path = owner.path(options.path);
 
-        const gen_meta = owner.allocator.create(GenerateModMeta) catch @panic("OOM");
-        gen_meta.* = .{
+        const copy_jar = owner.allocator.create(CopyModJar) catch @panic("OOM");
+        copy_jar.* = .{
             .step = std.Build.Step.init(.{
                 .id = base_id,
-                .name = owner.fmt("{s}-meta", .{options.name}),
+                .name = owner.fmt("{s}-copy", .{options.name}),
                 .owner = owner,
                 .makeFn = make,
             }),
             .mod_name = owner.dupe(options.name),
             .mod_path = mod_path.dupe(owner),
-            .mod_path_rel = owner.dupe(options.path),
             .mod_version = owner.dupe(options.version),
-            .output_path = owner.dupe(owner.fmt("mods/{s}.pw.toml", .{options.name})),
+            .output_dir = owner.dupe("mods"),
         };
 
-        return gen_meta;
+        return copy_jar;
     }
 
     fn make(step: *std.Build.Step, options: std.Build.Step.MakeOptions) !void {
         _ = options;
         const b = step.owner;
-        const gen_meta: *GenerateModMeta = @fieldParentPtr("step", step);
+        const copy_jar: *CopyModJar = @fieldParentPtr("step", step);
 
-        const filename = b.fmt("{s}-{s}.jar", .{ gen_meta.mod_name, gen_meta.mod_version });
-        const jar_abs_path = b.pathJoin(&[_][]const u8{
-            gen_meta.mod_path.getPath(b),
+        const filename = b.fmt("{s}-{s}.jar", .{ copy_jar.mod_name, copy_jar.mod_version });
+        const source_path = b.pathJoin(&[_][]const u8{
+            copy_jar.mod_path.getPath(b),
             "build",
             "libs",
             filename,
         });
 
-        const jar_rel_path = b.pathJoin(&[_][]const u8{
-            gen_meta.mod_path_rel,
-            "build",
-            "libs",
+        const dest_path = b.pathJoin(&[_][]const u8{
+            copy_jar.output_dir,
             filename,
         });
 
-        var file = std.fs.cwd().openFile(jar_abs_path, .{}) catch |err| {
-            return step.fail("failed to open mod jar for {s} at {s}: {s}", .{
-                gen_meta.mod_name,
-                jar_abs_path,
+        std.fs.cwd().copyFile(source_path, std.fs.cwd(), dest_path, .{}) catch |err| {
+            return step.fail("failed to copy jar from {s} to {s}: {s}", .{
+                source_path,
+                dest_path,
                 @errorName(err),
             });
-        };
-        defer file.close();
-        const data = file.readToEndAlloc(b.allocator, std.math.maxInt(usize)) catch |err| {
-            return step.fail("failed to read jar file: {s}", .{@errorName(err)});
-        };
-        defer b.allocator.free(data);
-
-        var hasher = std.crypto.hash.sha2.Sha256.init(.{});
-        hasher.update(data);
-        var digest: [32]u8 = undefined;
-        hasher.final(&digest);
-
-        var buf: [64]u8 = undefined;
-        var fbs = std.io.fixedBufferStream(&buf);
-        const writer = fbs.writer();
-        for (digest) |byte| {
-            writer.print("{x:0>2}", .{byte}) catch unreachable;
-        }
-        const hex_digest = fbs.getWritten();
-
-        const content = try std.mem.join(b.allocator, "\n", &[_][]const u8{
-            b.fmt("name = \"{s}\"", .{gen_meta.mod_name}),
-            b.fmt("filename = \"{s}\"", .{filename}),
-            "side = \"both\"",
-            "",
-            "[download]",
-            b.fmt("url = \"./{s}\"", .{jar_rel_path}),
-            "hash-format = \"sha256\"",
-            b.fmt("hash = \"{s}\"", .{hex_digest}),
-        });
-        defer b.allocator.free(content);
-
-        std.fs.cwd().writeFile(.{
-            .sub_path = gen_meta.output_path,
-            .data = content,
-        }) catch |err| {
-            return step.fail("failed to write metadata file: {s}", .{@errorName(err)});
         };
     }
 };
