@@ -1,0 +1,9 @@
+[submodule "rilipackcore"]
+	path = rilipackcore
+	url = git@github.com:septechx/rilipackcore
+[submodule "TFMGCastingFix"]
+	path = TFMGCastingFix
+	url = git@github.com:septechx/tfmgcastingfix
+[submodule "CreateEzStockTickerBackported"]
+	path = CreateEzStockTickerBackported
+	url = git@github.com:septechx/Create-Ez-Stock-Ticker-Backported
