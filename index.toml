@@ -513,11 +513,6 @@ hash = "200b30b8eeaaf2fa9e8345fcabdd80f6195b5af67926fb1e277931100e7e1eff"
 metafile = true
 
 [[files]]
-file = "mods/create-ez-stock-ticker-backported.pw.toml"
-hash = "351788adb46cef388d5028158c1c7bfdd4d1276f6142ba7b4b6bed08e74b9efa"
-metafile = true
-
-[[files]]
 file = "mods/create-factory-logistics.pw.toml"
 hash = "3dd7678b99f53fd212b81aa482c96d4baba4bc00291148c1bc2e7d5411ab6504"
 metafile = true
@@ -570,6 +565,11 @@ metafile = true
 [[files]]
 file = "mods/create.pw.toml"
 hash = "9d7971a7af2ff4a96a0e5aede76f9cf8dc978da601e2754f79d6ec8631125bb9"
+metafile = true
+
+[[files]]
+file = "mods/create_ez_stock_ticker.pw.toml"
+hash = "493cb581b947e07fdf702c42b24c7178e4f747ce4e759ec3e50a43f482e59b8c"
 metafile = true
 
 [[files]]
@@ -1199,7 +1199,7 @@ metafile = true
 
 [[files]]
 file = "mods/rilipackcore.pw.toml"
-hash = "83fb8bc6f22a888fa374dc45c0740baad5871684ef394f722661a3a3f3f1fa2b"
+hash = "c875ca64dbb6945bc3e7f3862475991ee35c5da3ef0113c25238475137bfc905"
 metafile = true
 
 [[files]]
@@ -1289,7 +1289,7 @@ metafile = true
 
 [[files]]
 file = "mods/tfmgcastingfix.pw.toml"
-hash = "974a3fda1a157eb71be9fb9e51fc89d033b3e605a918cb89f2a982b29bed369e"
+hash = "76ee110c69a1feb97d2a4c45b2f4881777c49c4aa75735fe9fc48c9ed666062d"
 metafile = true
 
 [[files]]

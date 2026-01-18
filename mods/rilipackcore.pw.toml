@@ -3,6 +3,6 @@ filename = "rilipackcore-0.1.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/septechx/rilipackcore/releases/download/0.1.0/rilipackcore-0.1.0.jar"
+url = "./rilipackcore/build/libs/rilipackcore-0.1.0.jar"
 hash-format = "sha256"
-hash = "7323613830a45aabff806d3adb827c235e02098c37299af4dd595bde0f8f7717"
+hash = "e3c735cf8d4b70914e0147b8fdc0ff8f53551b4d82079d2c508fe129661d14cf"

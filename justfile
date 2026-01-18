@@ -1,36 +1,12 @@
 set dotenv-load
 
-# Default recipe
-@export-curseforge: refresh
+@build:
+  zig build
+
+@export-curseforge: build
   packwiz curseforge export
 
-[working-directory: 'rilipackcore']
-@build-rilipackcore:
-  ./gradlew build
-
-[working-directory: 'TFMGCastingFix']
-@build-tfmgcastingfix:
-  ./gradlew build
-
-[working-directory: 'CreateEzStockTickerBackported']
-@build-createezstocktickerbackported:
-  ./gradlew build
-
-@build-mods: build-rilipackcore build-tfmgcastingfix build-createezstocktickerbackported
-
-[working-directory: 'kubejs']
-@setup-ts:
-  pnpm install
-
-[working-directory: 'kubejs']
-@compile-ts: setup-ts
-  pnpm run build
-
-@refresh: compile-ts build-mods
-  echo ""
-  packwiz refresh
-
-@export-modrinth: refresh
+@export-modrinth: build
   packwiz modrinth export
 
 [working-directory: 'kubejs']
@@ -44,12 +20,17 @@ set dotenv-load
   rm -rf *.zip
   rm -rf *.mrpack
 
-@clean: clean-ts clean-out
+@clean-mods:
+  rm -rf rilipackcore/build
+  rm -rf TFMGCastingFix/build
+  rm -rf CreateEzStockTickerBackported/build
+
+@clean: clean-ts clean-out clean-mods
 
 @add mod:
   packwiz curseforge add {{mod}}
 
-@instance-reload: refresh
+@instance-reload: build
   if [ -z "$INSTANCE_PATH" ]; then echo "Please set the INSTANCE_PATH environment variable in .env to the path of your instance"; exit 1; fi
 
   echo "\nReloading instance at $INSTANCE_PATH"

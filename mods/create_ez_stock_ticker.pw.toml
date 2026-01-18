@@ -1,0 +1,8 @@
+name = "create_ez_stock_ticker"
+filename = "create_ez_stock_ticker-1.0.6+mc1.20.1.jar"
+side = "both"
+
+[download]
+url = "./CreateEzStockTickerBackported/build/libs/create_ez_stock_ticker-1.0.6+mc1.20.1.jar"
+hash-format = "sha256"
+hash = "959ddfb94424e0e3af8c941106ffae1989294b6cc35480f4a567466bd5d4fef1"

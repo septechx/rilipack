@@ -1,4 +1,5 @@
 /justfile
+/build.zig
 /docs
 /.env
 /.env.example
@@ -6,6 +7,7 @@
 /rilipackcore
 /TFMGCastingFix
 /CreateEzStockTickerBackported
+/.zig-cache
 
 /kubejs/node_modules
 /kubejs/build.ts
