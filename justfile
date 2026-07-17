@@ -1,26 +1,26 @@
 set dotenv-load
 
-@build:
+build:
   zig build
 
-@curseforge: build
+curseforge: build
   packwiz curseforge export
 
-@modrinth: build
+modrinth: build
   packwiz modrinth export
 
 [working-directory: 'kubejs']
-@clean-ts:
+clean-ts:
   rm -rf node_modules
   rm -rf client_scripts
   rm -rf server_scripts
   rm -rf startup_scripts
 
-@clean-out:
+clean-out:
   rm -rf *.zip
   rm -rf *.mrpack
 
-@clean-mods:
+clean-mods:
   rm -rf rilipackcore/build
   rm -rf TFMGCastingFix/build
   rm -rf CreateEzStockTickerBackported/build
@@ -28,12 +28,12 @@ set dotenv-load
   rm -f mods/tfmgcastingfix-*.jar
   rm -f mods/create_ez_stock_ticker-*.jar
 
-@clean: clean-ts clean-out clean-mods
+clean: clean-ts clean-out clean-mods
 
-@add mod:
+add mod:
   packwiz curseforge add {{mod}}
 
-@reload: build
+reload: build
   if [ -z "$INSTANCE_PATH" ]; then echo "Please set the INSTANCE_PATH environment variable in .env to the path of your instance"; exit 1; fi
 
   echo "\nReloading instance at $INSTANCE_PATH"
