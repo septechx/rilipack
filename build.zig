@@ -148,7 +148,7 @@ const CopyModJar = struct {
             filename,
         });
 
-        std.fs.cwd().copyFile(source_path, std.fs.cwd(), dest_path, .{}) catch |err| {
+        std.Io.Dir.cwd().copyFile(source_path, std.Io.Dir.cwd(), dest_path, b.graph.io, .{}) catch |err| {
             return step.fail("failed to copy jar from {s} to {s}: {s}", .{
                 source_path,
                 dest_path,
