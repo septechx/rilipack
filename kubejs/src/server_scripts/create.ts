@@ -1,6 +1,5 @@
 ServerEvents.recipes((e) => {
   const c = e.recipes.create;
-  const coe = e.recipes.createoreexcavation;
   const ctfmg = e.recipes.tfmg;
 
   const sequencedAssembly = __sequencedAssembly(c);
@@ -142,16 +141,6 @@ ServerEvents.recipes((e) => {
     ],
     2,
   );
-
-  coe
-    .vein(JSON.stringify({ text: "Bauxite vein" }), "tfmg:bauxite_powder")
-    .placement(1024, 128, 64825185)
-    .biomeWhitelist("minecraft:is_overworld")
-    .id("kubejs:bauxite_vein");
-
-  coe
-    .drilling("tfmg:bauxite_powder", "kubejs:bauxite_vein", 100)
-    .id("kubejs:bauxite_vein1");
 
   ctfmg.casting(
     Fluid.of("kubejs:molten_obsidian_silicon_alloy", 144),

@@ -176,7 +176,7 @@ hash = "2147812108fe1b98966dec91bbf03bc51733e3efeff5a0d68546dc6d60269667"
 
 [[files]]
 file = "kubejs/server_scripts/create.js"
-hash = "f90c31d319ef4cc5f03e9ed8c3a53e8df8faa63932610edc54782f0c762cc6a8"
+hash = "02522222efafe2f050f19d7c8026f08104f61d6154e915f78e0ddfe48b72110f"
 
 [[files]]
 file = "kubejs/server_scripts/immersiveengineering.js"
@@ -418,6 +418,11 @@ hash = "ba1bdad41e3c9ec131330f048fc6f9bcb753ca3e9bfa1e41d60d6ca11afbc2e6"
 metafile = true
 
 [[files]]
+file = "mods/cherished-worlds.pw.toml"
+hash = "3177bf3a49a3ccb0c8608c75caa43399425bbcf4c1b2bd729af15bb12fb75d58"
+metafile = true
+
+[[files]]
 file = "mods/chipped.pw.toml"
 hash = "71a33fe41bead909b3e95643351ef8015def70d3cb083916469f492f66434b45"
 metafile = true
@@ -538,11 +543,6 @@ hash = "a991f6a55e84cbacd4b78ff07a71bfef264d8b2e25e657b6c08873a4af72772b"
 metafile = true
 
 [[files]]
-file = "mods/create-ore-excavation.pw.toml"
-hash = "51c14b5b61109fee1c9d3c04b6bd91b45a641d32435811d88dccffae0fd03d60"
-metafile = true
-
-[[files]]
 file = "mods/create-sifting.pw.toml"
 hash = "b95299df066ec3ea77285488bcf6d64ad1c4ac8f7763c22763f236700e3a4d9f"
 metafile = true
@@ -569,7 +569,7 @@ metafile = true
 
 [[files]]
 file = "mods/create_ez_stock_ticker-1.0.6+mc1.20.1.jar"
-hash = "f158f8a5b8038c2db83b38859a71a23c0aec8ffc0497938906f02675748c3f5c"
+hash = "32f4cc9f37cd6fba8bd9a9516674cfdc89f8bbca74af29f088b95683b62f1dc8"
 
 [[files]]
 file = "mods/createaddition.pw.toml"
@@ -1198,7 +1198,7 @@ metafile = true
 
 [[files]]
 file = "mods/rilipackcore-0.1.0.jar"
-hash = "eaa14f75bb88bdab72a593d69c6b15bddb4f74b162b499e3e444cc0895810133"
+hash = "e60c747e56c30d5f3325b50c7439c577da33641a947f8e7b7e665ea1cf3e6076"
 
 [[files]]
 file = "mods/searchables.pw.toml"
@@ -1287,7 +1287,7 @@ metafile = true
 
 [[files]]
 file = "mods/tfmgcastingfix-0.1.1+mc1.20.1.jar"
-hash = "dfb68afc4bf23d5548218e57a9c6d5756b2b22ff0a0aabd03a8cb482587632c7"
+hash = "ebfda1f8d977a79554dac3e0fad71965602a0e9a851d0837b4ccf4f330c2f222"
 
 [[files]]
 file = "mods/tiny-redstone.pw.toml"

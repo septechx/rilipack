@@ -32,3 +32,7 @@
 - [ ] Silicon boule doping with glowstone
 - [x] Unify raw ore drops
 - [ ] Infinte Oil in other planets (https://github.com/george8188625/Create-Diesel-Generators/wiki/KubeJS-Compat)
+- [ ] Hotbar only keepinventory
+- [ ] rollup mods into coremod
+- [ ] Make coremod not have it's own repo
+- [ ] Disable sieves
