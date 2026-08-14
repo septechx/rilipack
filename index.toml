@@ -223,6 +223,14 @@ file = "kubejs/startup_scripts/startup.js"
 hash = "069e346cee1160948bc03623bf183448537b20f6a0be1a605a1bec4874f2aab6"
 
 [[files]]
+file = "mods/ImmersiveConvergence-1.21.1-2.0.0-b41-beta.jar"
+hash = "ad1be237fd1a51ddba01ca0b530b37c2c1419a0b2c740f8258cde94ce3938215"
+
+[[files]]
+file = "mods/MCT-ImmersiveTechnology-1.21.1-3.0.0-b1100-alpha.jar"
+hash = "794baaa793a89a2c71b13d74af659117c16482c62ee83dbea0c5567b211a474d"
+
+[[files]]
 file = "mods/actually-additions.pw.toml"
 hash = "7cd6286ad0975cce954e15e6611f4d592672db45fa52603161e8c3a9e338a4d8"
 metafile = true
@@ -373,9 +381,8 @@ hash = "cf914684c4151076b726116a66f7bc81a6116655551bcce70a9e64e34e5aa308"
 metafile = true
 
 [[files]]
-file = "mods/botania.pw.toml"
-hash = "8c0f450f657efab9f25ae5bc6dfb6a43aafc0e7e411fea8df2c885593bb67fde"
-metafile = true
+file = "mods/botania-neoforge-1.21.1-455-SNAPSHOT.jar"
+hash = "d1a8dd0a1c0ec24afca7690e07a5d451f0f708b7313ce7ce8694d5d5fc6c343f"
 
 [[files]]
 file = "mods/brewin-and-chewin.pw.toml"
@@ -549,7 +556,7 @@ metafile = true
 
 [[files]]
 file = "mods/create_ez_stock_ticker-1.0.6+mc1.20.1.jar"
-hash = "32f4cc9f37cd6fba8bd9a9516674cfdc89f8bbca74af29f088b95683b62f1dc8"
+hash = "37696df98ec7b5624ebdfeb6c665a5364340b249188f7a568e8b68a9b410a88d"
 
 [[files]]
 file = "mods/createaddition.pw.toml"
@@ -727,9 +734,8 @@ hash = "9163b1128300a4a9e8a021276fb16544d7e0e7e85f776dc3f59c1a54ec22e598"
 metafile = true
 
 [[files]]
-file = "mods/hexcasting.pw.toml"
-hash = "df0bc0ad5b00c9a0f2900b3f8866825c1ba8f21e55b1f8b92ff264d43c13093e"
-metafile = true
+file = "mods/hexcasting-neoforge-1.21.1-0.12.0-devel.jar"
+hash = "39be49e63e1c5b1c1fc9eee314ccd091f1be5f449026c80e05481ad09135b0a3"
 
 [[files]]
 file = "mods/hostile-neural-networks.pw.toml"
@@ -939,11 +945,6 @@ metafile = true
 [[files]]
 file = "mods/mcjtylib.pw.toml"
 hash = "b72d3f3171eb5b38308c3960dfca5716c708f29b0ea8055a589f32528bed6db4"
-metafile = true
-
-[[files]]
-file = "mods/mct-immersive-technology.pw.toml"
-hash = "c4b44d646d485022377a7b7a1d26581e1cfb1b75abbcb720c3186ae514c84537"
 metafile = true
 
 [[files]]
@@ -1163,7 +1164,7 @@ metafile = true
 
 [[files]]
 file = "mods/rilipackcore-0.1.0.jar"
-hash = "e60c747e56c30d5f3325b50c7439c577da33641a947f8e7b7e665ea1cf3e6076"
+hash = "500f77d5428896e684984c1162c783b1642f4126f18c93a597a362d69f7d762b"
 
 [[files]]
 file = "mods/searchables.pw.toml"
@@ -1257,7 +1258,7 @@ metafile = true
 
 [[files]]
 file = "mods/tfmgcastingfix-0.1.1+mc1.20.1.jar"
-hash = "ebfda1f8d977a79554dac3e0fad71965602a0e9a851d0837b4ccf4f330c2f222"
+hash = "e0a3b8d1da44fcc39759e091f9a373f034f70e1193fea42c5a6aecd0229fbc54"
 
 [[files]]
 file = "mods/tiny-redstone.pw.toml"

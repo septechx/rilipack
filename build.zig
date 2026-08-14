@@ -16,23 +16,62 @@ pub fn build(b: *std.Build) void {
         .path = "CreateEzStockTickerBackported",
         .version = "1.0.6+mc1.20.1",
     };
+    const botania_opts = ModOptions{
+        .name = "botania-neoforge-1.21.1",
+        .path = "Botania",
+        .version = "455-SNAPSHOT",
+        .jar_dir = "NeoForge/build/libs",
+    };
+    const hexcasting_opts = ModOptions{
+        .name = "hexcasting-neoforge-1.21.1",
+        .path = "HexMod",
+        .version = "0.12.0-devel",
+        .jar_dir = "Neoforge/build/libs",
+    };
+    const mctimmersivetechnology_opts = ModOptions{
+        .name = "MCT-ImmersiveTechnology-1.21.1",
+        .path = "MCT-Immersive-Technology",
+        .version = "3.0.0-b*-alpha",
+    };
+    const immersiveconvergence_opts = ModOptions{
+        .name = "ImmersiveConvergence-1.21.1",
+        .path = "ImmersiveConvergence-21",
+        .version = "2.0.0-b*-beta",
+    };
 
     const rilipackcore = BuildMod.create(b, rilipackcore_opts);
     const tfmgcastingfix = BuildMod.create(b, tfmgcastingfix_opts);
     const createezstotick = BuildMod.create(b, createezstotick_opts);
+    const botania = BuildMod.create(b, botania_opts);
+    const hexcasting = BuildMod.create(b, hexcasting_opts);
+    const mctimmersivetechnology = BuildMod.create(b, mctimmersivetechnology_opts);
+    const immersiveconvergence = BuildMod.create(b, immersiveconvergence_opts);
 
     const rilipackcore_copy = CopyModJar.create(b, rilipackcore_opts);
     const tfmgcastingfix_copy = CopyModJar.create(b, tfmgcastingfix_opts);
     const createezstotick_copy = CopyModJar.create(b, createezstotick_opts);
+    const botania_copy = CopyModJar.create(b, botania_opts);
+    const hexcasting_copy = CopyModJar.create(b, hexcasting_opts);
+    const mctimmersivetechnology_copy = CopyModJar.create(b, mctimmersivetechnology_opts);
+    const immersiveconvergence_copy = CopyModJar.create(b, immersiveconvergence_opts);
 
     rilipackcore_copy.step.dependOn(&rilipackcore.step);
     tfmgcastingfix_copy.step.dependOn(&tfmgcastingfix.step);
     createezstotick_copy.step.dependOn(&createezstotick.step);
+    botania_copy.step.dependOn(&botania.step);
+    hexcasting_copy.step.dependOn(&hexcasting.step);
+    immersiveconvergence_copy.step.dependOn(&immersiveconvergence.step);
+    mctimmersivetechnology_copy.step.dependOn(&mctimmersivetechnology.step);
+    mctimmersivetechnology.step.dependOn(&immersiveconvergence.step);
 
     const mods_copy = b.step("mods-copy", "Copy mod jars to mods folder");
     mods_copy.dependOn(&rilipackcore_copy.step);
     mods_copy.dependOn(&tfmgcastingfix_copy.step);
     mods_copy.dependOn(&createezstotick_copy.step);
+    mods_copy.dependOn(&botania_copy.step);
+    mods_copy.dependOn(&hexcasting_copy.step);
+    mods_copy.dependOn(&mctimmersivetechnology_copy.step);
+    mods_copy.dependOn(&immersiveconvergence_copy.step);
 
     const install_js_deps = addInstallJsDeps(b);
     const ts = addCompileTs(b);
@@ -56,6 +95,7 @@ const ModOptions = struct {
     name: []const u8,
     path: []const u8,
     version: []const u8,
+    jar_dir: []const u8 = "build/libs",
 };
 
 const BuildMod = struct {
@@ -104,14 +144,18 @@ const BuildMod = struct {
 const CopyModJar = struct {
     step: std.Build.Step,
     mod_name: []const u8,
-    mod_path: std.Build.LazyPath,
-    mod_version: []const u8,
-    output_dir: []const u8,
+    version: []const u8,
+    jar_dir: []const u8,
 
     pub const base_id: std.Build.Step.Id = .custom;
 
     pub fn create(owner: *std.Build, options: ModOptions) *CopyModJar {
         const mod_path = owner.path(options.path);
+
+        const jar_dir = owner.pathJoin(&[_][]const u8{
+            mod_path.getPath(owner),
+            options.jar_dir,
+        });
 
         const copy_jar = owner.allocator.create(CopyModJar) catch @panic("OOM");
         copy_jar.* = .{
@@ -122,39 +166,190 @@ const CopyModJar = struct {
                 .makeFn = make,
             }),
             .mod_name = owner.dupe(options.name),
-            .mod_path = mod_path.dupe(owner),
-            .mod_version = owner.dupe(options.version),
-            .output_dir = owner.dupe("mods"),
+            .version = owner.dupe(options.version),
+            .jar_dir = owner.dupe(jar_dir),
         };
 
         return copy_jar;
     }
 
+    fn isExcludedJar(name: []const u8) bool {
+        const excluded_suffixes = [_][]const u8{
+            "-sources.jar",
+            "-javadoc.jar",
+            "-datagen.jar",
+            "-dev-shadow.jar",
+            "-dev.jar",
+            "-shaded.jar",
+            "-shadow.jar",
+            "-classes.jar",
+            "-test.jar",
+        };
+
+        for (excluded_suffixes) |suffix| {
+            if (std.mem.endsWith(u8, name, suffix))
+                return true;
+        }
+
+        return false;
+    }
+
+    fn getBuildNumber(version: []const u8) ?u64 {
+        // Expecting something like:
+        // 3.0.0-b1090-alpha
+        //
+        // Find "-b", then parse the digits following it.
+        const b_pos = std.mem.indexOf(u8, version, "-b") orelse return null;
+        const build_start = b_pos + 2;
+
+        var build_end = build_start;
+        while (build_end < version.len and std.ascii.isDigit(version[build_end])) {
+            build_end += 1;
+        }
+
+        if (build_end == build_start)
+            return null;
+
+        return std.fmt.parseInt(
+            u64,
+            version[build_start..build_end],
+            10,
+        ) catch null;
+    }
+
+    fn getVersionPrefix(version: []const u8) []const u8 {
+        // "3.0.0-b*-alpha" -> "3.0.0-b"
+        const wildcard = std.mem.indexOfScalar(u8, version, '*') orelse return version;
+        return version[0..wildcard];
+    }
+
+    fn getVersionSuffix(version: []const u8) []const u8 {
+        // "3.0.0-b*-alpha" -> "-alpha"
+        const wildcard = std.mem.indexOfScalar(u8, version, '*') orelse return "";
+
+        return version[wildcard + 1 ..];
+    }
+
+    fn isCandidateJar(
+        mod_name: []const u8,
+        version: []const u8,
+        name: []const u8,
+    ) ?u64 {
+        if (!std.mem.startsWith(u8, name, mod_name))
+            return null;
+
+        const rest = name[mod_name.len..];
+
+        if (rest.len == 0 or rest[0] != '-')
+            return null;
+
+        if (!std.mem.endsWith(u8, name, ".jar"))
+            return null;
+
+        if (isExcludedJar(name))
+            return null;
+
+        const version_prefix = getVersionPrefix(version);
+        const version_suffix = getVersionSuffix(version);
+
+        // Strip:
+        //   <mod-name>-
+        // leaving:
+        //   3.0.0-b1090-alpha.jar
+        const version_name = rest[1..];
+
+        if (!std.mem.startsWith(u8, version_name, version_prefix))
+            return null;
+
+        if (version_suffix.len != 0) {
+            const version_without_ext = version_name[0 .. version_name.len - ".jar".len];
+
+            if (!std.mem.endsWith(u8, version_without_ext, version_suffix))
+                return null;
+        }
+
+        // The wildcard is the build number, so parse it.
+        // Without a wildcard there is nothing to sort by — accept the match.
+        if (std.mem.indexOfScalar(u8, version, '*') == null)
+            return 0;
+        return getBuildNumber(version_name);
+    }
     fn make(step: *std.Build.Step, options: std.Build.Step.MakeOptions) !void {
-        _ = options;
         const b = step.owner;
+        const io = b.graph.io;
         const copy_jar: *CopyModJar = @fieldParentPtr("step", step);
 
-        const filename = b.fmt("{s}-{s}.jar", .{ copy_jar.mod_name, copy_jar.mod_version });
-        const source_path = b.pathJoin(&[_][]const u8{
-            copy_jar.mod_path.getPath(b),
-            "build",
-            "libs",
-            filename,
-        });
-
-        const dest_path = b.pathJoin(&[_][]const u8{
-            copy_jar.output_dir,
-            filename,
-        });
-
-        std.Io.Dir.cwd().copyFile(source_path, std.Io.Dir.cwd(), dest_path, b.graph.io, .{}) catch |err| {
-            return step.fail("failed to copy jar from {s} to {s}: {s}", .{
-                source_path,
-                dest_path,
-                @errorName(err),
-            });
+        var source_dir = std.Io.Dir.cwd().openDir(io, copy_jar.jar_dir, .{
+            .iterate = true,
+        }) catch |err| {
+            return step.fail(
+                "failed to open jar directory '{s}': {s}",
+                .{ copy_jar.jar_dir, @errorName(err) },
+            );
         };
+        defer source_dir.close(io);
+
+        var newest_name: ?[]const u8 = null;
+        var newest_build: u64 = 0;
+
+        var iter = source_dir.iterate();
+        while (try iter.next(io)) |entry| {
+            const build_number = isCandidateJar(
+                copy_jar.mod_name,
+                copy_jar.version,
+                entry.name,
+            ) orelse continue;
+
+            if (newest_name == null or build_number > newest_build) {
+                newest_name = entry.name;
+                newest_build = build_number;
+            }
+        }
+
+        const jar_name = newest_name orelse {
+            return step.fail(
+                "no matching jar found for {s} version {s} in {s}",
+                .{
+                    copy_jar.mod_name,
+                    copy_jar.version,
+                    copy_jar.jar_dir,
+                },
+            );
+        };
+
+        const output_dir_path = "mods";
+
+        std.Io.Dir.cwd().createDirPath(io, output_dir_path) catch |err| {
+            return step.fail(
+                "failed to create '{s}': {s}",
+                .{ output_dir_path, @errorName(err) },
+            );
+        };
+
+        var output_dir = std.Io.Dir.cwd().openDir(io, output_dir_path, .{
+            .iterate = true,
+        }) catch |err| {
+            return step.fail(
+                "failed to open '{s}': {s}",
+                .{ output_dir_path, @errorName(err) },
+            );
+        };
+        defer output_dir.close(io);
+
+        source_dir.copyFile(
+            jar_name,
+            output_dir,
+            jar_name,
+            io,
+            .{},
+        ) catch |err| {
+            return step.fail(
+                "failed to copy '{s}' to '{s}': {s}",
+                .{ jar_name, output_dir_path, @errorName(err) },
+            );
+        };
+
+        _ = options;
     }
 };
 

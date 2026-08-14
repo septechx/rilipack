@@ -1,6 +1,6 @@
 set dotenv-load
 
-build:
+build: clean-mods
   zig build
 
 curseforge: build
@@ -20,15 +20,19 @@ clean-out:
   rm -rf *.zip
   rm -rf *.mrpack
 
-clean-mods:
+clean-build:
   rm -rf rilipackcore/build
   rm -rf TFMGCastingFix/build
   rm -rf CreateEzStockTickerBackported/build
-  rm -f mods/rilipackcore-*.jar
-  rm -f mods/tfmgcastingfix-*.jar
-  rm -f mods/create_ez_stock_ticker-*.jar
+  rm -rf Botania/build
+  rm -rf HexMod/build
+  rm -rf ImmersiveConvergence-21/build
+  rm -rf MCT-Immersive-Technology/build
 
-clean: clean-ts clean-out clean-mods
+clean-mods:
+  rm -f mods/*.jar
+
+clean: clean-ts clean-out clean-mods clean-build
 
 add mod:
   packwiz curseforge add {{mod}}
