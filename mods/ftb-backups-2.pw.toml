@@ -1,13 +1,13 @@
 name = "FTB Backups 2"
-filename = "ftbbackups2-forge-1.20-1.0.23.jar"
+filename = "ftbbackups2-neoforge-1.21-1.0.28.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "4b100de40338247a3fbf4d1fd1846257c5338189"
+hash = "878753a228d620c51b2f7a521867cab78fa259fc"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4834403
+file-id = 5501351
 project-id = 622737

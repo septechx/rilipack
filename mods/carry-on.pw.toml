@@ -1,13 +1,13 @@
 name = "Carry On"
-filename = "carryon-forge-1.20.1-2.1.2.7.jar"
+filename = "carryon-neoforge-1.21.1-2.2.6.13.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "9999714ca3dd2f2401f0396ca44f3b27c3784c4f"
+hash = "2ceb0d9284525b6cb2a214c88cf6511cab91f601"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4882500
+file-id = 8512888
 project-id = 274259

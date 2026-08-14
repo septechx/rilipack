@@ -1,13 +1,13 @@
 name = "PAUCAL"
-filename = "paucal-0.6.0+1.20.1-forge.jar"
+filename = "paucal-0.7.0+neoforge-1.21.1.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "360a748d33bc23674399781992489e10e613e5ea"
+hash = "1cd24d54fda9916d8c1671a72dfde1789184d89a"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 5687007
+file-id = 5685024
 project-id = 597824

@@ -1,13 +1,13 @@
-name = "OctoLib"
-filename = "OctoLib-FORGE-0.5.0.1+1.20.1.jar"
+name = "ShatterLib | OctoLib"
+filename = "OctoLib-NEOFORGE-0.6.2+1.21.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "9eab28baff36942e1c924489e34753df10f40208"
+hash = "f4f66d677b104c6af7f5c0f7e3c08d8e4370ecad"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 6274623
+file-id = 8040848
 project-id = 916747

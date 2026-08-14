@@ -1,13 +1,13 @@
 name = "Create Style Sophisticated Backpacks"
-filename = "CreateSophisticatedBackpacks.zip"
+filename = "CreateSophBackpacks.zip"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "0a119ab68a6b2cb824d545c0dc2dc44b1339cc94"
+hash = "0c834a3a13d3d597b6d1273375d2bd049fc3d728"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 6157360
+file-id = 7707479
 project-id = 899330

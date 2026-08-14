@@ -1,0 +1,13 @@
+name = "Masterful Machinery Upgraded"
+filename = "MasterfulMachinery-1.21.1-0.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1d98f7a551ab9aaa087b4f8bd7486bd379e3cc64"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8630119
+project-id = 1643402

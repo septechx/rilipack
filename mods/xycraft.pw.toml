@@ -1,13 +1,13 @@
 name = "XyCraft"
-filename = "XyCraft Core-0.6.22.jar"
+filename = "xycraft_core-0.7.53-all.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "a20e038d90386b5cc92eee503de25e908718fc1c"
+hash = "c734345c9c5eff8f50551a344fff6b5f1c14c6e7"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 4788862
+file-id = 6872525
 project-id = 653786

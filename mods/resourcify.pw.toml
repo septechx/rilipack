@@ -1,13 +1,13 @@
 name = "Resourcify"
-filename = "Resourcify (1.20.1-forge)-1.7.5.jar"
+filename = "Resourcify (1.21.1-neoforge)-1.8.5.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "dcf46761218e0dd19a035323ebc17edd62d3ce24"
+hash = "a25dae7afbd3b5d9ff52159fefbc3ef65baca1aa"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 7174440
+file-id = 8432898
 project-id = 870076

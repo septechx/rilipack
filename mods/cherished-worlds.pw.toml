@@ -1,13 +1,13 @@
 name = "Cherished Worlds"
-filename = "cherishedworlds-forge-6.1.7+1.20.1.jar"
+filename = "cherishedworlds-neoforge-10.1.1+1.21.1.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "d3eb588c64691c9da83460e3b2e783401d337a34"
+hash = "aefc8c79ba62606a71f509a9b3c881f3fc4cad5c"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 5955879
+file-id = 6353949
 project-id = 308240

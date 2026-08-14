@@ -1,13 +1,13 @@
 name = "Advancement Plaques [Neo/Forge]"
-filename = "AdvancementPlaques-1.20.1-forge-1.6.9.jar"
+filename = "AdvancementPlaques-1.21.1-neoforge-1.6.8.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "6e7b01db61f9646977bd06e9d85492a667d4a8bd"
+hash = "829d33e71b30e9158d772f5963bb6020f6026d78"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 6186385
+file-id = 5905995
 project-id = 499826
