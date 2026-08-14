@@ -1,23 +1,16 @@
-- [ ] Aquamarine in sand
-- [x] Steel made with diesel or gasoline + iron and coke using custom machinery (Blast forge)
+- [ ] Aquamarine in river sand
 - [ ] Aquamarine + \<TBD fluid> in custom machine (Inverse pyrolizer) = Impure mana
 - [ ] Impure mana gate to botania
 - [ ] Blaze powder + disel = Blazing diesel
 - [ ] Blazing diesel + ender pearl = Ender eye
 - [ ] IE wires using TE coils
 - [ ] TE coils made with some kind of infusion
-- [x] Add crafting station like TC
-- [x] Structure compass using crystalized obsidian
 - [ ] Remove mek biomass
-- [x] Add central kitchen / slice and dice (?)
 - [ ] Remove tempad
 - [ ] Create: Molten Metals to replace ore processing (HEAVY CHANGES)
-- [x] Maybe add AE2 as a thermal (or mek) tier mod with Create Stock Bridge for avaritia autocrafting
 - [ ] Replace xaero's with journeymap
 - [ ] Annhealed copper (Washing hot copper ingots)
 - [ ] Shop in questbook using Create: Numismatics coins
-- [x] Add chipped
-- [x] Change dank recipes
 - [ ] Throphies for chapters
 - [ ] Globes for planets
 - [ ] Add dragon fight true ending (ensure it works with DE)
@@ -27,12 +20,12 @@
 - [ ] Custom mod for cleanroom for chip wafers
 - [ ] Make custom textures for incomplete items
 - [ ] LPG used in heat exchanger (custom multiblock) and produces Petroleum Gas
-- [x] Better logic chip line (Silicon boules)
-- [x] Casting table gated behind steel
 - [ ] Silicon boule doping with glowstone
-- [x] Unify raw ore drops
 - [ ] Infinte Oil in other planets (https://github.com/george8188625/Create-Diesel-Generators/wiki/KubeJS-Compat)
 - [ ] Hotbar only keepinventory
 - [ ] rollup mods into coremod
 - [ ] Make coremod not have it's own repo
 - [ ] Disable sieves
+- [ ] Some custom loot from fishing (maybe mystical agriculture essence), add `https://www.curseforge.com/minecraft/mc-mods/fishing-overhaul` or `https://www.curseforge.com/minecraft/mc-mods/stardew-fishing`
+- [ ] Get rid of create water wheels, remember sails are easy with industrial hempt whatever it's called from IE
+- [ ] Some important item that first needs to be crafted in a complicated and expensive way and then can be used to easierly and cheaperly make more of it
