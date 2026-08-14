@@ -29,3 +29,4 @@
 - [ ] Some custom loot from fishing (maybe mystical agriculture essence), add `https://www.curseforge.com/minecraft/mc-mods/fishing-overhaul` or `https://www.curseforge.com/minecraft/mc-mods/stardew-fishing`
 - [ ] Get rid of create water wheels, remember sails are easy with industrial hempt whatever it's called from IE
 - [ ] Some important item that first needs to be crafted in a complicated and expensive way and then can be used to easierly and cheaperly make more of it
+- [ ] Gate nether behind create
