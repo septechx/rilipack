@@ -1,0 +1,33 @@
+- https://modrinth.com/mod/ae2-crystal-science
+- https://modrinth.com/mod/advancedae
+- https://modrinth.com/mod/apothic-enchanting
+- https://modrinth.com/mod/iris-flw-compat
+- https://modrinth.com/mod/vanillabackport
+- https://modrinth.com/datapack/geophilic-backport
+- https://modrinth.com/mod/hex-ars-linker
+- https://modrinth.com/mod/almost-unified-ie
+- https://modrinth.com/mod/create-jei-compat
+- https://modrinth.com/mod/legendary-monsters
+- https://modrinth.com/mod/mekanism_extra
+- https://modrinth.com/mod/mekanism-generators
+- https://modrinth.com/mod/mekanism-tools
+- https://modrinth.com/mod/mekanism-additions
+- https://modrinth.com/mod/no-chat-restrictions
+- https://modrinth.com/mod/tinycreate
+- https://modrinth.com/mod/simulated-gauges
+- https://www.curseforge.com/minecraft/mc-mods/create-cardan-shafts
+- https://modrinth.com/mod/create-aeronautics
+- https://modrinth.com/mod/create-aeronautics-transmission-linkage
+- https://modrinth.com/mod/waystones-sable
+- https://modrinth.com/mod/northstar-redux
+- https://modrinth.com/mod/vs-hose-connectors
+- https://modrinth.com/mod/create-tracks+
+- https://modrinth.com/mod/create-aeroworks
+- https://modrinth.com/mod/create-propulsion-simulated (NOTE: Needs recipe and worldgen tweaks, nerf ion thruster and regular vector thruster, remove small engines and burners)
+- https://modrinth.com/mod/drive-by-wire-sable
+- https://modrinth.com/mod/drive-by-wiretypewriter
+- https://modrinth.com/mod/create-tweaked-controllers
+- https://modrinth.com/mod/create-aeronautics-delivery-required
+- https://modrinth.com/mod/create-aeronautics-gadgets-and-gizmos (NOTE: Remove thrusters, remove power stuff)
+- https://modrinth.com/mod/sodium-extra
+- https://modrinth.com/mod/reeses-sodium-options

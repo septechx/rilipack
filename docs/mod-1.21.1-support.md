@@ -1,0 +1,226 @@
+- [x] Actually Subtractions (NOTE: Replace with Actually Additions)
+- [x] AddonsLib
+- [x] AdvancedAE
+- [x] Advancement Plaques [Neo/Forge]
+- [x] AE2 Import Export Card
+- [x] AE2 Things [Forge] (NOTE: Skip)
+- [x] AE Additions - ExtraCells2 Fork
+- [x] Almost Unified
+- [x] Amendments
+- [x] Apotheosis
+- [x] Apothic Attributes
+- [x] Apothic Curios (NOTE: Skip)
+- [x] AppleSkin
+- [x] Applied Botanics Addon
+- [x] Applied Energistics 2
+- [x] Applied Energistics 2 Wireless Terminals
+- [x] Applied Mekanistics
+- [x] Aquaculture Delight (A Farmer's Delight Add-on)
+- [x] Aquaculture 2
+- [x] Architectury API
+- [x] Ars Énergistique
+- [x] Ars Nouveau
+- [x] Ars Ocultas
+- [x] Artifacts
+- [x] Athena
+- [x] AttributeFix
+- [x] Auroras
+- [x] AvaritiaNeo (NOTE: Replace with Re:Avaritia)
+- [x] Balm
+- [x] Better Advancements
+- [x] Better chunk loading[Forge/Fabric]
+- [x] BetterF3
+- [x] Bookshelf
+- [x] Botania (NOTE: Beta version available in github, add to build system)
+- [x] Brewin' And Chewin'
+- [x] Building Gadgets
+- [x] Caelus API
+- [x] Canary (NOTE: Replace with lithium)
+- [x] Carry On
+- [x] Cherished Worlds
+- [x] Chipped
+- [x] Cloth Config API (Fabric/Forge/NeoForge)
+- [x] CodeChicken Lib 1.8.+
+- [x] Colorful Hearts
+- [x] Comforts
+- [x] Configured
+- [x] Continuity
+- [x] Controlling
+- [x] Cooking for Blockheads
+- [x] Crafting Station: JEI Edition (NOTE: Replace with Crafting Station: J/EMI Edition Updated)
+- [x] Crafting Tweaks
+- [x] Create Crafts & Additions
+- [x] Create: Aquatic Ambitions
+- [x] Create: Central Kitchen
+- [x] Create: Compatible Storage
+- [x] Create: Connected
+- [x] Create: Diesel Generators
+- [x] Create Encased
+- [x] Create Enchantment Industry Plus
+- [x] Create: Enchantment Industry
+- [x] Create Factory Logistics
+- [x] Create: High Pressure (NOTE: Replace with Create: Synthetic Pressure)
+- [x] Create: The Factory Must Grow
+- [x] Create: Mobile Packages
+- [x] Create: Numismatics Utils
+- [x] Create
+- [x] Create Sifting
+- [x] Create: Steam 'n' Rails (NOTE: Replace with Steam 'n' Rails Neoforge)
+- [x] Create Stock Bridge
+- [x] Create: Vintage Grinder Edition
+- [x] Cucumber Library
+- [x] Cupboard
+- [x] Curios API (Forge/NeoForge)
+- [x] Cyclic
+- [x] Dank Storage
+- [ ] Delightful
+- [x] Display Delight
+- [x] Dynamic FPS
+- [x] Easy Piglins
+- [x] Easy Villagers
+- [x] Embeddium (NOTE: Replace with sodium)
+- [x] Enchantment Descriptions
+- [x] Ender IO
+- [x] Ender Storage 1.8.+
+- [x] Engineered Schematics
+- [x] Entity Culling Fabric/Forge
+- [x] [EMF] Entity Model Features [Fabric & Forge]
+- [x] [ETF] Entity Texture Features - [Fabric & Forge]
+- [x] Explorer's Compass
+- [x] Farmer's Delight
+- [x] Farming for Blockheads
+- [x] Fast Leaf Decay (NOTE: Replace with Leaves Be Gone)
+- [x] FastWorkbench
+- [x] FerriteCore ((Neo)Forge)
+- [x] FLIB
+- [x] Forgified Fabric API
+- [x] FTB Backups 2
+- [x] FTB Chunks (NeoForge)
+- [x] FTB Library (Forge)
+- [x] FTB Teams (NeoForge)
+- [x] FTB Ultimine (Forge)
+- [x] Functional Storage
+- [x] GeckoLib
+- [x] Geophilic – Vanilla Biome Overhauls
+- [x] Global Packs
+- [x] GraveStone Mod
+- [x] GuideME
+- [x] Hex Casting (NOTE: Beta version available in github, add to build system)
+- [x] Hostile Neural Networks
+- [x] Iceberg [Neo/Forge]
+- [x] ImmediatelyFast
+- [x] Immersive Aircraft [Fabric/Forge]
+- [x] Immersive Engineering
+- [x] Immersive Fixes (NOTE: Skip)
+- [x] Inline
+- [x] Inventory Sorter
+- [x] Iron Chests
+- [x] Jade 🔍
+- [x] JamLib
+- [x] JAOPCA
+- [x] Just Enough Items (JEI)
+- [x] Just Enough Breeding (JEBr)
+- [x] Just Enough Immersive Multiblocks
+- [x] Just Enough Professions (JEP)
+- [x] Just Enough Resources (JER)
+- [x] Kotlin for Forge
+- [x] KubeJS Create
+- [x] KubeJS Immersive Engineering UNOFFICIAL (NOTE: Skip)
+- [x] KubeJS
+- [x] KubeJS TFMG
+- [x] Storage Labels
+- [x] LaserIO Unofficial Extended Life (NOTE: Replace with LaserIO)
+- [x] Legendary Tooltips [Neo/Forge]
+- [x] Lithosphere
+- [x] Load My F\*\*\*ing Tags
+- [x] LootJS: KubeJS Addon
+- [x] Lootr (Forge & NeoForge)
+- [x] Macaw's Bridges
+- [x] Macaw's Doors
+- [x] Macaw's Fences and Walls
+- [x] Macaw's Paintings
+- [x] Macaw's Paths and Pavings
+- [x] Macaw's Quark
+- [x] Macaw's Stairs
+- [x] Macaw's Trapdoors
+- [x] Macaw's Windows
+- [x] Man of Many Planes
+- [x] Masterful Machinery Fork (NOTE: Replace with Masterful Machinery Upgraded)
+- [x] McJtyLib
+- [x] Immersive Technology (NOTE: Beta version available in github, add to build system)
+- [x] Mekanism
+- [x] MixinTrace Resmithed (NOTE: Replace with MixinTrace)
+- [x] Mob Grinding Utils
+- [x] Model Gap Fix
+- [x] ModernFix
+- [x] Modonomicon
+- [x] Modular Routers
+- [x] Mouse Tweaks
+- [x] Nature's Compass
+- [x] Neat
+- [x] No Chat Reports
+- [x] Create: Numismatics
+- [x] Observable
+- [x] Occultism
+- [x] OctoLib
+- [x] Oculus (NOTE: Replace with iris)
+- [x] Ok Zoomer - It's Zoom!
+- [x] OpenBlocks Elevator
+- [x] Packet Fixer
+- [x] Patchouli
+- [x] PAUCAL
+- [x] Placebo
+- [x] PolyLib
+- [x] Polymorphic Energistics
+- [x] Polymorph (Fabric/Forge/Quilt)
+- [x] Prism [Neo/Forge]
+- [x] ProbeJS
+- [x] project-1029454 (NOTE: MemoryLeakFix, Skip)
+- [x] Quark Oddities
+- [x] Quark
+- [x] Rain Shield
+- [x] Relics
+- [x] Resourceful Config
+- [x] Resourceful Lib
+- [x] Resourcify
+- [x] RFTools Base
+- [x] RFTools Builder
+- [x] RFTools Control
+- [x] RFTools Dimensions
+- [x] RFTools Power
+- [x] RFTools Storage
+- [x] RFTools Utility
+- [x] Rhino
+- [x] RightClickHarvest
+- [x] Searchables
+- [x] Moonlight Lib
+- [x] Simple Magnets
+- [x] Sinytra Connector
+- [x] Skin Layers 3D
+- [x] Create Slice & Dice
+- [x] SmartBrainLib (Forge/Fabric/Quilt)
+- [x] Some Assembly Required
+- [x] Sophisticated Backpacks
+- [x] Sophisticated Core
+- [x] spark
+- [x] Spice of Life: Carrot Edition
+- [x] Structure Essentials[Forge/Fabric]
+- [x] SuperMartijn642's Config Lib
+- [x] SuperMartijn642's Core Lib
+- [x] Supplementaries
+- [x] Tempad
+- [x] Tiny Redstone
+- [x] Titanium
+- [x] Torchmaster
+- [x] TrashSlot
+- [x] Waystones
+- [x] Xaero's Minimap
+- [x] Xaero's World Map
+- [x] XNet
+- [x] XP Tome
+- [x] XyCraft: Machines
+- [x] XyCraft: Override
+- [x] XyCraft
+- [x] XyCraft: World
+- [x] YUNG's API (Forge/NeoForge)
+- [x] Zeta
