@@ -1,0 +1,13 @@
+name = "Create: Easy Stock Ticker"
+filename = "create_ez_stock_ticker-1.0.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ca229080faeba4430a75d3fe2fd327af83decc2a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7287325
+project-id = 1340326

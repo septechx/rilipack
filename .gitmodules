@@ -4,9 +4,6 @@
 [submodule "TFMGCastingFix"]
 	path = TFMGCastingFix
 	url = git@github.com:septechx/tfmgcastingfix
-[submodule "CreateEzStockTickerBackported"]
-	path = CreateEzStockTickerBackported
-	url = git@github.com:septechx/Create-Ez-Stock-Ticker-Backported
 [submodule "Botania"]
 	path = Botania
 	url = https://github.com/VazkiiMods/Botania.git

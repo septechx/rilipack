@@ -11,11 +11,6 @@ pub fn build(b: *std.Build) void {
         .path = "TFMGCastingFix",
         .version = "0.1.1+mc1.20.1",
     };
-    const createezstotick_opts = ModOptions{
-        .name = "create_ez_stock_ticker",
-        .path = "CreateEzStockTickerBackported",
-        .version = "1.0.6+mc1.20.1",
-    };
     const botania_opts = ModOptions{
         .name = "botania-neoforge-1.21.1",
         .path = "Botania",
@@ -41,7 +36,6 @@ pub fn build(b: *std.Build) void {
 
     const rilipackcore = BuildMod.create(b, rilipackcore_opts);
     const tfmgcastingfix = BuildMod.create(b, tfmgcastingfix_opts);
-    const createezstotick = BuildMod.create(b, createezstotick_opts);
     const botania = BuildMod.create(b, botania_opts);
     const hexcasting = BuildMod.create(b, hexcasting_opts);
     const mctimmersivetechnology = BuildMod.create(b, mctimmersivetechnology_opts);
@@ -49,7 +43,6 @@ pub fn build(b: *std.Build) void {
 
     const rilipackcore_copy = CopyModJar.create(b, rilipackcore_opts);
     const tfmgcastingfix_copy = CopyModJar.create(b, tfmgcastingfix_opts);
-    const createezstotick_copy = CopyModJar.create(b, createezstotick_opts);
     const botania_copy = CopyModJar.create(b, botania_opts);
     const hexcasting_copy = CopyModJar.create(b, hexcasting_opts);
     const mctimmersivetechnology_copy = CopyModJar.create(b, mctimmersivetechnology_opts);
@@ -57,7 +50,6 @@ pub fn build(b: *std.Build) void {
 
     rilipackcore_copy.step.dependOn(&rilipackcore.step);
     tfmgcastingfix_copy.step.dependOn(&tfmgcastingfix.step);
-    createezstotick_copy.step.dependOn(&createezstotick.step);
     botania_copy.step.dependOn(&botania.step);
     hexcasting_copy.step.dependOn(&hexcasting.step);
     immersiveconvergence_copy.step.dependOn(&immersiveconvergence.step);
@@ -67,7 +59,6 @@ pub fn build(b: *std.Build) void {
     const mods_copy = b.step("mods-copy", "Copy mod jars to mods folder");
     mods_copy.dependOn(&rilipackcore_copy.step);
     mods_copy.dependOn(&tfmgcastingfix_copy.step);
-    mods_copy.dependOn(&createezstotick_copy.step);
     mods_copy.dependOn(&botania_copy.step);
     mods_copy.dependOn(&hexcasting_copy.step);
     mods_copy.dependOn(&mctimmersivetechnology_copy.step);
@@ -289,7 +280,7 @@ const CopyModJar = struct {
         };
         defer source_dir.close(io);
 
-        var newest_name: ?[]const u8 = null;
+        var newest_name: ?[]u8 = null;
         var newest_build: u64 = 0;
 
         var iter = source_dir.iterate();
@@ -301,7 +292,11 @@ const CopyModJar = struct {
             ) orelse continue;
 
             if (newest_name == null or build_number > newest_build) {
-                newest_name = entry.name;
+                if (newest_name) |old| b.allocator.free(old);
+                newest_name = b.allocator.dupe(
+                    u8,
+                    entry.name,
+                ) catch return step.fail("OOM duplicating jar name", .{});
                 newest_build = build_number;
             }
         }
