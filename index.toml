@@ -131,6 +131,14 @@ file = "kubejs/assets/mm/models/block/blast_forge_vent.json"
 hash = "47a64508c4a406b5af80be001213aa03c5526f23699109b774e687532c64c755"
 
 [[files]]
+file = "kubejs/client_scripts/client.js"
+hash = "db302df2bf02d2f814c9286095e38ab7e6042a9da5ae8a3a67b013197776ba89"
+
+[[files]]
+file = "kubejs/client_scripts/tooltips.js"
+hash = "885de174735dc2cce059dafc155734fd9fe4cbbf2c546683b35ef45496b971d0"
+
+[[files]]
 file = "kubejs/config/client.properties"
 hash = "ff619f4174995be01de2787687c39c6759582d12f1880af3810fdb2b54e18030"
 
@@ -153,6 +161,66 @@ hash = "e61f5fc542953ff6bed5320ebd3da2fbbc8d7e78fd2172918396b4425154ef1c"
 [[files]]
 file = "kubejs/data/tfmg/recipes/distillation/crude_oil_no_naphtha.json"
 hash = "5e5b93678d5f2845d251e621912518c2cd9b1096140fd370b8cd89786e73b54a"
+
+[[files]]
+file = "kubejs/server_scripts/compat/diesel_gen_fuels.js"
+hash = "3daeb678e40090f8d7aabc7202056f4d858f3b9c48a452501ed0732ffd294611"
+
+[[files]]
+file = "kubejs/server_scripts/compat/ores.js"
+hash = "86000cfbacde12b023c96bbba52a75b224c44b3bf826d02b078573e7b69e0aae"
+
+[[files]]
+file = "kubejs/server_scripts/crafting.js"
+hash = "2147812108fe1b98966dec91bbf03bc51733e3efeff5a0d68546dc6d60269667"
+
+[[files]]
+file = "kubejs/server_scripts/create.js"
+hash = "02522222efafe2f050f19d7c8026f08104f61d6154e915f78e0ddfe48b72110f"
+
+[[files]]
+file = "kubejs/server_scripts/immersiveengineering.js"
+hash = "9b2b4c600829e2b162a819f4c7ab476df168ec2ef4627eef7c1db9c0bdfb8419"
+
+[[files]]
+file = "kubejs/server_scripts/multiblocks.js"
+hash = "a5978ba733275680c5db896ad54b9918c4855bd5705453e8b3c5df281b8b7f7d"
+
+[[files]]
+file = "kubejs/server_scripts/recipe_removals.js"
+hash = "1d88213c2e37cd9e04009d50b6b86b8bfc78225081e23540775131ca7a89de03"
+
+[[files]]
+file = "kubejs/server_scripts/server.js"
+hash = "fd12f1cbffa5417cf4f1c6c46489611ba536481c9f64978ea5487a2b127deb6f"
+
+[[files]]
+file = "kubejs/server_scripts/tags.js"
+hash = "a957cfa083f3ff7427195a1130fc8d1cdeba55f8d64041d3e1b79fb045842510"
+
+[[files]]
+file = "kubejs/server_scripts/tweaks/elytra.js"
+hash = "64f2abd18af6ffe4387ff7905ee3fb894e58a7cc6c4356f0e27a9778009ca3c6"
+
+[[files]]
+file = "kubejs/server_scripts/xycraft.js"
+hash = "39e9423cf44d4db034cb1dbbb2eae80d37cd7a383b860662b4d06312b109b2e5"
+
+[[files]]
+file = "kubejs/startup_scripts/fluids.js"
+hash = "2237f49a3252727ea3943ad283d314261417ad911e1f019dbb0fefd0ec6cfdab"
+
+[[files]]
+file = "kubejs/startup_scripts/items.js"
+hash = "f1e677a353153b85bdcf402ccc5158837e20399590d2b17d28dfd486c50bd42b"
+
+[[files]]
+file = "kubejs/startup_scripts/multiblocks.js"
+hash = "17639ec1954f2c7528b7b398ad72081a72d1a4fda3510b4cb7676604f22f6d9f"
+
+[[files]]
+file = "kubejs/startup_scripts/startup.js"
+hash = "069e346cee1160948bc03623bf183448537b20f6a0be1a605a1bec4874f2aab6"
 
 [[files]]
 file = "mods/actually-subtractions.pw.toml"
@@ -503,6 +571,10 @@ metafile = true
 file = "mods/create.pw.toml"
 hash = "9d7971a7af2ff4a96a0e5aede76f9cf8dc978da601e2754f79d6ec8631125bb9"
 metafile = true
+
+[[files]]
+file = "mods/create_ez_stock_ticker-1.0.6+mc1.20.1.jar"
+hash = "cbdc00ef606a000dff323cdfa4f9bb610b7585d1a54316f0f77c468c6bdcc1a4"
 
 [[files]]
 file = "mods/createaddition.pw.toml"
@@ -1185,6 +1257,10 @@ hash = "fe6078ab5a7188a927df85ac72a8226af625dabcc9325335352ff8d6b5a1ed09"
 metafile = true
 
 [[files]]
+file = "mods/rilipackcore-0.1.0.jar"
+hash = "0125d73af5e541a93e85584b3d372d6c1cff0fa5833e75108ddfa63213099357"
+
+[[files]]
 file = "mods/searchables.pw.toml"
 hash = "2cb8dd9a3944a6430b49916a4fe1b6cf0bd7efd907054f8e679a02717149404f"
 metafile = true
@@ -1268,6 +1344,10 @@ metafile = true
 file = "mods/tempad.pw.toml"
 hash = "0296af235a0b02fcfd97237181f1e3723596f3ed15a22b017cc905cea3fd0975"
 metafile = true
+
+[[files]]
+file = "mods/tfmgcastingfix-0.1.1+mc1.20.1.jar"
+hash = "b6b16bf34bd72f5160f8afcdd3557e599f83cddd6de24e60cc357938b98504cb"
 
 [[files]]
 file = "mods/tiny-redstone.pw.toml"
