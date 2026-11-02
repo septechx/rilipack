@@ -4,7 +4,6 @@
 # Exclude exported Modrinth modpacks
 *.mrpack
 
-.zig-cache
 .env
 
 mods/*.jar

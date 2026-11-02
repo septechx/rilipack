@@ -573,10 +573,6 @@ hash = "9d7971a7af2ff4a96a0e5aede76f9cf8dc978da601e2754f79d6ec8631125bb9"
 metafile = true
 
 [[files]]
-file = "mods/create_ez_stock_ticker-1.0.6+mc1.20.1.jar"
-hash = "cbdc00ef606a000dff323cdfa4f9bb610b7585d1a54316f0f77c468c6bdcc1a4"
-
-[[files]]
 file = "mods/createaddition.pw.toml"
 hash = "8a5f33277995fccd2be6793c4fba1b5d657983be32f0b47e4afab4eac70b8ab8"
 metafile = true
@@ -1257,8 +1253,8 @@ hash = "fe6078ab5a7188a927df85ac72a8226af625dabcc9325335352ff8d6b5a1ed09"
 metafile = true
 
 [[files]]
-file = "mods/rilipackcore-0.1.0.jar"
-hash = "0125d73af5e541a93e85584b3d372d6c1cff0fa5833e75108ddfa63213099357"
+file = "mods/rilipackcore-0.2.0.jar"
+hash = "984093c8178c037aed67c002e59a5e3ec65625c52ad2164b440955e46b9158be"
 
 [[files]]
 file = "mods/searchables.pw.toml"
@@ -1344,10 +1340,6 @@ metafile = true
 file = "mods/tempad.pw.toml"
 hash = "0296af235a0b02fcfd97237181f1e3723596f3ed15a22b017cc905cea3fd0975"
 metafile = true
-
-[[files]]
-file = "mods/tfmgcastingfix-0.1.1+mc1.20.1.jar"
-hash = "b6b16bf34bd72f5160f8afcdd3557e599f83cddd6de24e60cc357938b98504cb"
 
 [[files]]
 file = "mods/tiny-redstone.pw.toml"

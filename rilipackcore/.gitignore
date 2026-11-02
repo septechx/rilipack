@@ -1,0 +1,10 @@
+/.gradle
+/build
+/run
+/run-data
+/.idea
+/.settings
+/bin
+/.project
+/.classpath
+/.factorypath

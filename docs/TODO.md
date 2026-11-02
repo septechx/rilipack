@@ -23,8 +23,8 @@
 - [ ] Silicon boule doping with glowstone
 - [ ] Infinte Oil in other planets (https://github.com/george8188625/Create-Diesel-Generators/wiki/KubeJS-Compat)
 - [ ] Hotbar only keepinventory
-- [ ] rollup mods into coremod
-- [ ] Make coremod not have it's own repo
+- [x] rollup mods into coremod
+- [x] Make coremod not have it's own repo
 - [ ] Disable sieves
 - [ ] Add `https://www.curseforge.com/minecraft/mc-mods/fishing-overhaul` or `https://www.curseforge.com/minecraft/mc-mods/stardew-fishing`
 - [ ] Get rid of create water wheels, remember sails are easy with industrial hempt whatever it's called from IE

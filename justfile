@@ -1,7 +1,19 @@
 set dotenv-load
 
-build:
-  zig build
+mod_version := `sed -n 's/^mod_version=//p' rilipackcore/gradle.properties`
+
+build: kubejs mod refresh
+
+kubejs:
+  pnpm -C kubejs install
+  pnpm -C kubejs run build
+
+mod:
+  ./rilipackcore/gradlew --no-daemon -p rilipackcore build
+  cp "rilipackcore/build/libs/rilipackcore-{{mod_version}}.jar" mods/
+
+refresh:
+  packwiz refresh
 
 curseforge: build
   packwiz curseforge export
@@ -22,11 +34,7 @@ clean-out:
 
 clean-mods:
   rm -rf rilipackcore/build
-  rm -rf TFMGCastingFix/build
-  rm -rf CreateEzStockTickerBackported/build
   rm -f mods/rilipackcore-*.jar
-  rm -f mods/tfmgcastingfix-*.jar
-  rm -f mods/create_ez_stock_ticker-*.jar
 
 clean: clean-ts clean-out clean-mods
 
