@@ -4,7 +4,6 @@ import com.siesque.rilipackcore.multiblock.part.IMultiPart;
 import com.siesque.rilipackcore.multiblock.pattern.BlockPattern;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,8 +25,6 @@ public interface IMultiblockController {
 
     List<Component> getDisplayText();
 
-    void setDisplayText(List<Component> text);
-
     Collection<IMultiPart> getParts();
 
     List<IEnergyStorage> getEnergyContainers();
@@ -39,8 +36,4 @@ public interface IMultiblockController {
     BlockEntity getBlockEntity();
 
     void tick();
-
-    void save(CompoundTag tag);
-
-    void load(CompoundTag tag);
 }

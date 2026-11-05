@@ -19,7 +19,6 @@ import lombok.Getter;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -32,7 +31,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class EnergyInputHatchEntity extends BlockEntity implements IMultiPart, IAsyncAutoSyncBlockEntity, IAutoPersistBlockEntity, IManaged, IRPCBlockEntity {
+public class EnergyInputHatchEntity extends BlockEntity
+        implements IMultiPart, IAsyncAutoSyncBlockEntity, IAutoPersistBlockEntity, IManaged, IRPCBlockEntity {
     public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(EnergyInputHatchEntity.class);
     @Getter
     protected final FieldManagedStorage syncStorage = new FieldManagedStorage(this);
@@ -41,16 +41,13 @@ public class EnergyInputHatchEntity extends BlockEntity implements IMultiPart, I
     @DescSynced
     @Getter
     private final EnergyStorage energyStorage;
-    private final LazyOptional<IEnergyStorage> energyCapability;
+    private LazyOptional<IEnergyStorage> energyCapability = LazyOptional.empty();
 
     public EnergyInputHatchEntity(BlockPos pos, BlockState state) {
         super(RilipackcoreBlockEntities.ENERGY_INPUT_HATCH.get(), pos, state);
         this.energyStorage = new EnergyStorage(100_000, 512).setOnChanged(this::setChanged);
         this.energyCapability = LazyOptional.of(() -> energyStorage);
         this.syncStorage.init();
-    }
-
-    public static void tick(Level level, BlockPos pos, BlockState state, EnergyInputHatchEntity entity) {
     }
 
     @Override
@@ -85,6 +82,12 @@ public class EnergyInputHatchEntity extends BlockEntity implements IMultiPart, I
         energyCapability.invalidate();
     }
 
+    @Override
+    public void reviveCaps() {
+        super.reviveCaps();
+        energyCapability = LazyOptional.of(() -> energyStorage);
+    }
+
     // IMultiPart implementation
     @Override
     public BlockEntity self() {
@@ -93,7 +96,7 @@ public class EnergyInputHatchEntity extends BlockEntity implements IMultiPart, I
 
     @Override
     public PartAbility[] getAbilities() {
-        return new PartAbility[]{PartAbility.ENERGY_INPUT};
+        return new PartAbility[] { PartAbility.ENERGY_INPUT };
     }
 
     @Override

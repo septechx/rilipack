@@ -37,7 +37,10 @@ public class JadePlugin implements IWailaPlugin {
                 CompoundTag tag = accessor.getServerData().getCompound("DisplayText");
                 int count = tag.getInt("Count");
                 for (int i = 0; i < count; i++) {
-                    tooltip.add(Component.Serializer.fromJson(tag.getString("Text" + i)));
+                    Component text = Component.Serializer.fromJson(tag.getString("Text" + i));
+                    if (text != null) {
+                        tooltip.add(text);
+                    }
                 }
             }
         }
@@ -68,18 +71,22 @@ public class JadePlugin implements IWailaPlugin {
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
             if (accessor.getServerData().contains("Energy")) {
                 CompoundTag energyTag = accessor.getServerData().getCompound("Energy");
-                long stored = energyTag.getLong("Stored");
-                long capacity = energyTag.getLong("Capacity");
+                int stored = energyTag.getInt("Stored");
+                int capacity = energyTag.getInt("Capacity");
                 tooltip.add(Component.translatable("rilipackcore.jade.energy", stored, capacity));
             }
         }
 
         @Override
         public void appendServerData(CompoundTag data, BlockAccessor accessor) {
+            if (accessor.getBlockEntity() == null) {
+                return;
+            }
+
             accessor.getBlockEntity().getCapability(ForgeCapabilities.ENERGY).ifPresent(energy -> {
                 CompoundTag energyTag = new CompoundTag();
-                energyTag.putLong("Stored", energy.getEnergyStored());
-                energyTag.putLong("Capacity", energy.getMaxEnergyStored());
+                energyTag.putInt("Stored", energy.getEnergyStored());
+                energyTag.putInt("Capacity", energy.getMaxEnergyStored());
                 data.put("Energy", energyTag);
             });
         }

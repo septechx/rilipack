@@ -8,19 +8,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.function.Supplier;
-
 public final class Predicates {
     public static TraceabilityPredicate controller(IMultiblockController controller) {
         return new TraceabilityPredicate() {
             @Override
             public boolean test(IBlockWorldState state) {
                 return controller != null && state.getBlockEntity() == controller.getBlockEntity();
-            }
-
-            @Override
-            public boolean isAny() {
-                return true;
             }
         };
     }
@@ -30,13 +23,25 @@ public final class Predicates {
             @Override
             public boolean test(IBlockWorldState state) {
                 Block testBlock = state.getBlockState().getBlock();
+                boolean valid = false;
                 for (BlockState validState : states) {
                     if (testBlock == validState.getBlock()) {
-                        state.getMatchContext().getOrCreate("filterBlock", () -> testBlock);
-                        return true;
+                        valid = true;
+                        break;
                     }
                 }
-                return false;
+                if (!valid) {
+                    return false;
+                }
+
+                MatchContext context = state.getMatchContext();
+                Block existingFilter = context.get("filterBlock", Block.class);
+                if (existingFilter != null && existingFilter != testBlock) {
+                    return false;
+                }
+
+                context.put("filterBlock", testBlock);
+                return true;
             }
         };
     }
@@ -102,16 +107,11 @@ public final class Predicates {
                 state.hasProperty(DoorBlock.OPEN);
     }
 
-    public static TraceabilityPredicate custom(BlockStatePredicate predicate, Supplier<BlockInfo[]> preview) {
+    public static TraceabilityPredicate custom(BlockStatePredicate predicate) {
         return new TraceabilityPredicate() {
             @Override
             public boolean test(IBlockWorldState state) {
                 return predicate.test(state);
-            }
-
-            @Override
-            public Supplier<BlockInfo[]> getPreview() {
-                return preview;
             }
         };
     }

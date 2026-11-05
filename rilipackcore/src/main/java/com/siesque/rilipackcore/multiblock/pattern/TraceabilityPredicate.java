@@ -1,14 +1,7 @@
 package com.siesque.rilipackcore.multiblock.pattern;
 
-import java.util.function.Supplier;
-
 public abstract class TraceabilityPredicate {
     protected final MatchContext matchContext;
-    protected boolean isAny = false;
-    protected boolean addCache = false;
-    protected int minGlobalLimit = 0;
-    protected int maxGlobalLimit = Integer.MAX_VALUE;
-    protected Supplier<BlockInfo[]> preview;
 
     public TraceabilityPredicate() {
         this(new MatchContext());
@@ -28,30 +21,8 @@ public abstract class TraceabilityPredicate {
         return new AndPredicate(this, other);
     }
 
-    public TraceabilityPredicate setMinGlobalLimited(int min) {
-        this.minGlobalLimit = min;
-        return this;
-    }
-
-    public TraceabilityPredicate setMaxGlobalLimited(int max) {
-        this.maxGlobalLimit = max;
-        return this;
-    }
-
-    public boolean isAny() {
-        return isAny;
-    }
-
-    public boolean addCache() {
-        return addCache;
-    }
-
     public MatchContext getMatchContext() {
         return matchContext;
-    }
-
-    public Supplier<BlockInfo[]> getPreview() {
-        return preview;
     }
 
     private static class OrPredicate extends TraceabilityPredicate {
@@ -68,22 +39,6 @@ public abstract class TraceabilityPredicate {
         public boolean test(IBlockWorldState state) {
             return left.test(state) || right.test(state);
         }
-
-        @Override
-        public TraceabilityPredicate setMinGlobalLimited(int min) {
-            super.setMinGlobalLimited(min);
-            left.setMinGlobalLimited(min);
-            right.setMinGlobalLimited(min);
-            return this;
-        }
-
-        @Override
-        public TraceabilityPredicate setMaxGlobalLimited(int max) {
-            super.setMaxGlobalLimited(max);
-            left.setMaxGlobalLimited(max);
-            right.setMaxGlobalLimited(max);
-            return this;
-        }
     }
 
     private static class AndPredicate extends TraceabilityPredicate {
@@ -99,22 +54,6 @@ public abstract class TraceabilityPredicate {
         @Override
         public boolean test(IBlockWorldState state) {
             return left.test(state) && right.test(state);
-        }
-
-        @Override
-        public TraceabilityPredicate setMinGlobalLimited(int min) {
-            super.setMinGlobalLimited(min);
-            left.setMinGlobalLimited(min);
-            right.setMinGlobalLimited(min);
-            return this;
-        }
-
-        @Override
-        public TraceabilityPredicate setMaxGlobalLimited(int max) {
-            super.setMaxGlobalLimited(max);
-            left.setMaxGlobalLimited(max);
-            right.setMaxGlobalLimited(max);
-            return this;
         }
     }
 }

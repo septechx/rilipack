@@ -17,7 +17,6 @@ import com.siesque.rilipackcore.multiblock.part.IMultiPart;
 import lombok.Getter;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,8 +26,10 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class CleanroomControllerEntity extends BlockEntity implements IMultiPart, IAsyncAutoSyncBlockEntity, IAutoPersistBlockEntity, IManaged, IRPCBlockEntity {
-    public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(CleanroomControllerEntity.class);
+public class CleanroomControllerEntity extends BlockEntity
+        implements IMultiPart, IAsyncAutoSyncBlockEntity, IAutoPersistBlockEntity, IManaged, IRPCBlockEntity {
+    public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
+            CleanroomControllerEntity.class);
     @Getter
     protected final FieldManagedStorage syncStorage = new FieldManagedStorage(this);
 
@@ -89,27 +90,7 @@ public class CleanroomControllerEntity extends BlockEntity implements IMultiPart
         return worldPosition;
     }
 
-    public boolean isFormed() {
-        return controller != null && controller.isFormed();
-    }
-
-    public Direction getFrontFacing() {
-        return controller != null ? controller.getFrontFacing() : Direction.NORTH;
-    }
-
     public List<Component> getDisplayText() {
         return controller != null ? controller.getDisplayText() : List.of();
-    }
-
-    public void onStructureFormed() {
-        if (controller != null) {
-            controller.onStructureFormed();
-        }
-    }
-
-    public void onStructureInvalid() {
-        if (controller != null) {
-            controller.onStructureInvalid();
-        }
     }
 }

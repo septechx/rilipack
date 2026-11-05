@@ -1,7 +1,6 @@
 package com.siesque.rilipackcore.multiblock.controller;
 
 import com.lowdragmc.lowdraglib.syncdata.IManaged;
-import com.lowdragmc.lowdraglib.syncdata.IManagedStorage;
 import com.lowdragmc.lowdraglib.syncdata.annotation.DescSynced;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import com.lowdragmc.lowdraglib.syncdata.field.FieldManagedStorage;
@@ -15,7 +14,6 @@ import lombok.Getter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,7 +24,8 @@ import net.minecraftforge.energy.IEnergyStorage;
 import java.util.*;
 
 public abstract class BaseMultiblockController implements IMultiblockController, IManaged {
-    public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(BaseMultiblockController.class);
+    public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(
+            BaseMultiblockController.class);
     @Getter
     protected final FieldManagedStorage syncStorage = new FieldManagedStorage(this);
 
@@ -42,9 +41,13 @@ public abstract class BaseMultiblockController implements IMultiblockController,
 
     protected static final int VALIDATION_INTERVAL = 20;
     protected final BlockEntity blockEntity;
-    @Persisted @DescSynced @Getter
+    @Persisted
+    @DescSynced
+    @Getter
     protected boolean isFormed = false;
-    @Persisted @DescSynced @Getter
+    @Persisted
+    @DescSynced
+    @Getter
     protected Direction frontFacing;
     @Getter
     protected MultiblockState multiblockState;
@@ -54,7 +57,6 @@ public abstract class BaseMultiblockController implements IMultiblockController,
     protected List<IEnergyStorage> energyContainers;
     @Getter
     protected Collection<IMultiPart> parts;
-    protected List<Component> displayText;
 
     public BaseMultiblockController(BlockEntity blockEntity) {
         this.blockEntity = blockEntity;
@@ -65,9 +67,10 @@ public abstract class BaseMultiblockController implements IMultiblockController,
     @Override
     public void tick() {
         Level level = getLevel();
-        if (level == null || level.isClientSide) return;
+        if (level == null || level.isClientSide)
+            return;
 
-        if (isFormed && parts == null) {
+        if (multiblockState == null) {
             validateStructure();
             validationTick = 0;
         } else {
@@ -84,18 +87,17 @@ public abstract class BaseMultiblockController implements IMultiblockController,
         MultiblockState newState = pattern.match(getLevel(), getPos(), frontFacing, Direction.NORTH, false);
 
         if (newState.formed()) {
+            boolean wasFormed = this.isFormed;
             this.multiblockState = newState;
-            if (!isFormed || parts == null) {
-                onStructureFormed();
-            }
-            if (!this.isFormed) {
-                this.isFormed = true;
+            this.isFormed = true;
+            if (!wasFormed) {
                 onChanged();
             }
+            onStructureFormed();
         } else {
             if (isFormed) {
-                onStructureInvalid();
                 this.isFormed = false;
+                onStructureInvalid();
                 onChanged();
             }
             this.multiblockState = newState;
@@ -104,26 +106,25 @@ public abstract class BaseMultiblockController implements IMultiblockController,
 
     @Override
     public void onStructureFormed() {
-        this.parts = multiblockState.getParts() != null ? new ArrayList<>(multiblockState.getParts()) : Collections.emptyList();
+        this.parts = multiblockState.getParts() != null ? new ArrayList<>(multiblockState.getParts())
+                : Collections.emptyList();
         initializeAbilities();
-        updateDisplayText();
-        syncToClient();
     }
 
     @Override
     public void onStructureInvalid() {
         this.parts = null;
         this.energyContainers = null;
-        updateDisplayText();
-        syncToClient();
     }
 
     protected void initializeAbilities() {
         List<IEnergyStorage> containers = new ArrayList<>();
-        if (parts == null) return;
+        if (parts == null)
+            return;
 
         for (IMultiPart part : parts) {
-            if (part.getIO() == IO.NONE || part.getIO() == IO.OUTPUT) continue;
+            if (part.getIO() == IO.NONE || part.getIO() == IO.OUTPUT)
+                continue;
             if (Arrays.stream(part.getAbilities())
                     .anyMatch(ability -> ability.getName().equals(PartAbility.ENERGY_INPUT.getName()))) {
                 BlockEntity be = part.self();
@@ -132,13 +133,6 @@ public abstract class BaseMultiblockController implements IMultiblockController,
             }
         }
         this.energyContainers = containers;
-    }
-
-    protected void updateDisplayText() {
-        this.displayText = getDisplayText();
-    }
-
-    protected void syncToClient() {
     }
 
     public void setFrontFacing(Direction facing) {
@@ -157,11 +151,6 @@ public abstract class BaseMultiblockController implements IMultiblockController,
     }
 
     @Override
-    public void setDisplayText(List<Component> text) {
-        this.displayText = text;
-    }
-
-    @Override
     public BlockPos getPos() {
         return blockEntity.getBlockPos();
     }
@@ -174,13 +163,5 @@ public abstract class BaseMultiblockController implements IMultiblockController,
     @Override
     public BlockEntity getBlockEntity() {
         return blockEntity;
-    }
-
-    @Override
-    public void save(CompoundTag tag) {
-    }
-
-    @Override
-    public void load(CompoundTag tag) {
     }
 }

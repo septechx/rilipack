@@ -18,7 +18,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -28,39 +27,38 @@ import net.minecraftforge.energy.IEnergyStorage;
 import java.util.*;
 
 public class CleanroomController extends BaseMultiblockController {
-    public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(CleanroomController.class, BaseMultiblockController.MANAGED_FIELD_HOLDER);
-    private static final int CLEAN_AMOUNT_THRESHOLD = 95;
+    public static final ManagedFieldHolder MANAGED_FIELD_HOLDER = new ManagedFieldHolder(CleanroomController.class,
+            BaseMultiblockController.MANAGED_FIELD_HOLDER);
     private static final int RESCAN_INTERVAL = 100;
-    // Dimensions are inclusive
-    private static final int MIN_SIZE = 5;
-    private static final int MAX_SIZE = 10;
-    // Inner height (amount of wall segments)
-    private static final int MIN_WALL_HEIGHT = 3;
-    private static final int MAX_WALL_HEIGHT = 7;
     @Persisted
     @DescSynced
-    protected int lDist = (MIN_SIZE - 1) / 2;
+    protected int lDist = (CleanroomRules.MIN_SIZE - 1) / 2;
     @Persisted
     @DescSynced
-    protected int rDist = (MIN_SIZE - 1) / 2;
+    protected int rDist = (CleanroomRules.MIN_SIZE - 1) / 2;
     @Persisted
     @DescSynced
-    protected int bDist = (MIN_SIZE - 1) / 2;
+    protected int bDist = (CleanroomRules.MIN_SIZE - 1) / 2;
     @Persisted
     @DescSynced
-    protected int fDist = (MIN_SIZE - 1) / 2;
+    protected int fDist = (CleanroomRules.MIN_SIZE - 1) / 2;
     @Persisted
     @DescSynced
-    protected int hDist = MIN_WALL_HEIGHT;
+    protected int hDist = CleanroomRules.MIN_WALL_HEIGHT;
     @Persisted
     @DescSynced
     protected CleanroomType cleanroomType = null;
     @Persisted
     protected int progress = 0;
     @Persisted
+    protected int energySpent = 0;
+    @Persisted
+    protected int energyRequired = 0;
+    @Persisted
     @DescSynced
     protected int cleanAmount;
     private Map<BlockPos, ICleanroomAware> cleanroomAwareBlocks = new HashMap<>();
+    private Set<BlockPos> lastPartPositions = Set.of();
     @Persisted
     private int rescanTick = 0;
 
@@ -79,25 +77,29 @@ public class CleanroomController extends BaseMultiblockController {
         super.tick();
 
         if (getLevel() != null && !getLevel().isClientSide && isFormed()) {
-            int energyNeeded = 400; // 400 FE/t
-            int energyFound = 0;
-
-            for (IEnergyStorage storage : getEnergyContainers()) {
-                energyFound += storage.extractEnergy(energyNeeded - energyFound, false);
-                if (energyFound >= energyNeeded) break;
+            if (progress <= 0 || energyRequired <= 0) {
+                energyRequired = CleanroomRules.energyPerCycle(cleanAmount);
+                energySpent = 0;
             }
 
-            if (progress >= 50) {
-                if (energyFound >= energyNeeded) {
-                    // Increase cleanliness
-                    adjustCleanAmount(1);
-                } else {
-                    // Decrease cleanliness if no power
-                    adjustCleanAmount(-1);
+            int remaining = energyRequired - energySpent;
+            int toExtract = Math.min(CleanroomRules.energyPerTick(cleanAmount), remaining);
+            if (toExtract > 0 && getEnergyContainers() != null) {
+                int extracted = 0;
+                for (IEnergyStorage storage : getEnergyContainers()) {
+                    extracted += storage.extractEnergy(toExtract - extracted, false);
+                    if (extracted >= toExtract)
+                        break;
                 }
+                energySpent += extracted;
+            }
+
+            progress++;
+            if (progress >= CleanroomRules.CYCLE_TICKS) {
+                adjustCleanAmount(energySpent >= energyRequired ? 1 : -1);
                 progress = 0;
-            } else {
-                ++progress;
+                energySpent = 0;
+                energyRequired = 0;
             }
 
             rescanTick++;
@@ -110,21 +112,22 @@ public class CleanroomController extends BaseMultiblockController {
 
     @Override
     public BlockPattern getPattern() {
-        if (getLevel() != null) updateStructureDimensions();
+        if (getLevel() != null)
+            updateStructureDimensions();
 
-        // Ensure minimums for pattern generation to avoid crashes if detection fails but pattern is still requested
-        int safeL = Math.max(lDist, (MIN_SIZE - 1) / 2);
-        int safeR = Math.max(rDist, (MIN_SIZE - 1) / 2);
-        int safeB = Math.max(bDist, (MIN_SIZE - 1) / 2);
-        int safeF = Math.max(fDist, (MIN_SIZE - 1) / 2);
-        int safeH = Math.max(hDist, MIN_WALL_HEIGHT);
+        if (lDist <= 0 || rDist <= 0 || fDist <= 0 || bDist <= 0 || hDist <= 0) {
+            return FactoryBlockPattern.start(RelativeDirection.UP, RelativeDirection.BACK, RelativeDirection.RIGHT)
+                    .aisle("X")
+                    .where('X', Predicates.custom(state -> false))
+                    .build();
+        }
 
-        String[] floorLayer = buildFloorLayer(safeL, safeR, safeF, safeB);
-        String[][] wallLayers = buildWallLayers(safeL, safeR, safeF, safeB, safeH);
-        String[] ceilingLayer = buildCeilingLayer(safeL, safeR, safeF, safeB);
+        String[] floorLayer = buildFloorLayer(lDist, rDist, fDist, bDist);
+        String[][] wallLayers = buildWallLayers(lDist, rDist, fDist, bDist, hDist);
+        String[] ceilingLayer = buildCeilingLayer(lDist, rDist, fDist, bDist);
 
-        // Pattern built from floor UP to ceiling
-        FactoryBlockPattern pattern = FactoryBlockPattern.start(RelativeDirection.UP, RelativeDirection.FRONT, RelativeDirection.LEFT)
+        FactoryBlockPattern pattern = FactoryBlockPattern
+                .start(RelativeDirection.UP, RelativeDirection.BACK, RelativeDirection.RIGHT)
                 .aisle(floorLayer);
 
         for (String[] wallLayer : wallLayers) {
@@ -134,9 +137,17 @@ public class CleanroomController extends BaseMultiblockController {
         return pattern.aisle(ceilingLayer)
                 .where('C', Predicates.controller(this))
                 .where('F', Predicates.states(getFilterBlocks()))
-                .where('S', Predicates.blocks(RilipackcoreBlocks.PLASCRETE_CASING.get(), RilipackcoreBlocks.ENERGY_INPUT_HATCH.get())) // Frame/Borders
-                .where('W', Predicates.blocks(RilipackcoreBlocks.PLASCRETE_CASING.get(), RilipackcoreBlocks.ENERGY_INPUT_HATCH.get()).or(Predicates.doors(RilipackcoreTags.Blocks.CLEANROOM_DOORS))) // Walls
-                .where('E', Predicates.blocks(RilipackcoreBlocks.PLASCRETE_CASING.get(), RilipackcoreBlocks.ENERGY_INPUT_HATCH.get())) // Floor
+                .where('S',
+                        Predicates.blocks(RilipackcoreBlocks.PLASCRETE_CASING.get(),
+                                RilipackcoreBlocks.ENERGY_INPUT_HATCH.get())) // Frame/Borders
+                .where('W',
+                        Predicates
+                                .blocks(RilipackcoreBlocks.PLASCRETE_CASING.get(),
+                                        RilipackcoreBlocks.ENERGY_INPUT_HATCH.get())
+                                .or(Predicates.doors(RilipackcoreTags.Blocks.CLEANROOM_DOORS))) // Walls
+                .where('E',
+                        Predicates.blocks(RilipackcoreBlocks.PLASCRETE_CASING.get(),
+                                RilipackcoreBlocks.ENERGY_INPUT_HATCH.get())) // Floor
                 .where(' ', innerPredicate())
                 .build();
     }
@@ -146,24 +157,40 @@ public class CleanroomController extends BaseMultiblockController {
         super.onStructureFormed();
 
         Block block = getMultiblockState().matchContext().get("filterBlock", Block.class);
-        if (block instanceof FilterBlock filterBlock) {
-            this.cleanroomType = filterBlock.getCleanroomType();
-        } else {
-            this.cleanroomType = CleanroomType.CLEANROOM;
+        CleanroomType newType = block instanceof FilterBlock filterBlock
+                ? filterBlock.getCleanroomType()
+                : CleanroomType.CLEANROOM;
+
+        Set<BlockPos> partPositions = getMultiblockState().getPartsMap() == null
+                ? Set.of()
+                : Set.copyOf(getMultiblockState().getPartsMap().keySet());
+
+        boolean typeChanged = newType != this.cleanroomType;
+        boolean partsChanged = !partPositions.equals(this.lastPartPositions);
+
+        this.cleanroomType = newType;
+        this.lastPartPositions = partPositions;
+
+        if (typeChanged || partsChanged) {
+            rescanCleanroomAwareBlocks();
         }
-        scanAndNotifyCleanroomAwareBlocks();
     }
 
     @Override
     public void onStructureInvalid() {
         super.onStructureInvalid();
         this.cleanroomType = null;
+        this.lastPartPositions = Set.of();
+        this.progress = 0;
+        this.energySpent = 0;
+        this.energyRequired = 0;
         notifyCleanroomAwareBlocksInvalid();
     }
 
     private void updateStructureDimensions() {
         Level world = getLevel();
-        if (world == null) return;
+        if (world == null)
+            return;
 
         Direction front = getFrontFacing();
         Direction back = front.getOpposite();
@@ -179,29 +206,30 @@ public class CleanroomController extends BaseMultiblockController {
 
         // Scan Horizontally (Ceiling layer)
         // We look for the casing border. Inside should be filters.
-        for (int i = 1; i <= MAX_SIZE / 2 + 1; i++) {
-            if (foundL == 0 && isBlockBorder(world, lPos, left)) foundL = i;
-            if (foundR == 0 && isBlockBorder(world, rPos, right)) foundR = i;
-            if (foundB == 0 && isBlockBorder(world, bPos, back)) foundB = i;
-            if (foundF == 0 && isBlockBorder(world, fPos, front)) foundF = i;
+        for (int i = 1; i <= CleanroomRules.MAX_SIZE / 2 + 1; i++) {
+            if (foundL == 0 && isBlockBorder(world, lPos, left))
+                foundL = i;
+            if (foundR == 0 && isBlockBorder(world, rPos, right))
+                foundR = i;
+            if (foundB == 0 && isBlockBorder(world, bPos, back))
+                foundB = i;
+            if (foundF == 0 && isBlockBorder(world, fPos, front))
+                foundF = i;
         }
 
         int width = foundL + foundR + 1;
         int depth = foundF + foundB + 1;
 
-        if (width < MIN_SIZE || width > MAX_SIZE || depth < MIN_SIZE || depth > MAX_SIZE) {
-            return; // Invalid dimensions
-        }
-
-        // Check for rough centering (difference of at most 1)
-        if (Math.abs(foundL - foundR) > 1 || Math.abs(foundF - foundB) > 1) {
-            return; // Not centered
+        if (!CleanroomRules.isValidHorizontalSize(width, depth)
+                || !CleanroomRules.isCentered(foundL, foundR, foundF, foundB)) {
+            clearStructureDimensions();
+            return;
         }
 
         // Scan Vertically (Downwards)
         BlockPos.MutableBlockPos hPos = getPos().mutable();
 
-        for (int i = 1; i <= MAX_WALL_HEIGHT + 2; i++) {
+        for (int i = 1; i <= CleanroomRules.MAX_WALL_HEIGHT + 2; i++) {
             // We are at ceiling level. Move down `i` blocks.
             // If i=1, we are at first wall block.
             // We need to find the floor.
@@ -212,12 +240,14 @@ public class CleanroomController extends BaseMultiblockController {
             }
         }
 
-        if (foundH < MIN_WALL_HEIGHT || foundH > MAX_WALL_HEIGHT) {
-            return; // Invalid height
+        if (!CleanroomRules.isValidWallHeight(foundH)) {
+            clearStructureDimensions();
+            return;
         }
 
         // Only update fields if the scan was successful and valid
-        if (this.lDist != foundL || this.rDist != foundR || this.fDist != foundF || this.bDist != foundB || this.hDist != foundH) {
+        if (this.lDist != foundL || this.rDist != foundR || this.fDist != foundF || this.bDist != foundB
+                || this.hDist != foundH) {
             this.lDist = foundL;
             this.rDist = foundR;
             this.fDist = foundF;
@@ -227,13 +257,26 @@ public class CleanroomController extends BaseMultiblockController {
         }
     }
 
+    private void clearStructureDimensions() {
+        if (this.lDist != 0 || this.rDist != 0 || this.fDist != 0 || this.bDist != 0 || this.hDist != 0) {
+            this.lDist = 0;
+            this.rDist = 0;
+            this.fDist = 0;
+            this.bDist = 0;
+            this.hDist = 0;
+            onChanged();
+        }
+    }
+
     private boolean isBlockBorder(Level world, BlockPos.MutableBlockPos pos, Direction direction) {
         BlockState state = world.getBlockState(pos.move(direction));
-        return state.getBlock() == RilipackcoreBlocks.PLASCRETE_CASING.get() || state.getBlock() == RilipackcoreBlocks.ENERGY_INPUT_HATCH.get();
+        return state.getBlock() == RilipackcoreBlocks.PLASCRETE_CASING.get()
+                || state.getBlock() == RilipackcoreBlocks.ENERGY_INPUT_HATCH.get();
     }
 
     private boolean isBlockFloor(BlockState state) {
-        return state.getBlock() == RilipackcoreBlocks.PLASCRETE_CASING.get() || state.getBlock() == RilipackcoreBlocks.ENERGY_INPUT_HATCH.get();
+        return state.getBlock() == RilipackcoreBlocks.PLASCRETE_CASING.get()
+                || state.getBlock() == RilipackcoreBlocks.ENERGY_INPUT_HATCH.get();
     }
 
     private String[] buildFloorLayer(int l, int r, int f, int b) {
@@ -269,7 +312,7 @@ public class CleanroomController extends BaseMultiblockController {
             for (int i = 0; i < l + r + 1; i++) {
                 if (i == 0 || i == l + r || j == 0 || j == f + b) {
                     sb.append('S'); // Border
-                } else if (i == l && j == f) { // This depends on how relative coordinates work, but usually center matches controller
+                } else if (i == l && j == f) {
                     sb.append('C'); // Controller
                 } else {
                     sb.append('F'); // Filter
@@ -281,14 +324,14 @@ public class CleanroomController extends BaseMultiblockController {
     }
 
     private TraceabilityPredicate innerPredicate() {
-        return Predicates.custom(state -> true, null);
+        return Predicates.custom(state -> true);
     }
 
     private BlockState[] getFilterBlocks() {
         Block block1 = RilipackcoreBlocks.CLEANROOM_FILTER.get();
         Block block2 = RilipackcoreBlocks.CLEANROOM_FILTER_STERILE.get();
 
-        return new BlockState[]{
+        return new BlockState[] {
                 block1.defaultBlockState(),
                 block2.defaultBlockState(),
         };
@@ -296,7 +339,7 @@ public class CleanroomController extends BaseMultiblockController {
 
     public void adjustCleanAmount(int amount) {
         int old = this.cleanAmount;
-        this.cleanAmount = Mth.clamp(this.cleanAmount + amount, 0, 100);
+        this.cleanAmount = CleanroomRules.clampCleanAmount(this.cleanAmount + amount);
         if (old != this.cleanAmount) {
             onChanged();
             notifyCleanroomAwareBlocksUpdate();
@@ -304,34 +347,16 @@ public class CleanroomController extends BaseMultiblockController {
     }
 
     public boolean isClean() {
-        return this.cleanAmount >= CLEAN_AMOUNT_THRESHOLD;
-    }
-
-    private void scanAndNotifyCleanroomAwareBlocks() {
-        Level level = getLevel();
-        if (level == null || !isFormed()) return;
-
-        List<ICleanroomAware> found = CleanroomAwareScanner.scanInterior(
-                level, getPos(), frontFacing, lDist, rDist, fDist, bDist, hDist
-        );
-
-        CleanroomInfo info = getCurrentCleanroomInfo();
-
-        cleanroomAwareBlocks.clear();
-        for (ICleanroomAware aware : found) {
-            BlockEntity be = (BlockEntity) aware;
-            aware.setCleanroomInfo(info);
-            cleanroomAwareBlocks.put(be.getBlockPos(), aware);
-        }
+        return CleanroomRules.isClean(this.cleanAmount);
     }
 
     private void rescanCleanroomAwareBlocks() {
         Level level = getLevel();
-        if (level == null || !isFormed()) return;
+        if (level == null || !isFormed())
+            return;
 
         List<ICleanroomAware> found = CleanroomAwareScanner.scanInterior(
-                level, getPos(), frontFacing, lDist, rDist, fDist, bDist, hDist
-        );
+                level, getPos(), frontFacing, lDist, rDist, fDist, bDist, hDist);
 
         CleanroomInfo info = getCurrentCleanroomInfo();
 

@@ -15,24 +15,24 @@ public class EnergyStorage implements IEnergyStorage, IManaged {
     protected Runnable onChange;
     @Persisted
     @DescSynced
-    protected long energy;
+    protected int energy;
     @Persisted
     @DescSynced
-    protected long capacity;
+    protected int capacity;
     @Persisted
-    protected long maxReceive;
+    protected int maxReceive;
     @Persisted
-    protected long maxExtract;
+    protected int maxExtract;
 
-    public EnergyStorage(long capacity, long maxTransfer) {
+    public EnergyStorage(int capacity, int maxTransfer) {
         this(capacity, maxTransfer, maxTransfer, 0);
     }
 
-    public EnergyStorage(long capacity, long maxReceive, long maxExtract, long energy) {
-        this.capacity = capacity;
-        this.maxReceive = maxReceive;
-        this.maxExtract = maxExtract;
-        this.energy = energy;
+    public EnergyStorage(int capacity, int maxReceive, int maxExtract, int energy) {
+        this.capacity = Math.max(0, capacity);
+        this.maxReceive = Math.max(0, maxReceive);
+        this.maxExtract = Math.max(0, maxExtract);
+        this.energy = Math.max(0, Math.min(energy, this.capacity));
         this.syncStorage.init();
     }
 
@@ -43,7 +43,8 @@ public class EnergyStorage implements IEnergyStorage, IManaged {
 
     @Override
     public void onChanged() {
-        if (onChange != null) onChange.run();
+        if (onChange != null)
+            onChange.run();
     }
 
     public EnergyStorage setOnChanged(Runnable onChange) {
@@ -53,32 +54,32 @@ public class EnergyStorage implements IEnergyStorage, IManaged {
 
     @Override
     public int receiveEnergy(int maxReceive, boolean simulate) {
-        long energyReceived = Math.min(this.capacity - this.energy, Math.min(this.maxReceive, maxReceive));
+        int energyReceived = Math.min(this.capacity - this.energy, Math.min(this.maxReceive, Math.max(0, maxReceive)));
         if (!simulate && energyReceived > 0) {
             this.energy += energyReceived;
             onChanged();
         }
-        return (int) energyReceived;
+        return Math.max(0, energyReceived);
     }
 
     @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
-        long energyExtracted = Math.min(this.energy, Math.min(this.maxExtract, maxExtract));
+        int energyExtracted = Math.min(this.energy, Math.min(this.maxExtract, Math.max(0, maxExtract)));
         if (!simulate && energyExtracted > 0) {
             this.energy -= energyExtracted;
             onChanged();
         }
-        return (int) energyExtracted;
+        return Math.max(0, energyExtracted);
     }
 
     @Override
     public int getEnergyStored() {
-        return (int) this.energy;
+        return this.energy;
     }
 
     @Override
     public int getMaxEnergyStored() {
-        return (int) this.capacity;
+        return this.capacity;
     }
 
     @Override
@@ -91,13 +92,14 @@ public class EnergyStorage implements IEnergyStorage, IManaged {
         return this.maxReceive > 0;
     }
 
-    public void setEnergy(long energy) {
-        this.energy = energy;
+    public void setEnergy(int energy) {
+        this.energy = Math.max(0, Math.min(energy, this.capacity));
         onChanged();
     }
 
-    public void setCapacity(long capacity) {
-        this.capacity = capacity;
+    public void setCapacity(int capacity) {
+        this.capacity = Math.max(0, capacity);
+        this.energy = Math.min(this.energy, this.capacity);
         onChanged();
     }
 }

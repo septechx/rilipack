@@ -1,5 +1,6 @@
 package com.siesque.rilipackcore.block.entity.capability;
 
+import com.siesque.rilipackcore.multiblock.cleanroom.CleanroomRules;
 import com.siesque.rilipackcore.multiblock.cleanroom.CleanroomType;
 import net.minecraft.core.BlockPos;
 
@@ -26,11 +27,7 @@ public class CleanroomInfo {
         return cleanliness;
     }
 
-    public boolean isInCleanroom() {
-        return true;
-    }
-
     public boolean isClean() {
-        return cleanliness >= 95;
+        return CleanroomRules.isClean(cleanliness);
     }
 }

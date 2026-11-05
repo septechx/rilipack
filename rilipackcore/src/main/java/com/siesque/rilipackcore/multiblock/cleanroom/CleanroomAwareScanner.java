@@ -12,7 +12,7 @@ import java.util.List;
 public class CleanroomAwareScanner {
 
     public static List<ICleanroomAware> scanInterior(Level level, BlockPos controllerPos,
-                                                     Direction frontFacing, int lDist, int rDist, int fDist, int bDist, int hDist) {
+            Direction frontFacing, int lDist, int rDist, int fDist, int bDist, int hDist) {
 
         List<ICleanroomAware> found = new ArrayList<>();
 
@@ -21,14 +21,16 @@ public class CleanroomAwareScanner {
         Direction back = frontFacing.getOpposite();
 
         BlockPos start = controllerPos
-                .relative(left, lDist)
-                .relative(frontFacing, fDist);
+                .relative(left, CleanroomRules.firstInteriorOffset(lDist))
+                .relative(frontFacing, CleanroomRules.firstInteriorOffset(fDist))
+                .relative(Direction.DOWN, 1);
 
-        int width = Math.max(0, lDist + rDist);
-        int depth = Math.max(0, fDist + bDist);
+        int width = CleanroomRules.interiorWidth(lDist, rDist);
+        int depth = CleanroomRules.interiorDepth(fDist, bDist);
+        int height = CleanroomRules.interiorHeight(hDist);
 
         for (int w = 0; w < width; w++) {
-            for (int h = 0; h < hDist; h++) {
+            for (int h = 0; h < height; h++) {
                 for (int d = 0; d < depth; d++) {
                     BlockPos pos = start
                             .relative(right, w)

@@ -2,17 +2,15 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.siesque.rilipackcore.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "refmap": "rilipackcore.refmap.json",
   "mixins": [
     "AE2InitVillagerMixin",
     "FocusingRecipeMixin",
     "BeamFocuserBlockEntityMixin",
-    "CastingBasinBlockEntityMixin",
-    "StockTickerBlockEntityMixin"
+    "CastingBasinBlockEntityMixin"
   ],
   "client": [
-    "StockKeeperRequestScreen$CategoryEntryMixin",
     "StockKeeperRequestScreenMixin"
   ],
   "injectors": {

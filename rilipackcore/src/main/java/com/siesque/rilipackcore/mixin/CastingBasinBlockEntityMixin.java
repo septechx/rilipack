@@ -20,25 +20,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CastingBasinBlockEntity.class)
 public abstract class CastingBasinBlockEntityMixin {
-    @Shadow(remap = false) public FluidTank tank;
-    @Shadow(remap = false) public LazyOptional<IFluidHandler> fluidCapability;
-    @Shadow(remap = false) public CastingRecipe recipe;
+    @Shadow(remap = false)
+    public FluidTank tank;
+    @Shadow(remap = false)
+    public LazyOptional<IFluidHandler> fluidCapability;
+    @Shadow(remap = false)
+    public CastingRecipe recipe;
 
-    @Shadow(remap = false) protected abstract void onFluidChanged(FluidStack stack);
+    @Shadow(remap = false)
+    protected abstract void onFluidChanged(FluidStack stack);
 
-    @Inject(method = "<init>(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V",
-            remap = false,
-            at = @At("RETURN"))
+    @Inject(method = "<init>(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V", remap = false, at = @At("RETURN"))
     private void onConstructed(BlockEntityType<?> type, BlockPos pos, BlockState state, CallbackInfo ci) {
         this.tank = new SmartFluidTank(1000, this::onFluidChanged);
         this.fluidCapability = LazyOptional.of(() -> this.tank);
     }
 
-    @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE",
-            target = "Lnet/minecraftforge/fluids/capability/templates/FluidTank;getSpace()I"))
+    @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE", target = "Lnet/minecraftforge/fluids/capability/templates/FluidTank;getSpace()I"))
     private int redirectGetSpace(FluidTank targetTank) {
-        if (this.recipe == null)
-            return 0;
+        if (this.recipe == null) {
+            return targetTank.getSpace();
+        }
 
         int required = this.recipe.getIngrenient().getRequiredAmount();
         if (required > 0 && targetTank.getFluidAmount() >= required) {
@@ -49,10 +51,10 @@ public abstract class CastingBasinBlockEntityMixin {
         return targetTank.getSpace();
     }
 
-    @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE",
-            target = "Lnet/minecraftforge/fluids/capability/templates/FluidTank;setFluid(Lnet/minecraftforge/fluids/FluidStack;)V"))
+    @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE", target = "Lnet/minecraftforge/fluids/capability/templates/FluidTank;setFluid(Lnet/minecraftforge/fluids/FluidStack;)V"))
     private void redirectSetFluid(FluidTank targetTank, FluidStack stack) {
-        // if the original code attempts to set EMPTY after recipe completion, drain only required amount
+        // if the original code attempts to set EMPTY after recipe completion, drain
+        // only required amount
         if (stack == null || stack.isEmpty()) {
             if (this.recipe != null) {
                 int required = this.recipe.getIngrenient().getRequiredAmount();
@@ -70,16 +72,16 @@ public abstract class CastingBasinBlockEntityMixin {
         targetTank.setFluid(stack);
     }
 
-    @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE",
-            target = "Lnet/createmod/catnip/animation/LerpedFloat;chase(DDLnet/createmod/catnip/animation/LerpedFloat$Chaser;)Lnet/createmod/catnip/animation/LerpedFloat;"))
+    @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE", target = "Lnet/createmod/catnip/animation/LerpedFloat;chase(DDLnet/createmod/catnip/animation/LerpedFloat$Chaser;)Lnet/createmod/catnip/animation/LerpedFloat;"))
     private LerpedFloat redirectChase(LerpedFloat instance, double value, double speed, LerpedFloat.Chaser chaser) {
         if (this.recipe == null) {
+            instance.chase(value, speed, chaser);
             return instance;
-        } else {
-            int required = this.recipe.getIngrenient().getRequiredAmount();
-            instance.chase(Math.min(required - 1, value), speed, chaser);
         }
 
+        int required = this.recipe.getIngrenient().getRequiredAmount();
+        double target = required > 0 ? Math.min(required - 1, value) : value;
+        instance.chase(target, speed, chaser);
         return instance;
     }
 }

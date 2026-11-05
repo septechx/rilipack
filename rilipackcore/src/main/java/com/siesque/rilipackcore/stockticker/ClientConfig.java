@@ -16,14 +16,21 @@ public class ClientConfig {
 
     public static final ForgeConfigSpec CONFIG_SPEC = BUILDER.build();
 
-    public static void setIsEzStockTickerEnabled(boolean enabled) {
-        IS_EZ_STOCK_TICKER_ENABLED.set(enabled);
-    }
-
     public static boolean isEzStockTickerEnabled;
+
+    public static void setIsEzStockTickerEnabled(boolean enabled) {
+        isEzStockTickerEnabled = enabled;
+
+        if (CONFIG_SPEC.isLoaded()) {
+            IS_EZ_STOCK_TICKER_ENABLED.set(enabled);
+            IS_EZ_STOCK_TICKER_ENABLED.save();
+        }
+    }
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
-        isEzStockTickerEnabled = IS_EZ_STOCK_TICKER_ENABLED.get();
+        if (event.getConfig().getSpec() == CONFIG_SPEC) {
+            isEzStockTickerEnabled = IS_EZ_STOCK_TICKER_ENABLED.get();
+        }
     }
 }

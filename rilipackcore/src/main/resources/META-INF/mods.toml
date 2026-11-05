@@ -37,3 +37,38 @@ mandatory = true
 versionRange = "${tfmg_version_range}"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "ldlib"
+mandatory = true
+versionRange = "${ldlib_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "ae2"
+mandatory = false
+versionRange = "${ae2_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "create_optical"
+mandatory = false
+versionRange = "${create_optical_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies."${mod_id}"]]
+modId = "jade"
+mandatory = false
+versionRange = "${jade_version_range}"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies."${mod_id}"]]
+modId = "create_factory_logistics"
+mandatory = false
+versionRange = "${create_factory_logistics_version_range}"
+ordering = "AFTER"
+side = "BOTH"

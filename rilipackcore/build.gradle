@@ -158,14 +158,17 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    implementation fg.deobf("maven.modrinth:ae2:15.4.10")
+    implementation fg.deobf("maven.modrinth:ae2:${ae2_version}")
     implementation fg.deobf("maven.modrinth:guideme:20.1.14")
-    implementation fg.deobf("maven.modrinth:jade:11.13.2+forge")
-    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-1.0.48-forge")
-    implementation fg.deobf("maven.modrinth:create:mc1.20.1-6.0.8")
+    implementation fg.deobf("maven.modrinth:jade:${jade_version}+forge")
+    implementation fg.deobf("maven.modrinth:ldlib:mc1.20.1-${ldlib_version}-forge")
+    implementation fg.deobf("maven.modrinth:create:mc1.20.1-${create_version}")
     implementation fg.deobf("curse.maven:createoptical-1007714:6336887")
     implementation fg.deobf("curse.maven:tfmg-693815:7279743")
     implementation fg.deobf("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}")
+
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 
     compileOnly 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
@@ -207,7 +210,11 @@ tasks.named('processResources', ProcessResources).configure {
                              loader_version_range: loader_version_range,
                              mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
                              mod_authors         : mod_authors, mod_description: mod_description,
-                             create_version_range: create_version_range, tfmg_version_range: tfmg_version_range,]
+                             create_version_range: create_version_range, tfmg_version_range: tfmg_version_range,
+                             ae2_version_range   : ae2_version_range, jade_version_range: jade_version_range,
+                             ldlib_version_range : ldlib_version_range,
+                             create_optical_version_range: create_optical_version_range,
+                             create_factory_logistics_version_range: create_factory_logistics_version_range]
 
     inputs.properties replaceProperties
 
@@ -234,4 +241,8 @@ tasks.named('jar', Jar).configure {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+tasks.named('test', Test).configure {
+    useJUnitPlatform()
 }
