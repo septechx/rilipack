@@ -903,6 +903,11 @@ hash = "a913cbfe5e8d38eb05d04708e13b8ac843457fce45d1960b941858bb53aa61ad"
 metafile = true
 
 [[files]]
+file = "mods/ldlib.pw.toml"
+hash = "8f100c7527759b5c79c0a305c39f94717d1ac1373338254f5d3c078abfd4b2a6"
+metafile = true
+
+[[files]]
 file = "mods/legendary-monsters.pw.toml"
 hash = "7f0728d16b34ce3c54519fc9305d47efb2b1dbd12ad691c9efe78c02bbcd12ec"
 metafile = true
@@ -1254,7 +1259,7 @@ metafile = true
 
 [[files]]
 file = "mods/rilipackcore-0.2.0.jar"
-hash = "0f1d8277fbc511edbca13a943c5c967e949f419406f95591f153526b60283d79"
+hash = "b94af6d05c83a164eefb03441e163945ba548bc47ddf0f7383f38acd3400589e"
 
 [[files]]
 file = "mods/searchables.pw.toml"
