@@ -30,6 +30,9 @@ public abstract class CastingBasinBlockEntityMixin {
     @Shadow(remap = false)
     protected abstract void onFluidChanged(FluidStack stack);
 
+    @Shadow(remap = false)
+    public abstract void findRecipe();
+
     @Inject(method = "<init>(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V", remap = false, at = @At("RETURN"))
     private void onConstructed(BlockEntityType<?> type, BlockPos pos, BlockState state, CallbackInfo ci) {
         this.tank = new SmartFluidTank(1000, this::onFluidChanged);
@@ -38,14 +41,22 @@ public abstract class CastingBasinBlockEntityMixin {
 
     @Redirect(method = "tick", remap = false, at = @At(value = "INVOKE", target = "Lnet/minecraftforge/fluids/capability/templates/FluidTank;getSpace()I"))
     private int redirectGetSpace(FluidTank targetTank) {
-        if (this.recipe == null) {
-            return targetTank.getSpace();
+        if (targetTank.getFluidAmount() > 0 && (this.recipe == null || !this.recipe.getIngrenient().test(targetTank.getFluid()))) {
+            this.findRecipe();
         }
 
-        int required = this.recipe.getIngrenient().getRequiredAmount();
-        if (required > 0 && targetTank.getFluidAmount() >= required) {
-            // treat as "full" for recipe purposes -> return 0 space
-            return 0;
+        if (this.recipe != null) {
+            int required = this.recipe.getIngrenient().getRequiredAmount();
+            if (required > 0) {
+                if (targetTank.getFluidAmount() >= required) {
+                    // Treat the tank as "full" for recipe purposes once it holds
+                    // enough fluid for the current recipe
+                    return 0;
+                }
+                // The tank may be physically full but still not hold enough for
+                // this recipe; report a nonzero space so the recipe cannot start
+                return Math.max(1, targetTank.getSpace());
+            }
         }
 
         return targetTank.getSpace();

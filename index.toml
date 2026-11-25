@@ -1258,8 +1258,8 @@ hash = "fe6078ab5a7188a927df85ac72a8226af625dabcc9325335352ff8d6b5a1ed09"
 metafile = true
 
 [[files]]
-file = "mods/rilipackcore-0.2.0.jar"
-hash = "b94af6d05c83a164eefb03441e163945ba548bc47ddf0f7383f38acd3400589e"
+file = "mods/rilipackcore-0.2.1.jar"
+hash = "95c66e77fb0317b7d597e61215ef60cf1b27baeb038d4ea6c037929e99f4db47"
 
 [[files]]
 file = "mods/searchables.pw.toml"

@@ -10,6 +10,7 @@ kubejs:
 
 mod:
   ./rilipackcore/gradlew --no-daemon -p rilipackcore build
+  rm mods/rilipackcore-*.jar
   cp "rilipackcore/build/libs/rilipackcore-{{mod_version}}.jar" mods/
 
 refresh:
